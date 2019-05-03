@@ -68,10 +68,8 @@ val transpose_state:
   Stack unit
   (requires (fun h -> live h st))
   (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ (
-    let st0 = as_seq h0 st in 
-    let st1 = as_seq h1 st in 
-    seqToTuple st1 == transpose_bits64x8 (Lib.Sequence.index st0 0)  (Lib.Sequence.index st0 1)  (Lib.Sequence.index st0 2)  (Lib.Sequence.index st0 3)  (Lib.Sequence.index st0 4)  (Lib.Sequence.index st0 5)  (Lib.Sequence.index st0 6)  (Lib.Sequence.index st0 7))
-  ))
+    seqToTuple (as_seq h1 st) == transpose_bits64x8 (seqToTuple (as_seq h0 st))
+  )))
 
 let transpose_state st =
   let i0 = st.(size 0) in
@@ -83,7 +81,7 @@ let transpose_state st =
   let i6 = st.(size 6) in
   let i7 = st.(size 7) in
   let (t0,t1,t2,t3,t4,t5,t6,t7) =
-    transpose_bits64x8 i0 i1 i2 i3 i4 i5 i6 i7 in
+    transpose_bits64x8 (i0, i1, i2, i3, i4, i5, i6, i7) in
   st.(size 0) <- t0;
   st.(size 1) <- t1;
   st.(size 2) <- t2;
@@ -103,8 +101,7 @@ val store_block0:
 
 let store_block0 out (inp:state) =
   let (t0,t1,t2,t3,t4,t5,t6,t7) =
-    transpose_bits64x8 inp.(size 0) inp.(size 1) inp.(size 2) inp.(size 3)
-				           inp.(size 4) inp.(size 5) inp.(size 6) inp.(size 7)
+    transpose_bits64x8 (inp.(size 0), inp.(size 1), inp.(size 2), inp.(size 3), inp.(size 4), inp.(size 5), inp.(size 6), inp.(size 7))
   in
   uint_to_bytes_le #U64 (sub out (size 0) (size 8)) t0;
   uint_to_bytes_le #U64 (sub out (size 8) (size 8)) t1
@@ -176,11 +173,11 @@ val xor_state_key1:
   -> ost: state ->
   Stack unit
   (requires (fun h -> live h st /\ live h ost))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == xor_block_s_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 ost))))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 ost))))
 
 let xor_state_key1 st ost =
   let (st0, st1, st2, st3, st4, st5, st6, st7) = 
-    xor_block_s_s 
+    xor_state_s 
       (st.(size 0), st.(size 1), st.(size 2), st.(size 3),st.(size 4), st.(size 5), st.(size 6), st.(size 7))
       (ost.(size 0), ost.(size 1), ost.(size 2), ost.(size 3), ost.(size 4), ost.(size 5), ost.(size 6), ost.(size 7)) in 
   st.(size 0) <- st0;
@@ -216,12 +213,11 @@ val sub_bytes_state:
   st: state ->
   Stack unit
   (requires (fun h -> live h st))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == sub_bytes64x8 (seqToTuple (as_seq h0 st))))
 
 let sub_bytes_state (st:state) =
   let (st0,st1,st2,st3,st4,st5,st6,st7) =
-    sub_bytes64x8 st.(size 0) st.(size 1) st.(size 2) st.(size 3)
-						st.(size 4) st.(size 5) st.(size 6) st.(size 7)
+    sub_bytes64x8 (st.(size 0), st.(size 1), st.(size 2), st.(size 3),st.(size 4), st.(size 5), st.(size 6), st.(size 7))
   in
   st.(size 0) <- st0;
   st.(size 1) <- st1;
@@ -249,11 +245,11 @@ val mix_columns_state:
   st: state ->
   Stack unit
   (requires (fun h -> live h st))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == mix_col64x8 (seqToTuple (as_seq h0 st))))
 
 let mix_columns_state st =
-let (st0, st1, st2, st3, st4, st5, st6, st7) = mix_col64x8 st.(size 0) st.(size 1) st.(size 2) st.(size 3)
-						st.(size 4) st.(size 5) st.(size 6) st.(size 7)
+let (st0, st1, st2, st3, st4, st5, st6, st7) = mix_col64x8 (st.(size 0), st.(size 1), st.(size 2), st.(size 3),
+						st.(size 4), st.(size 5), st.(size 6), st.(size 7))
   in
   st.(size 0) <- st0;
   st.(size 1) <- st1;
@@ -325,10 +321,10 @@ val aes_keygen_assist:
   -> rcon: uint8 ->
   Stack unit
   (requires (fun h -> live h next /\ live h prev /\ disjoint next prev))
-  (ensures (fun h0 _ h1 -> modifies1 next h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 /\ seqToTuple (as_seq h1 next) == aes_key_assist_s (seqToTuple (as_seq h0 prev)) rcon))
 
 let aes_keygen_assist next prev rcon =
-  let (next0, next1, next2, next3, next4, next5, next6, next7)  =  aes_key_assist_s prev.(size 0) prev.(size 1) prev.(size 2) prev.(size 3) prev.(size 4) prev.(size 5) prev.(size 6) prev.(size 7) rcon in 
+  let (next0, next1, next2, next3, next4, next5, next6, next7)  =  aes_key_assist_s (prev.(size 0), prev.(size 1), prev.(size 2), prev.(size 3), prev.(size 4), prev.(size 5), prev.(size 6), prev.(size 7)) rcon in 
   next.(size 0) <- next0;
   next.(size 1) <- next1;
   next.(size 2) <- next2;
@@ -340,28 +336,21 @@ let aes_keygen_assist next prev rcon =
 
 
 inline_for_extraction
-let key_expand1 (p:uint64) (n:uint64) =
-(*  let n = (n &. u64 0xf000f000f000f000) in
-  let n = n ^. (n >>. size 4) in
-  let n = n ^. (n >>. size 8) in
-  let p = p ^. ((p &. u64 0x0fff0fff0fff0fff) <<. size 4) ^. ((p &. u64 0x00ff00ff00ff00ff) <<. size 8)
-            ^. ((p &. u64 0x000f000f000f000f) <<. size 12) in 
-  n ^. p
-*)
-  key_expand1_s p n
+let key_expand1 (p:uint64) (n:uint64) = key_expand1_s p n
 
 val key_expansion_step:
     next: state
   -> prev: state ->
   ST unit
   (requires (fun h -> live h prev /\ live h next))
-  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 
+  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 /\ seqToTuple (as_seq h1 next) == key_expansion_step_s (seqToTuple (as_seq h0 prev)) (seqToTuple (as_seq h0 next))
   ))
 
 
 let key_expansion_step next prev =
-  let (next0, next1, next2, next3, next4, next5, next6, next7) = key_expansion_step_s  prev.(size 0) prev.(size 1) prev.(size 2) prev.(size 3) prev.(size 4) prev.(size 5) prev.(size 6) prev.(size 7)  
-  next.(size 0) next.(size 1) next.(size 2) next.(size 3) next.(size 4) next.(size 5) next.(size 6) next.(size 7) in 
+  let (next0, next1, next2, next3, next4, next5, next6, next7) = 
+    key_expansion_step_s (prev.(size 0), prev.(size 1), prev.(size 2), prev.(size 3), prev.(size 4), prev.(size 5), prev.(size 6), prev.(size 7))  
+    (next.(size 0), next.(size 1), next.(size 2), next.(size 3), next.(size 4), next.(size 5), next.(size 6), next.(size 7)) in 
   next.(size 0) <- next0;
   next.(size 1) <- next1;
   next.(size 2) <- next2;
