@@ -63,7 +63,7 @@ val create_ctx:
 
 let create_ctx (m:m_spec) = create (ctxlen m ) (elem_zero m)
 
-
+module S = Hacl.Spec.AES
 
 inline_for_extraction
 val add_round_key:
@@ -72,8 +72,8 @@ val add_round_key:
   -> key: key1 m ->
   ST unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1))
-
+  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key))
+  
 let add_round_key #m st key = xor_state_key1 #m st key
 
 
@@ -205,7 +205,7 @@ let key_expansion256 #m keyx key =
   aes_keygen_assist #m next0 prev1 (u8 0x01);
   key_expansion_step #m next0 prev0;
   aes_keygen_assist #m next1 next0 (u8 0x00);
-  key_expansion_step2 #m next1 prev1;
+  key_expansion_step #m next1 prev1;
   let prev0 = next0 in
   let prev1 = next1 in
   let next0 = sub keyx (klen *. size 4) (klen) in
@@ -213,7 +213,7 @@ let key_expansion256 #m keyx key =
   aes_keygen_assist #m next0 prev1 (u8 0x02);
   key_expansion_step #m next0 prev0;
   aes_keygen_assist #m next1 next0 (u8 0x00);
-  key_expansion_step2 #m next1 prev1;
+  key_expansion_step #m next1 prev1;
   let prev0 = next0 in
   let prev1 = next1 in
   let next0 = sub keyx (klen *. size 6) (klen) in
@@ -221,7 +221,7 @@ let key_expansion256 #m keyx key =
   aes_keygen_assist #m next0 prev1 (u8 0x04);
   key_expansion_step #m next0 prev0;
   aes_keygen_assist #m next1 next0 (u8 0x00);
-  key_expansion_step2 #m next1 prev1;
+  key_expansion_step #m next1 prev1;
   let prev0 = next0 in
   let prev1 = next1 in
   let next0 = sub keyx (klen *. size 8) (klen) in
@@ -229,7 +229,7 @@ let key_expansion256 #m keyx key =
   aes_keygen_assist #m next0 prev1 (u8 0x08);
   key_expansion_step #m next0 prev0;
   aes_keygen_assist #m next1 next0 (u8 0x00);
-  key_expansion_step2 #m next1 prev1;
+  key_expansion_step #m next1 prev1;
   let prev0 = next0 in
   let prev1 = next1 in
   let next0 = sub keyx (klen *. size 10) (klen) in
@@ -237,7 +237,7 @@ let key_expansion256 #m keyx key =
   aes_keygen_assist #m next0 prev1 (u8 0x10);
   key_expansion_step #m next0 prev0;
   aes_keygen_assist #m next1 next0 (u8 0x00);
-  key_expansion_step2 #m next1 prev1;
+  key_expansion_step #m next1 prev1;
   let prev0 = next0 in
   let prev1 = next1 in
   let next0 = sub keyx (klen *. size 12) (klen) in
@@ -245,7 +245,7 @@ let key_expansion256 #m keyx key =
   aes_keygen_assist #m next0 prev1 (u8 0x20);
   key_expansion_step #m next0 prev0;
   aes_keygen_assist #m next1 next0 (u8 0x00);
-  key_expansion_step2 #m next1 prev1;
+  key_expansion_step #m next1 prev1;
   let prev0 = next0 in
   let prev1 = next1 in
   let next0 = sub keyx (klen *. size 14) (klen) in

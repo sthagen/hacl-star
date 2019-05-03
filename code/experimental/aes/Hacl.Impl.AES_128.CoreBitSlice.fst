@@ -239,29 +239,18 @@ val mix_columns_state:
   (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
 
 let mix_columns_state st =
-  push_frame () ;
-  let col = create 8ul (u64 0) in
-  let h0 = ST.get() in
-  loop_nospec #h0 (size 8) col (fun i ->
-	 let coli = st.(i) in
-	 col.(i) <- coli ^. (((coli &. u64 0xeeeeeeeeeeeeeeee) >>. size 1)
-                |. ((coli &. u64 0x1111111111111111) <<. size 3)));
-  let col0 = col.(size 0) in
-  let ncol0 = col0 ^. (((col0 &. u64 0xcccccccccccccccc ) >>. size  2)
-		      |. ((col0 &. u64 0x3333333333333333) <<. size  2)) in
-  st.(size 0) <- st.(size 0) ^. ncol0;
-  let h0 = ST.get() in
-  loop_nospec #h0 (size 7) st (fun i ->
-    let prev = col.(i) in
-    let next = col.(i +. size 1) in
-    let ncoli = next ^. (((next &. u64 0xcccccccccccccccc ) >>. size  2)
-		               |. ((next &. u64 0x3333333333333333) <<. size  2)) in
-  st.(i +. size 1) <- st.(i +. size 1) ^. ncoli ^. prev);
-  st.(size 0) <- st.(size 0) ^. col.(size 7);
-  st.(size 1) <- st.(size 1) ^. col.(size 7);
-  st.(size 3) <- st.(size 3) ^. col.(size 7);
-  st.(size 4) <- st.(size 4) ^. col.(size 7);
-  pop_frame()
+let (st0, st1, st2, st3, st4, st5, st6, st7) = mix_col64x8 st.(size 0) st.(size 1) st.(size 2) st.(size 3)
+						st.(size 4) st.(size 5) st.(size 6) st.(size 7)
+  in
+  st.(size 0) <- st0;
+  st.(size 1) <- st1;
+  st.(size 2) <- st2;
+  st.(size 3) <- st3;
+  st.(size 4) <- st4;
+  st.(size 5) <- st5;
+  st.(size 6) <- st6;
+  st.(size 7) <- st7
+
 
 
 val aes_enc:

@@ -244,3 +244,58 @@ let shift_row64 (u:uint64) =
           ((u &. u64 0x8000800080008000) >>. size 12) |.
           ((u &. u64 0x0888088808880888) <<. size 4) in
   u
+
+inline_for_extraction 
+let mix_col64_1 (u: uint64) = 
+   u ^. (((u &. u64 0xeeeeeeeeeeeeeeee) >>. size 1)
+   |. ((u &. u64 0x1111111111111111) <<. size 3))
+
+inline_for_extraction
+let mix_col64_2 (prev: uint64) (next : uint64) (st : uint64) =
+  let ncoli = next ^. (((next &. u64 0xcccccccccccccccc ) >>. size  2) |. ((next &. u64 0x3333333333333333) <<. size  2)) in
+  st ^. ncoli ^. prev
+  
+inline_for_extraction
+val mix_col64x8 :
+  i0:uint64 -> i1:uint64 -> i2: uint64 -> i3:uint64 ->
+  i4:uint64 -> i5:uint64 -> i6: uint64 -> i7:uint64 ->
+  Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
+
+let mix_col64x8 st0 st1 st2 st3 st4 st5 st6 st7 = 
+
+  let col0 = mix_col64_1 st0 in 
+  let col1 = mix_col64_1 st1 in 
+  let col2 = mix_col64_1 st2 in 
+  let col3 = mix_col64_1 st3 in 
+  let col4 = mix_col64_1 st4 in 
+  let col5 = mix_col64_1 st5 in 
+  let col6 = mix_col64_1 st6 in 
+  let col7 = mix_col64_1 st7 in 
+
+  let ncol0 = col0 ^. (((col0 &. u64 0xcccccccccccccccc ) >>. size  2) |. ((col0 &. u64 0x3333333333333333) <<. size  2)) in 
+  
+  let st0 = st0 ^. ncol0 in 
+  let st1 = mix_col64_2 col0 col1 st1 in 
+  let st2 = mix_col64_2 col1 col2 st2 in 
+  let st3 = mix_col64_2 col2 col3 st3 in 
+  let st4 = mix_col64_2 col3 col4 st4 in 
+  let st5 = mix_col64_2 col4 col5 st5 in 
+  let st6 = mix_col64_2 col5 col6 st6 in 
+  let st7 = mix_col64_2 col6 col7 st7 in 
+
+  let st0 = st0 ^. col7 in 
+  let st1 = st1 ^. col7 in 
+  let st3 = st3 ^. col7 in 
+  let st4 = st4 ^. col7 in 
+  (st0, st1, st2, st3, st4, st5, st6, st7)
+
+(*
+
+inline_for_extraction 
+val mix_column64x8: uint64 -> uint64 -> uint64 -> uint64
+  -> uint64 -> uint64 -> uint64 -> uint64 ->
+  Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
+
+
+let mix_column64x8 i0 i1 i2 i3 i4 i5 i6 i7 = 
+  

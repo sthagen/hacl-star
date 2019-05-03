@@ -8,6 +8,8 @@ open Lib.Vec128
 
 module ST = FStar.HyperStack.ST
 
+module S = Hacl.Spec.AES
+
 
 
 type m_spec =
@@ -117,6 +119,8 @@ val store_block0:
   (requires (fun h -> live h st /\ live h out))
   (ensures  (fun h0 _ h1 -> modifies1 out h0 h1))
 
+
+(* the method is used uniquely inn the add_round_key in Generic, so I expect that it should be this *)
 inline_for_extraction
 val xor_state_key1:
     #m: m_spec
@@ -124,7 +128,22 @@ val xor_state_key1:
   -> key: key1 m ->
   Stack unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1 /\
+    (
+      match m with 
+      |M32 ->
+	let st0 = Lib.ByteSequence.uints_to_bytes_le #U64 #SEC #(uint_v(stlen m)) (as_seq h0 st) in 
+	let k0 = Lib.ByteSequence.uints_to_bytes_le #U64 #SEC #(uint_v(stlen m)) (as_seq h0 key) in 
+	let r1 = Lib.ByteSequence.uints_to_bytes_le #U64 #SEC #(uint_v(stlen m)) (as_seq h1 st) in 
+	r1 == S.xor_block st0 k0 
+      | MAES -> admit()
+	     
+  )))
+
+let state_seq (m:m_spec) = Lib.Sequence.lseq (stelem m) (uint_v (stlen m))
+
+noextract
+val transposeStateSeq: #m: m_spec ->  s: state_seq m  -> state_seq m
 
 inline_for_extraction
 val xor_block:
@@ -134,8 +153,10 @@ val xor_block:
   -> b: lbuffer uint8 64ul ->
   Stack unit
   (requires (fun h -> live h st /\ live h out /\ live h b))
-  (ensures  (fun h0 _ h1 -> modifies2 out st h0 h1))
+  (ensures  (fun h0 _ h1 -> modifies2 out st h0 h1 /\ S.xor_block (transposeStateSeq (as_seq h0 st)) (as_seq h0 b) == (as_seq h1 out)
+  ))
 
+(*let aes_enc (key:block) (state:block) : Tot block *)
 inline_for_extraction
 val aes_enc:
     #m: m_spec
@@ -143,8 +164,9 @@ val aes_enc:
   -> key: key1 m ->
   Stack unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1 (*/\ (as_seq h1 st) == S.aes_enc (as_seq h0 st) (as_seq h0 key) *)))
 
+(*  let aes_enc_last (key:block) (state:block) : Tot block *)
 inline_for_extraction
 val aes_enc_last:
     #m: m_spec
@@ -152,18 +174,20 @@ val aes_enc_last:
   -> key: key1 m ->
   Stack unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1(* /\ (as_seq h1 st) == S.aes_enc_last (as_seq h0 st) (as_seq h0 key)*)))
 
+(*let aes_keygen_assist (rcon:elem) (s:block) : Tot block *)
 inline_for_extraction
 val aes_keygen_assist:
     #m: m_spec
-  -> ok: key1 m
-  -> ik: key1 m
+  -> next: key1 m
+  -> prev: key1 m
   -> rcon: uint8 ->
   Stack unit
-  (requires (fun h -> live h ok /\ live h ik /\ disjoint ik ok))
-  (ensures  (fun h0 _ h1 -> modifies1 ok h0 h1))
+  (requires (fun h -> live h next /\ live h prev /\ disjoint prev next))
+  (ensures  (fun h0 _ h1 -> modifies1 next h0 h1 (*/\ (as_seq h1 next) == S.aes_keygen_assist rcon (as_seq h0 prev) *)))
 
+(*let key_expansion_step (p:block) (assist:block) : Tot block *)
 inline_for_extraction
 val key_expansion_step:
     #m: m_spec
@@ -171,8 +195,10 @@ val key_expansion_step:
   -> prev: key1 m ->
   Stack unit
   (requires (fun h -> live h prev /\ live h next))
-  (ensures  (fun h0 _ h1 -> modifies1 next h0 h1))
+  (ensures  (fun h0 _ h1 -> modifies1 next h0 h1 (*/\ (as_seq h1 next) == S.key_expansion_step (as_seq h0 next) (as_seq h0 prev)*) 
+  ) )
 
+(*
 inline_for_extraction
 val key_expansion_step2:
     #m: m_spec
@@ -181,3 +207,4 @@ val key_expansion_step2:
   Stack unit
   (requires (fun h -> live h prev /\ live h next))
   (ensures  (fun h0 _ h1 -> modifies1 next h0 h1))
+*)

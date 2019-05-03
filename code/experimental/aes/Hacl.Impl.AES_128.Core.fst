@@ -61,6 +61,10 @@ let xor_state_key1 #m st key =
   | MAES -> Hacl.Impl.AES_128.CoreNI.xor_state_key1 st key
   | M32 -> Hacl.Impl.AES_128.CoreBitSlice.xor_state_key1 st key
 
+let transposeStateSeq #m st = 
+  admit();
+  st
+
 inline_for_extraction
 let xor_block #m out st b =
   match m with
@@ -91,8 +95,10 @@ let key_expansion_step #m n p =
   | MAES -> Hacl.Impl.AES_128.CoreNI.key_expansion_step n p
   | M32 -> Hacl.Impl.AES_128.CoreBitSlice.key_expansion_step n p
 
+(*
 inline_for_extraction
 let key_expansion_step2 #m n p =
   match m with
   | MAES -> Hacl.Impl.AES_128.CoreNI.key_expansion_step n p
   | M32 -> Hacl.Impl.AES_128.CoreBitSlice.key_expansion_step n p
+*)
