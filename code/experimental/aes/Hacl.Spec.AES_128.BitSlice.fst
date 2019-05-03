@@ -288,14 +288,3 @@ let mix_col64x8 st0 st1 st2 st3 st4 st5 st6 st7 =
   let st3 = st3 ^. col7 in 
   let st4 = st4 ^. col7 in 
   (st0, st1, st2, st3, st4, st5, st6, st7)
-
-(*
-
-inline_for_extraction 
-val mix_column64x8: uint64 -> uint64 -> uint64 -> uint64
-  -> uint64 -> uint64 -> uint64 -> uint64 ->
-  Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
-
-
-let mix_column64x8 i0 i1 i2 i3 i4 i5 i6 i7 = 
-  
