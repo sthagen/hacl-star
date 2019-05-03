@@ -175,9 +175,16 @@ val xor_state_key1:
   (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
 
 let xor_state_key1 st ost =
-  let h0 = ST.get() in
-  loop_nospec #h0 (size 8) st
-    (fun i -> st.(i) <- st.(i) ^. ost.(i))
+  let (st0, st1, st2, st3, st4, st5, st6, st7) = 
+    xor_block_s st.(size 0) st.(size 1) st.(size 2) st.(size 3)	st.(size 4) st.(size 5) st.(size 6) st.(size 7) ost.(size 0) ost.(size 1) ost.(size 2) ost.(size 3) ost.(size 4) ost.(size 5) ost.(size 6) ost.(size 7) in 
+  st.(size 0) <- st0;
+  st.(size 1) <- st1;
+  st.(size 2) <- st2;
+  st.(size 3) <- st3;
+  st.(size 4) <- st4;
+  st.(size 5) <- st5;
+  st.(size 6) <- st6;
+  st.(size 7) <- st7
 
 
 val xor_block:
@@ -294,6 +301,7 @@ let rcon : b:ilbuffer uint8 11ul =
 inline_for_extraction
 val aes_keygen_assisti: rcon:uint8 -> i:shiftval U8 -> u:uint64 -> Tot uint64
 let aes_keygen_assisti rcon i u =
+  (* 
   let n = (u &. u64 0xf000f000f000f000) >>. size 12 in
   let n = ((n >>. size 1) |. (n <<. size 3)) &. u64  0x000f000f000f000f in
   let ri = to_u64 ((rcon >>. i) &. u8 1) in
@@ -301,7 +309,8 @@ let aes_keygen_assisti rcon i u =
   let ri = ri ^. (ri <<. size 32) in
   let n = n ^. ri in
   let n = n <<. size 12 in
-  n
+  n *)
+  aes_key_assisti_s rcon i u
 
 
 val aes_keygen_assist:
@@ -313,22 +322,27 @@ val aes_keygen_assist:
   (ensures (fun h0 _ h1 -> modifies1 next h0 h1))
 
 let aes_keygen_assist next prev rcon =
-  copy_state next prev;
-  sub_bytes_state next;
-  let h0 = ST.get() in
-  loop_nospec #h0 (size 8) next
-    (fun i -> next.(i) <- aes_keygen_assisti rcon i next.(i))
+  let (next0, next1, next2, next3, next4, next5, next6, next7)  =  aes_key_assist_s prev.(size 0) prev.(size 1) prev.(size 2) prev.(size 3) prev.(size 4) prev.(size 5) prev.(size 6) prev.(size 7) rcon in 
+  next.(size 0) <- next0;
+  next.(size 1) <- next1;
+  next.(size 2) <- next2;
+  next.(size 3) <- next3;
+  next.(size 4) <- next4;
+  next.(size 5) <- next5;
+  next.(size 6) <- next6;
+  next.(size 7) <- next7
 
 
 inline_for_extraction
 let key_expand1 (p:uint64) (n:uint64) =
-  let n = (n &. u64 0xf000f000f000f000) in
+(*  let n = (n &. u64 0xf000f000f000f000) in
   let n = n ^. (n >>. size 4) in
   let n = n ^. (n >>. size 8) in
   let p = p ^. ((p &. u64 0x0fff0fff0fff0fff) <<. size 4) ^. ((p &. u64 0x00ff00ff00ff00ff) <<. size 8)
-            ^. ((p &. u64 0x000f000f000f000f) <<. size 12) in
+            ^. ((p &. u64 0x000f000f000f000f) <<. size 12) in 
   n ^. p
-
+*)
+  key_expand1_s p n
 
 val key_expansion_step:
     next: state
@@ -338,6 +352,13 @@ val key_expansion_step:
   (ensures (fun h0 _ h1 -> modifies1 next h0 h1))
 
 let key_expansion_step next prev =
-  let h0 = ST.get() in
-  loop_nospec #h0 (size 8) next
-    (fun i -> next.(i) <- let p = prev.(i) in let n = next.(i) in key_expand1 p n)
+  let (next0, next1, next2, next3, next4, next5, next6, next7) = key_expansion_step_s  prev.(size 0) prev.(size 1) prev.(size 2) prev.(size 3) prev.(size 4) prev.(size 5) prev.(size 6) prev.(size 7)  
+  next.(size 0) next.(size 1) next.(size 2) next.(size 3) next.(size 4) next.(size 5) next.(size 6) next.(size 7) in 
+  next.(size 0) <- next0;
+  next.(size 1) <- next1;
+  next.(size 2) <- next2;
+  next.(size 3) <- next3;
+  next.(size 4) <- next4;
+  next.(size 5) <- next5;
+  next.(size 6) <- next6;
+  next.(size 7) <- next7

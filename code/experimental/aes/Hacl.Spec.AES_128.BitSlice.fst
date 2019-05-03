@@ -262,7 +262,6 @@ val mix_col64x8 :
   Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
 
 let mix_col64x8 st0 st1 st2 st3 st4 st5 st6 st7 = 
-
   let col0 = mix_col64_1 st0 in 
   let col1 = mix_col64_1 st1 in 
   let col2 = mix_col64_1 st2 in 
@@ -287,4 +286,73 @@ let mix_col64x8 st0 st1 st2 st3 st4 st5 st6 st7 =
   let st1 = st1 ^. col7 in 
   let st3 = st3 ^. col7 in 
   let st4 = st4 ^. col7 in 
+  (st0, st1, st2, st3, st4, st5, st6, st7)
+
+
+val aes_key_assisti_s: rcon: uint8 -> i: shiftval U8 -> u: uint64 -> Tot uint64 
+
+let aes_key_assisti_s rcon i u = 
+  let n = (u &. u64 0xf000f000f000f000) >>. size 12 in
+  let n = ((n >>. size 1) |. (n <<. size 3)) &. u64  0x000f000f000f000f in
+  let ri = to_u64 ((rcon >>. i) &. u8 1) in
+  let ri = ri ^. (ri <<. size 16) in
+  let ri = ri ^. (ri <<. size 32) in
+  let n = n ^. ri in
+  let n = n <<. size 12 in
+  n
+
+inline_for_extraction
+val aes_key_assist_s:
+  prev0: uint64 -> prev1: uint64 -> prev2: uint64 -> prev3: uint64 -> prev4: uint64 -> prev5: uint64 -> prev6: uint64 -> prev7: uint64  -> rcon: uint8 ->   Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
+
+let aes_key_assist_s prev0 prev1 prev2 prev3 prev4 prev5 prev6 prev7 rcon = 
+  let (next0, next1, next2, next3, next4, next5, next6, next7) = sub_bytes64x8 prev0 prev1 prev2 prev3 prev4 prev5 prev6 prev7 in 
+  let next0 = aes_key_assisti_s rcon (size 0) next0 in 
+  let next1 = aes_key_assisti_s rcon (size 1)  next1 in 
+  let next2 = aes_key_assisti_s rcon (size 2)  next2 in 
+  let next3 = aes_key_assisti_s rcon (size 3)  next3 in 
+  let next4 = aes_key_assisti_s rcon (size 4)  next4 in 
+  let next5 = aes_key_assisti_s rcon (size 5)  next5 in 
+  let next6 = aes_key_assisti_s rcon (size 6)  next6 in 
+  let next7 = aes_key_assisti_s rcon (size 7) next7 in 
+  (next0, next1, next2, next3, next4, next5, next6, next7)
+  
+
+inline_for_extraction
+let key_expand1_s (p: uint64) (n: uint64) : uint64 = 
+  let n = (n &. u64 0xf000f000f000f000) in
+  let n = n ^. (n >>. size 4) in
+  let n = n ^. (n >>. size 8) in
+  let p = p ^. ((p &. u64 0x0fff0fff0fff0fff) <<. size 4) ^. ((p &. u64 0x00ff00ff00ff00ff) <<. size 8)
+            ^. ((p &. u64 0x000f000f000f000f) <<. size 12) in 
+  n ^. p
+
+
+inline_for_extraction
+val key_expansion_step_s:  prev0: uint64 -> prev1: uint64 -> prev2: uint64 -> prev3: uint64 -> prev4: uint64 -> prev5: uint64 -> prev6: uint64 -> prev7: uint64  -> next0: uint64 -> next1: uint64 -> next2: uint64 -> next3: uint64 -> next4: uint64 -> next5: uint64 -> next6: uint64 -> next7: uint64 -> Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
+
+let key_expansion_step_s prev0 prev1 prev2 prev3 prev4 prev5 prev6 prev7 next0 next1 next2 next3 next4 next5 next6 next7 = 
+  let next0 = key_expand1_s prev0 next0 in 
+  let next1 = key_expand1_s prev1 next1 in 
+  let next2 = key_expand1_s prev2 next2 in 
+  let next3 = key_expand1_s prev3 next3 in 
+  let next4 = key_expand1_s prev4 next4 in 
+  let next5 = key_expand1_s prev5 next5 in 
+  let next6 = key_expand1_s prev6 next6 in 
+  let next7 = key_expand1_s prev7 next7 in 
+  (next0, next1, next2, next3, next4, next5, next6, next7)
+
+inline_for_extraction
+val xor_block_s: st0: uint64 -> st1: uint64 -> st2: uint64 -> st3: uint64 -> st4: uint64 -> st5: uint64 -> st6: uint64 -> st7: uint64 -> ost0: uint64 -> ost1: uint64 -> ost2: uint64 -> ost3: uint64 -> ost4: uint64 -> ost5: uint64 -> ost6: uint64 -> ost7: uint64 ->
+Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
+
+let xor_block_s st0 st1 st2 st3 st4 st5 st6 st7 ost0 ost1 ost2 ost3 ost4 ost5 ost6 ost7 = 
+  let st0 = st0 ^. ost0 in 
+  let st1 = st1 ^. ost1 in 
+  let st2 = st2 ^. ost2 in 
+  let st3 = st3 ^. ost3 in 
+  let st4 = st4 ^. ost4 in 
+  let st5 = st5 ^. ost5 in 
+  let st6 = st6 ^. ost6 in 
+  let st7 = st7 ^. ost7 in 
   (st0, st1, st2, st3, st4, st5, st6, st7)
