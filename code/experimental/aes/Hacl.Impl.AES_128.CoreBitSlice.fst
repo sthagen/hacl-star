@@ -213,7 +213,9 @@ val sub_bytes_state:
   st: state ->
   Stack unit
   (requires (fun h -> live h st))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == sub_bytes64x8 (seqToTuple (as_seq h0 st))))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == sub_bytes64x8 (seqToTuple (as_seq h0 st))
+    /\ as_seq h1 st == sub_bytes_state_as_seq (as_seq h0 st)
+))
 
 let sub_bytes_state (st:state) =
   let (st0,st1,st2,st3,st4,st5,st6,st7) =
@@ -233,13 +235,21 @@ val shift_rows_state:
   st: state ->
   Stack unit
   (requires (fun h -> live h st))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == shift_row_state_s (seqToTuple (as_seq h0 st)) /\
+  as_seq h1 st == shift_row_state_as_seq (as_seq h0 st)))
 
 let shift_rows_state st =
-  let h0 = ST.get() in
-  loop_nospec #h0 (size 8) st
-    (fun i -> st.(i) <- let rowi = st.(i) in shift_row64 rowi)
-
+  let (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s  (st.(size 0), st.(size 1), st.(size 2), st.(size 3),st.(size 4), st.(size 5), st.(size 6), st.(size 7)) in 
+  st.(size 0) <- st0;
+  st.(size 1) <- st1;
+  st.(size 2) <- st2;
+  st.(size 3) <- st3;
+  st.(size 4) <- st4;
+  st.(size 5) <- st5;
+  st.(size 6) <- st6;
+  st.(size 7) <- st7
+ 
+ 
 
 val mix_columns_state:
   st: state ->
@@ -260,20 +270,27 @@ let (st0, st1, st2, st3, st4, st5, st6, st7) = mix_col64x8 (st.(size 0), st.(siz
   st.(size 6) <- st6;
   st.(size 7) <- st7
 
-
+#reset-options "--z3rlimit  100"
 
 val aes_enc:
     st: state
   -> key: key1 ->
   Stack unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ as_seq h1 st == aes_enc_s (as_seq h0 st) (as_seq h0 key)))
 
 let aes_enc st key =
+    let h0 = ST.get() in 
   sub_bytes_state st;
+    
+
+
   shift_rows_state st;
   mix_columns_state st;
-  xor_state_key1 st key
+  xor_state_key1 st key;
+    let h1 = ST.get() in 
+  assert(Seq.equal (as_seq h1 st) (aes_enc_s (as_seq h0 st) (as_seq h0 key)));
+  admit()
 
 
 val aes_enc_last:

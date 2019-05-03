@@ -230,6 +230,24 @@ let sub_bytes64x8 (st0, st1, st2, st3, st4, st5, st6, st7) =
   (st0,st1,st2,st3,st4,st5,st6,st7)
 
 
+open Lib.Sequence
+type state_seq = lseq uint64 8
+
+val sub_bytes_state_as_seq: st: state_seq -> state_seq
+
+let sub_bytes_state_as_seq st = 
+   let (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st.[0], st.[1], st.[2], st.[3],st.[4], st.[5], st.[6], st.[7])
+  in
+  let st = upd st 0 st0 in 
+  let st = upd st 1 st1 in   
+  let st = upd st 2 st2 in 
+  let st = upd st 3 st3 in 
+  let st = upd st 4 st4 in 
+  let st = upd st 5 st5 in 
+  let st = upd st 6 st6 in 
+  upd st 7 st7
+
+
 inline_for_extraction
 let shift_row64 (u:uint64) =
   let u = (u &. u64 0x1111111111111111) |.
@@ -240,6 +258,36 @@ let shift_row64 (u:uint64) =
           ((u &. u64 0x8000800080008000) >>. size 12) |.
           ((u &. u64 0x0888088808880888) <<. size 4) in
   u
+
+inline_for_extraction
+val shift_row_state_s: state: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) -> Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) 
+
+let shift_row_state_s (st0, st1, st2, st3, st4, st5, st6, st7) = 
+  let st0 = shift_row64 st0 in 
+  let st1 = shift_row64 st1 in 
+  let st2 = shift_row64 st2 in 
+  let st3 = shift_row64 st3 in 
+  let st4 = shift_row64 st4 in 
+  let st5 = shift_row64 st5 in 
+  let st6 = shift_row64 st6 in 
+  let st7 = shift_row64 st7 in 
+  (st0, st1, st2, st3, st4, st5, st6, st7)
+  
+
+val shift_row_state_as_seq:  st: state_seq -> state_seq 
+
+let shift_row_state_as_seq st = 
+  let (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st.[0], st.[1], st.[2], st.[3],st.[4], st.[5], st.[6], st.[7]) in
+  let st = upd st 0 st0 in 
+  let st = upd st 1 st1 in   
+  let st = upd st 2 st2 in 
+  let st = upd st 3 st3 in 
+  let st = upd st 4 st4 in 
+  let st = upd st 5 st5 in 
+  let st = upd st 6 st6 in 
+  upd st 7 st7
+
+
 
 inline_for_extraction 
 let mix_col64_1 (u: uint64) = 
@@ -377,6 +425,8 @@ let xor_block_s st0 st1 st2 st3 st4 st5 st6 st7 ost0 ost1 ost2 ost3 ost4 ost5 os
 *)
 
 assume val tuple8ToBlock4: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)  -> Hacl.Spec.AES.block4
+assume val seqToBlock4: s: lseq uint64 8 -> Hacl.Spec.AES.block4
+assume val lemmaSeqToTupleToBlock: a: lseq uint64 8 -> Lemma (tuple8ToBlock4 (seqToTuple a) == seqToBlock4 a)
 
 
 inline_for_extraction
@@ -399,7 +449,18 @@ let  xor_state_s(st0, st1, st2, st3, st4, st5, st6, st7) (ost0, ost1, ost2, ost3
   let st5 = st5 ^. ost5 in 
   let st6 = st6 ^. ost6 in 
   let st7 = st7 ^. ost7 in 
+  admit();
   (st0, st1, st2, st3, st4, st5, st6, st7)
 
 
+val aes_enc_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot ((uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64))
+
+let aes_enc_s state key =
+  let (st0, st1, st2, st3, st4, st5, st6, st7) = seqToTuple state in 
+  let (k0, k1, k2, k3, k4, k5, k6, k7) = seqToTuple key in 
+
+   let  (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
+   let  (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st0,st1,st2,st3,st4,st5,st6,st7) in 
+   let  (st0,st1,st2,st3,st4,st5,st6,st7) = mix_col64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
+  xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) 
 
