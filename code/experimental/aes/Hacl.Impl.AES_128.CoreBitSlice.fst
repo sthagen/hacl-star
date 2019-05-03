@@ -67,7 +67,11 @@ val transpose_state:
   st: state ->
   Stack unit
   (requires (fun h -> live h st))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ (
+    let st0 = as_seq h0 st in 
+    let st1 = as_seq h1 st in 
+    seqToTuple st1 == transpose_bits64x8 (Lib.Sequence.index st0 0)  (Lib.Sequence.index st0 1)  (Lib.Sequence.index st0 2)  (Lib.Sequence.index st0 3)  (Lib.Sequence.index st0 4)  (Lib.Sequence.index st0 5)  (Lib.Sequence.index st0 6)  (Lib.Sequence.index st0 7))
+  ))
 
 let transpose_state st =
   let i0 = st.(size 0) in
@@ -172,11 +176,13 @@ val xor_state_key1:
   -> ost: state ->
   Stack unit
   (requires (fun h -> live h st /\ live h ost))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == xor_block_s_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 ost))))
 
 let xor_state_key1 st ost =
   let (st0, st1, st2, st3, st4, st5, st6, st7) = 
-    xor_block_s st.(size 0) st.(size 1) st.(size 2) st.(size 3)	st.(size 4) st.(size 5) st.(size 6) st.(size 7) ost.(size 0) ost.(size 1) ost.(size 2) ost.(size 3) ost.(size 4) ost.(size 5) ost.(size 6) ost.(size 7) in 
+    xor_block_s_s 
+      (st.(size 0), st.(size 1), st.(size 2), st.(size 3),st.(size 4), st.(size 5), st.(size 6), st.(size 7))
+      (ost.(size 0), ost.(size 1), ost.(size 2), ost.(size 3), ost.(size 4), ost.(size 5), ost.(size 6), ost.(size 7)) in 
   st.(size 0) <- st0;
   st.(size 1) <- st1;
   st.(size 2) <- st2;
@@ -349,7 +355,9 @@ val key_expansion_step:
   -> prev: state ->
   ST unit
   (requires (fun h -> live h prev /\ live h next))
-  (ensures (fun h0 _ h1 -> modifies1 next h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 
+  ))
+
 
 let key_expansion_step next prev =
   let (next0, next1, next2, next3, next4, next5, next6, next7) = key_expansion_step_s  prev.(size 0) prev.(size 1) prev.(size 2) prev.(size 3) prev.(size 4) prev.(size 5) prev.(size 6) prev.(size 7)  

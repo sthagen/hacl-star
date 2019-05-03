@@ -327,6 +327,17 @@ let key_expand1_s (p: uint64) (n: uint64) : uint64 =
             ^. ((p &. u64 0x000f000f000f000f) <<. size 12) in 
   n ^. p
 
+open Lib.Sequence
+
+assume val tupleToSeq: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) -> Tot (s: Seq.lseq uint64 8{
+  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
+  index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7})
+
+assume val seqToTuple: s: Seq.lseq uint64 8 -> Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) 
+  {  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
+  index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7
+  })
+
 
 inline_for_extraction
 val key_expansion_step_s:  prev0: uint64 -> prev1: uint64 -> prev2: uint64 -> prev3: uint64 -> prev4: uint64 -> prev5: uint64 -> prev6: uint64 -> prev7: uint64  -> next0: uint64 -> next1: uint64 -> next2: uint64 -> next3: uint64 -> next4: uint64 -> next5: uint64 -> next6: uint64 -> next7: uint64 -> Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
@@ -341,7 +352,8 @@ let key_expansion_step_s prev0 prev1 prev2 prev3 prev4 prev5 prev6 prev7 next0 n
   let next6 = key_expand1_s prev6 next6 in 
   let next7 = key_expand1_s prev7 next7 in 
   (next0, next1, next2, next3, next4, next5, next6, next7)
-
+  
+(*
 inline_for_extraction
 val xor_block_s: st0: uint64 -> st1: uint64 -> st2: uint64 -> st3: uint64 -> st4: uint64 -> st5: uint64 -> st6: uint64 -> st7: uint64 -> ost0: uint64 -> ost1: uint64 -> ost2: uint64 -> ost3: uint64 -> ost4: uint64 -> ost5: uint64 -> ost6: uint64 -> ost7: uint64 ->
 Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
@@ -356,3 +368,22 @@ let xor_block_s st0 st1 st2 st3 st4 st5 st6 st7 ost0 ost1 ost2 ost3 ost4 ost5 os
   let st6 = st6 ^. ost6 in 
   let st7 = st7 ^. ost7 in 
   (st0, st1, st2, st3, st4, st5, st6, st7)
+*)
+
+inline_for_extraction
+val xor_block_s_s: st: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) -> ost: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) -> 
+Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
+
+let xor_block_s_s (st0, st1, st2, st3, st4, st5, st6, st7) (ost0, ost1, ost2, ost3, ost4, ost5, ost6, ost7) = 
+  let st0 = st0 ^. ost0 in 
+  let st1 = st1 ^. ost1 in 
+  let st2 = st2 ^. ost2 in 
+  let st3 = st3 ^. ost3 in 
+  let st4 = st4 ^. ost4 in 
+  let st5 = st5 ^. ost5 in 
+  let st6 = st6 ^. ost6 in 
+  let st7 = st7 ^. ost7 in 
+  (st0, st1, st2, st3, st4, st5, st6, st7)
+
+
+
