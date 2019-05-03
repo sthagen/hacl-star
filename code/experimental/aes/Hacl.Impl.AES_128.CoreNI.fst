@@ -7,6 +7,7 @@ open Lib.Buffer
 open Lib.Vec128
 
 module ST = FStar.HyperStack.ST
+open Hacl.Spec.AES_128.BitSlice
 
 
 
@@ -109,6 +110,7 @@ val store_block0:
 let store_block0 out st =
   vec128_store_le out st.(size 0)
 
+assume val stateToTuple: a: Lib.Sequence.lseq vec128 4 -> Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) 
 
 inline_for_extraction
 val xor_state_key1:
@@ -116,13 +118,14 @@ val xor_state_key1:
   -> key: key1 ->
   Stack unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\  stateToTuple (as_seq h0 st) == xor_state_s (stateToTuple (as_seq h0 st)) (stateToTuple (as_seq h0 st))))
 
 let xor_state_key1 st key =
   st.(size 0) <- vec128_xor st.(size 0) key.(size 0);
   st.(size 1) <- vec128_xor st.(size 1) key.(size 0);
   st.(size 2) <- vec128_xor st.(size 2) key.(size 0);
-  st.(size 3) <- vec128_xor st.(size 3) key.(size 0)
+  st.(size 3) <- vec128_xor st.(size 3) key.(size 0);
+  admit()
 
 
 inline_for_extraction

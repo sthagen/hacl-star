@@ -5,6 +5,7 @@ open FStar.HyperStack.All
 open Lib.IntTypes
 open Lib.Buffer
 open Hacl.Impl.AES_128.Core
+open Hacl.Spec.AES_128.BitSlice
 
 
 module ST = FStar.HyperStack.ST
@@ -72,9 +73,21 @@ val add_round_key:
   -> key: key1 m ->
   ST unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key))
+  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ (
+    match m with 
+      |M32 -> seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 key))
+      |_ -> admit()
+  )
+))      
   
-let add_round_key #m st key = xor_state_key1 #m st key
+let add_round_key #m st key = 
+  let h0 = ST.get() in 
+    xor_state_key1 #m st key;
+  let h1 = ST.get() in 
+  assert(match m with |M32 -> seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 key))
+    | _ -> True
+  );
+  admit()
 
 
 inline_for_extraction

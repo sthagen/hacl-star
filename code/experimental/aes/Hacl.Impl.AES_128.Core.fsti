@@ -8,8 +8,7 @@ open Lib.Vec128
 
 module ST = FStar.HyperStack.ST
 
-module S = Hacl.Spec.AES
-
+open Hacl.Spec.AES_128.BitSlice
 
 
 type m_spec =
@@ -131,19 +130,10 @@ val xor_state_key1:
   (ensures  (fun h0 _ h1 -> modifies1 st h0 h1 /\
     (
       match m with 
-      |M32 ->
-	let st0 = Lib.ByteSequence.uints_to_bytes_le #U64 #SEC #(uint_v(stlen m)) (as_seq h0 st) in 
-	let k0 = Lib.ByteSequence.uints_to_bytes_le #U64 #SEC #(uint_v(stlen m)) (as_seq h0 key) in 
-	let r1 = Lib.ByteSequence.uints_to_bytes_le #U64 #SEC #(uint_v(stlen m)) (as_seq h1 st) in 
-	r1 == S.xor_block st0 k0 
-      | MAES -> admit()
+      |M32 -> seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 key))
+      |MAES -> True
 	     
   )))
-
-let state_seq (m:m_spec) = Lib.Sequence.lseq (stelem m) (uint_v (stlen m))
-
-noextract
-val transposeStateSeq: #m: m_spec ->  s: state_seq m  -> state_seq m
 
 inline_for_extraction
 val xor_block:
@@ -153,7 +143,7 @@ val xor_block:
   -> b: lbuffer uint8 64ul ->
   Stack unit
   (requires (fun h -> live h st /\ live h out /\ live h b))
-  (ensures  (fun h0 _ h1 -> modifies2 out st h0 h1 /\ S.xor_block (transposeStateSeq (as_seq h0 st)) (as_seq h0 b) == (as_seq h1 out)
+  (ensures  (fun h0 _ h1 -> modifies2 out st h0 h1(* /\ S.xor_block (transposeStateSeq (as_seq h0 st)) (as_seq h0 b) == (as_seq h1 out)*)
   ))
 
 (*let aes_enc (key:block) (state:block) : Tot block *)
@@ -185,7 +175,11 @@ val aes_keygen_assist:
   -> rcon: uint8 ->
   Stack unit
   (requires (fun h -> live h next /\ live h prev /\ disjoint prev next))
-  (ensures  (fun h0 _ h1 -> modifies1 next h0 h1 (*/\ (as_seq h1 next) == S.aes_keygen_assist rcon (as_seq h0 prev) *)))
+  (ensures  (fun h0 _ h1 -> modifies1 next h0 h1 /\ (
+    match m with 
+    |M32 -> seqToTuple (as_seq h1 next) == aes_key_assist_s (seqToTuple (as_seq h0 prev)) rcon
+    |MAES -> True)
+    ))
 
 (*let key_expansion_step (p:block) (assist:block) : Tot block *)
 inline_for_extraction
@@ -195,8 +189,11 @@ val key_expansion_step:
   -> prev: key1 m ->
   Stack unit
   (requires (fun h -> live h prev /\ live h next))
-  (ensures  (fun h0 _ h1 -> modifies1 next h0 h1 (*/\ (as_seq h1 next) == S.key_expansion_step (as_seq h0 next) (as_seq h0 prev)*) 
-  ) )
+  (ensures  (fun h0 _ h1 -> modifies1 next h0 h1 /\ (
+    match m with 
+    |M32 -> seqToTuple (as_seq h1 next) == key_expansion_step_s (seqToTuple (as_seq h0 prev)) (seqToTuple (as_seq h0 next))
+    |MAES -> True)
+    ))
 
 (*
 inline_for_extraction

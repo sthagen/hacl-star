@@ -376,9 +376,19 @@ let xor_block_s st0 st1 st2 st3 st4 st5 st6 st7 ost0 ost1 ost2 ost3 ost4 ost5 os
   (st0, st1, st2, st3, st4, st5, st6, st7)
 *)
 
+assume val tuple8ToBlock4: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)  -> Hacl.Spec.AES.block4
+
+
 inline_for_extraction
 val xor_state_s: st: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) -> ost: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) -> 
-Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
+Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
+  {
+    let st0 = tuple8ToBlock4 t in 
+    let ost0 = tuple8ToBlock4 t in 
+    let t0 = tuple8ToBlock4 t in 
+    t0 == Hacl.Spec.AES.xor_block st0 ost0
+  }
+)
 
 let  xor_state_s(st0, st1, st2, st3, st4, st5, st6, st7) (ost0, ost1, ost2, ost3, ost4, ost5, ost6, ost7) = 
   let st0 = st0 ^. ost0 in 
@@ -390,5 +400,6 @@ let  xor_state_s(st0, st1, st2, st3, st4, st5, st6, st7) (ost0, ost1, ost2, ost3
   let st6 = st6 ^. ost6 in 
   let st7 = st7 ^. ost7 in 
   (st0, st1, st2, st3, st4, st5, st6, st7)
+
 
 
