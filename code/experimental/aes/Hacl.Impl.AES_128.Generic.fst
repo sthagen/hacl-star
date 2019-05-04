@@ -5,7 +5,7 @@ open FStar.HyperStack.All
 open Lib.IntTypes
 open Lib.Buffer
 open Hacl.Impl.AES_128.Core
-open Hacl.Spec.AES_128.BitSlice2
+open Hacl.Spec.AES_128.BitSlice
 
 
 module ST = FStar.HyperStack.ST
@@ -147,7 +147,7 @@ let enc_rounds_unrolled_m st key =
   aes_enc #M32 st subkey7;
   aes_enc #M32 st subkey8;
     let h1 = ST.get() in 
-  admit()
+  admit() 
 
 
 
@@ -158,7 +158,7 @@ val enc_rounds:
   -> key: keyr m
   -> n: size_t{v n <= 9} ->
   ST unit
-  (requires (fun h -> live h st /\ live h key))
+  (requires (fun h -> live h st /\ live h key /\ disjoint key st))
   (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1))
 
 let enc_rounds #m st key n =
