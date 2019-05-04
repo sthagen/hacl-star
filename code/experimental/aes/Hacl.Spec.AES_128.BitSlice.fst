@@ -370,7 +370,7 @@ let key_expand1_s (p: uint64) (n: uint64) : uint64 =
 
 open Lib.Sequence
 
-val tupleToSeq: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) ->GTot (s: Seq.lseq uint64 8{
+val tupleToSeq: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) ->Tot (s: Seq.lseq uint64 8{
   let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
   index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7})
 
@@ -386,10 +386,21 @@ let tupleToSeq (t0, t1, t2, t3, t4, t5, t6, t7) =
   upd s 7 t7
   
 
-assume val seqToTuple: s: Seq.lseq uint64 8 -> Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) 
+val seqToTuple: s: lseq uint64 8 -> Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) 
   {  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
   index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7
   })
+
+let seqToTuple s = 
+  let s0 = index s 0 in 
+  let s1 = index s 1 in 
+  let s2 = index s 2 in 
+  let s3 = index s 3 in 
+  let s4 = index s 4 in 
+  let s5 = index s 5 in 
+  let s6 = index s 6 in 
+  let s7 = index s 7 in 
+  (s0, s1, s2, s3, s4, s5, s6, s7)
 
 
 inline_for_extraction
@@ -453,7 +464,11 @@ let  xor_state_s(st0, st1, st2, st3, st4, st5, st6, st7) (ost0, ost1, ost2, ost3
   (st0, st1, st2, st3, st4, st5, st6, st7)
 
 
-val aes_enc_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot ((uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64))
+val aes_enc_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot (r: lseq uint64 8
+    {
+      Lib.ByteSequence.uints_from_bytes_le r == Hacl.Spec.aes_enc (Lib.ByteSequence.uints_to_bytes_le state) (Lib.ByteSequence.uints_to_bytes_le key)
+      })
+
 
 let aes_enc_s state key =
   let (st0, st1, st2, st3, st4, st5, st6, st7) = seqToTuple state in 
@@ -462,5 +477,7 @@ let aes_enc_s state key =
    let  (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
    let  (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st0,st1,st2,st3,st4,st5,st6,st7) in 
    let  (st0,st1,st2,st3,st4,st5,st6,st7) = mix_col64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
-  xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) 
+   let  (st0,st1,st2,st3,st4,st5,st6,st7) = xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) in 
+
+   tupleToSeq (st0,st1,st2,st3,st4,st5,st6,st7)
 

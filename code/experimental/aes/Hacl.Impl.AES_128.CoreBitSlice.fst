@@ -276,22 +276,17 @@ val aes_enc:
     st: state
   -> key: key1 ->
   Stack unit
-  (requires (fun h -> live h st /\ live h key))
+  (requires (fun h -> live h st /\ live h key /\ disjoint st key))
   (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ as_seq h1 st == aes_enc_s (as_seq h0 st) (as_seq h0 key)))
 
 let aes_enc st key =
     let h0 = ST.get() in 
   sub_bytes_state st;
-    
-
-
   shift_rows_state st;
   mix_columns_state st;
   xor_state_key1 st key;
     let h1 = ST.get() in 
-  assert(Seq.equal (as_seq h1 st) (aes_enc_s (as_seq h0 st) (as_seq h0 key)));
-  admit()
-
+  assert(Seq.equal (as_seq h1 st) (aes_enc_s (as_seq h0 st) (as_seq h0 key)))
 
 val aes_enc_last:
     st: state
