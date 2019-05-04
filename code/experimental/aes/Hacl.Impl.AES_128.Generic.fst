@@ -5,7 +5,7 @@ open FStar.HyperStack.All
 open Lib.IntTypes
 open Lib.Buffer
 open Hacl.Impl.AES_128.Core
-open Hacl.Spec.AES_128.BitSlice
+open Hacl.Spec.AES_128.BitSlice2
 
 
 module ST = FStar.HyperStack.ST
@@ -73,21 +73,88 @@ val add_round_key:
   -> key: key1 m ->
   ST unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ (
+  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key (* /\ (
     match m with 
       |M32 -> seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 key))
-      |_ -> admit()
-  )
+      |_ -> True
+  )*)
 ))      
   
 let add_round_key #m st key = 
-  let h0 = ST.get() in 
-    xor_state_key1 #m st key;
-  let h1 = ST.get() in 
-  assert(match m with |M32 -> seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 key))
-    | _ -> True
-  );
-  admit()
+    xor_state_key1 #m st key
+
+#reset-options "--z3rlimit  10 --z3refresh"
+
+(* unroll the next method n = 9 *)
+inline_for_extraction 
+val enc_rounds_unrolled: #m: m_spec -> st: state m -> key: keyr m -> ST unit 
+  (requires (fun h -> live h st /\ live h key /\ disjoint st key))
+  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1 /\ (
+    match m with 
+    |M32 -> as_seq h1 st == enc_round_as_seq (as_seq h0 st) (as_seq h0 key)
+    |MAES -> True)
+  ))
+     
+
+let enc_rounds_unrolled #m st key = 
+    let h0 = ST.get() in 
+  let subkey0 = sub key (size 0) (klen m) in 
+  let subkey1 = sub key (klen m) (klen m) in 
+  let subkey2 = sub key ((size 2) *. klen m) (klen m) in 
+  let subkey3 = sub key ((size 3) *. klen m) (klen m) in 
+  let subkey4 = sub key ((size 4) *. klen m) (klen m) in 
+  let subkey5 = sub key ((size 5) *. klen m) (klen m) in 
+  let subkey6 = sub key ((size 6) *. klen m) (klen m) in 
+  let subkey7 = sub key ((size 7) *. klen m) (klen m) in 
+  let subkey8 = sub key ((size 8) *. klen m) (klen m) in 
+
+  aes_enc #m st subkey0;
+  aes_enc #m st subkey1;
+  aes_enc #m st subkey2;
+  aes_enc #m st subkey3;
+  aes_enc #m st subkey4;
+  aes_enc #m st subkey5;
+  aes_enc #m st subkey6;
+  aes_enc #m st subkey7;
+  aes_enc #m st subkey8
+
+
+val enc_rounds_unrolled_m:  st: state M32 -> key: keyr M32 -> ST unit 
+  (requires (fun h -> live h st /\ live h key /\ disjoint st key))
+  (ensures (fun h0 _ h1 ->live h1 st /\ live h1 key /\ modifies (loc st) h0 h1 /\ as_seq h1 st == 
+    enc_round_as_seq (as_seq h0 st) (as_seq h0 key)))
+    
+
+let enc_rounds_unrolled_m st key = 
+    let h0 = ST.get() in 
+  let subkey0 = sub key (size 0) (size 8) in 
+  let subkey1 = sub key (size 8) (size 8) in 
+  let subkey2 = sub key (size 16) (size 8)  in 
+  let subkey3 = sub key (size 24) (size 8)  in 
+  let subkey4 = sub key (size 32) (size 8) in 
+  let subkey5 = sub key (size 40) (size 8)  in 
+  let subkey6 = sub key (size 48) (size 8)  in 
+  let subkey7 = sub key (size 56) (size 8)  in 
+  let subkey8 = sub key (size 64) (size 8)  in 
+ 
+  aes_enc #M32 st subkey0;
+  aes_enc #M32 st subkey1;
+  aes_enc #M32 st subkey2;
+  aes_enc #M32 st subkey3;
+  aes_enc #M32 st subkey4;
+  aes_enc #M32 st subkey5;
+  aes_enc #M32 st subkey6;
+  aes_enc #M32 st subkey7;
+  aes_enc #M32 st subkey8;
+    let h1 = ST.get() in 
+  assume(Seq.equal (as_seq h1 st) (enc_round_as_seq (as_seq h0 st) (as_seq h0 key)));
+  admit();
+  
+
+    let h1 = ST.get() in 
+  assume (modifies (loc st) h0 h1)
+
+
 
 
 inline_for_extraction
@@ -101,7 +168,7 @@ val enc_rounds:
   (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1))
 
 let enc_rounds #m st key n =
-  let h0 = ST.get() in
+  let h0 = ST.get() in 
   loop_nospec #h0 n st
     (fun i -> let sub_key = sub key (i *. klen m) (klen m) in
            aes_enc #m st sub_key)
@@ -124,7 +191,8 @@ let block_cipher #m st key n =
   let kr = sub key klen (inner_rounds *. klen) in
   let kn = sub key (n *. klen) klen in
   add_round_key #m st k0;
-  enc_rounds #m st kr (n -. size 1);
+  (*enc_rounds #m st kr (n -. size 1);*)
+  enc_rounds_unrolled st kr;
   aes_enc_last #m st kn
 
 

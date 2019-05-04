@@ -154,8 +154,14 @@ val aes_enc:
   -> st: state m
   -> key: key1 m ->
   Stack unit
-  (requires (fun h -> live h st /\ live h key))
-  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1 (*/\ (as_seq h1 st) == S.aes_enc (as_seq h0 st) (as_seq h0 key) *)))
+  (requires (fun h -> live h st /\ live h key /\ disjoint st key))
+  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1 /\
+    (
+      match m with 
+      |M32 -> as_seq h1 st == Hacl.Spec.AES_128.BitSlice2.aes_enc_s (as_seq h0 st) (as_seq h0 key)
+      |MAES -> True
+    )
+))
 
 (*  let aes_enc_last (key:block) (state:block) : Tot block *)
 inline_for_extraction

@@ -59,7 +59,7 @@ inline_for_extraction
 let xor_state_key1 #m st key =
   match m with
   | MAES -> Hacl.Impl.AES_128.CoreNI.xor_state_key1 st key; admit()
-  | M32 -> Hacl.Impl.AES_128.CoreBitSlice.xor_state_key1 st key
+  | M32 -> Hacl.Impl.AES_128.CoreBitSlice.xor_state_key1 st key; admit()
 
 
 inline_for_extraction
