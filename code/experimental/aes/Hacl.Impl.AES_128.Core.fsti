@@ -158,7 +158,7 @@ val aes_enc:
   (ensures  (fun h0 _ h1 -> modifies1 st h0 h1 /\
     (
       match m with 
-      |M32 -> as_seq h1 st == Hacl.Spec.AES_128.BitSlice2.aes_enc_s (as_seq h0 st) (as_seq h0 key)
+      |M32 -> as_seq h1 st == aes_enc_s (as_seq h0 st) (as_seq h0 key)
       |MAES -> True
     )
 ))

@@ -512,3 +512,63 @@ let xor_state_as_seq st ost =
   let st = upd st 6 st6 in 
   upd st 7 st7
 
+
+
+val aes_enc_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot (r: lseq uint64 8
+    {
+      Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.aes_enc (Lib.ByteSequence.uints_to_bytes_le state) (Lib.ByteSequence.uints_to_bytes_le key)
+    })
+
+
+let aes_enc_s state key =
+  let (st0, st1, st2, st3, st4, st5, st6, st7) = seqToTuple state in 
+  let (k0, k1, k2, k3, k4, k5, k6, k7) = seqToTuple key in 
+
+   let  (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
+   let  (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st0,st1,st2,st3,st4,st5,st6,st7) in 
+   let  (st0,st1,st2,st3,st4,st5,st6,st7) = mix_col64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
+   let  (st0,st1,st2,st3,st4,st5,st6,st7) = xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) in 
+
+   admit();
+   tupleToSeq (st0,st1,st2,st3,st4,st5,st6,st7)
+
+
+val aes_enc_last_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot (r: lseq uint64 8
+    {
+      Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.aes_enc_last (Lib.ByteSequence.uints_to_bytes_le state) (Lib.ByteSequence.uints_to_bytes_le key)})
+
+let aes_enc_last_s state key =   
+  let (st0, st1, st2, st3, st4, st5, st6, st7) = seqToTuple state in 
+  let (k0, k1, k2, k3, k4, k5, k6, k7) = seqToTuple key in 
+
+  let  (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
+  let  (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st0,st1,st2,st3,st4,st5,st6,st7) in 
+  let  (st0,st1,st2,st3,st4,st5,st6,st7) = xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) in 
+  
+  admit();
+  tupleToSeq (st0,st1,st2,st3,st4,st5,st6,st7)
+
+
+val enc_round_as_seq: st: state_seq -> key: lseq uint64 72 -> state_seq
+
+let enc_round_as_seq st key = 
+  let k0 = sub key 0 8 in 
+  let k1 = sub key 8 8 in 
+  let k2 = sub key 16 8 in 
+  let k3 = sub key 24 8 in 
+  let k4 = sub key 32 8 in 
+  let k5 = sub key 40 8 in 
+  let k6 = sub key 48 8 in 
+  let k7 = sub key 56 8 in 
+  let k8 = sub key 64 8 in 
+
+  let st = aes_enc_s st k0 in 
+  let st = aes_enc_s st k1 in 
+  let st = aes_enc_s st k2 in 
+  let st = aes_enc_s st k3 in 
+  let st = aes_enc_s st k4 in 
+  let st = aes_enc_s st k5 in 
+  let st = aes_enc_s st k6 in 
+  let st = aes_enc_s st k7 in 
+  aes_enc_s st k8 
+    

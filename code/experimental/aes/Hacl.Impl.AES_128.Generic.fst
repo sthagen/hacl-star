@@ -93,7 +93,7 @@ val enc_rounds_unrolled: #m: m_spec -> st: state m -> key: keyr m -> ST unit
     match m with 
     |M32 -> as_seq h1 st == enc_round_as_seq (as_seq h0 st) (as_seq h0 key)
     |MAES -> True)
-  ))
+  )) 
      
 
 let enc_rounds_unrolled #m st key = 
@@ -147,13 +147,7 @@ let enc_rounds_unrolled_m st key =
   aes_enc #M32 st subkey7;
   aes_enc #M32 st subkey8;
     let h1 = ST.get() in 
-  assume(Seq.equal (as_seq h1 st) (enc_round_as_seq (as_seq h0 st) (as_seq h0 key)));
-  admit();
-  
-
-    let h1 = ST.get() in 
-  assume (modifies (loc st) h0 h1)
-
+  admit()
 
 
 
