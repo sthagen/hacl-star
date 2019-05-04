@@ -3,6 +3,51 @@ module Hacl.Spec.AES_128.BitSlice
 open Lib.IntTypes
 
 
+
+open Lib.Sequence
+
+val tupleToSeq: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) ->Tot (s: Seq.lseq uint64 8{
+  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
+  index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7})
+
+let tupleToSeq (t0, t1, t2, t3, t4, t5, t6, t7) = 
+  let s = Lib.Sequence.create 8 (u64 0) in 
+  let s = upd s 0 t0 in 
+  let s = upd s 1 t1 in
+  let s = upd s 2 t2 in
+  let s = upd s 3 t3 in
+  let s = upd s 4 t4 in
+  let s = upd s 5 t5 in
+  let s = upd s 6 t6 in 
+  upd s 7 t7
+  
+
+val seqToTuple: s: lseq uint64 8 -> Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) 
+  {  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
+  index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7
+  })
+
+let seqToTuple s = 
+  let s0 = index s 0 in 
+  let s1 = index s 1 in 
+  let s2 = index s 2 in 
+  let s3 = index s 3 in 
+  let s4 = index s 4 in 
+  let s5 = index s 5 in 
+  let s6 = index s 6 in 
+  let s7 = index s 7 in 
+  (s0, s1, s2, s3, s4, s5, s6, s7)
+
+assume val tuple8ToBlock4: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)  -> Hacl.Spec.AES.block4
+assume val seqToBlock4: s: lseq uint64 8 -> Hacl.Spec.AES.block4
+assume val lemmaSeqToTupleToBlock: a: lseq uint64 8 -> Lemma (tuple8ToBlock4 (seqToTuple a) == seqToBlock4 a)
+
+
+
+
+
+
+
 let transpose_bits64 (x:uint64) : Tot uint64 =
   (x &. u64 0x8040201008040201)    |.
   ((x &. u64 0x4020100804020100) >>. size 7) |.
@@ -233,9 +278,11 @@ let sub_bytes64x8 (st0, st1, st2, st3, st4, st5, st6, st7) =
 open Lib.Sequence
 type state_seq = lseq uint64 8
 
-val sub_bytes_state_as_seq: st: state_seq -> state_seq
+val sub_bytes_state_as_seq: st: state_seq -> Tot (r: state_seq {
+  Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.subBytes (Lib.ByteSequence.uints_to_bytes_le st)})
 
-let sub_bytes_state_as_seq st = 
+let sub_bytes_state_as_seq st =
+  admit();
    let (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st.[0], st.[1], st.[2], st.[3],st.[4], st.[5], st.[6], st.[7])
   in
   let st = upd st 0 st0 in 
@@ -274,9 +321,14 @@ let shift_row_state_s (st0, st1, st2, st3, st4, st5, st6, st7) =
   (st0, st1, st2, st3, st4, st5, st6, st7)
   
 
-val shift_row_state_as_seq:  st: state_seq -> state_seq 
+val shift_row_state_as_seq:  st: state_seq -> (r: state_seq 
+  {
+    Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.shiftRows (Lib.ByteSequence.uints_to_bytes_le st)
+  }
+ )
 
 let shift_row_state_as_seq st = 
+  admit();
   let (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st.[0], st.[1], st.[2], st.[3],st.[4], st.[5], st.[6], st.[7]) in
   let st = upd st 0 st0 in 
   let st = upd st 1 st1 in   
@@ -331,6 +383,21 @@ let mix_col64x8 (st0, st1, st2, st3, st4, st5, st6, st7) =
   (st0, st1, st2, st3, st4, st5, st6, st7)
 
 
+val mix_col64_as_seq: st: state_seq -> state_seq 
+
+let mix_col64_as_seq st = 
+  let (st0, st1, st2, st3, st4, st5, st6, st7) =  mix_col64x8 (st.[0], st.[1], st.[2], st.[3],st.[4], st.[5], st.[6], st.[7])  in
+  let st = upd st 0 st0 in 
+  let st = upd st 1 st1 in   
+  let st = upd st 2 st2 in 
+  let st = upd st 3 st3 in 
+  let st = upd st 4 st4 in 
+  let st = upd st 5 st5 in 
+  let st = upd st 6 st6 in 
+  upd st 7 st7
+
+
+
 val aes_key_assisti_s: rcon: uint8 -> i: shiftval U8 -> u: uint64 -> Tot uint64 
 
 let aes_key_assisti_s rcon i u = 
@@ -359,6 +426,14 @@ let aes_key_assist_s (prev0, prev1, prev2, prev3, prev4, prev5, prev6, prev7) rc
   (next0, next1, next2, next3, next4, next5, next6, next7)
   
 
+val aes_key_assist_as_seq: prev: state_seq -> rcon : uint8 -> state_seq 
+
+let aes_key_assist_as_seq prev rcon = 
+  let (next0, next1, next2, next3, next4, next5, next6, next7)  =  
+    aes_key_assist_s (prev.[0], prev.[1], prev.[2], prev.[3], prev.[4], prev.[5], prev.[6], prev.[7]) rcon in 
+  tupleToSeq ((next0, next1, next2, next3, next4, next5, next6, next7)) 
+
+
 inline_for_extraction
 let key_expand1_s (p: uint64) (n: uint64) : uint64 = 
   let n = (n &. u64 0xf000f000f000f000) in
@@ -367,40 +442,6 @@ let key_expand1_s (p: uint64) (n: uint64) : uint64 =
   let p = p ^. ((p &. u64 0x0fff0fff0fff0fff) <<. size 4) ^. ((p &. u64 0x00ff00ff00ff00ff) <<. size 8)
             ^. ((p &. u64 0x000f000f000f000f) <<. size 12) in 
   n ^. p
-
-open Lib.Sequence
-
-val tupleToSeq: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) ->Tot (s: Seq.lseq uint64 8{
-  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
-  index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7})
-
-let tupleToSeq (t0, t1, t2, t3, t4, t5, t6, t7) = 
-  let s = Lib.Sequence.create 8 (u64 0) in 
-  let s = upd s 0 t0 in 
-  let s = upd s 1 t1 in
-  let s = upd s 2 t2 in
-  let s = upd s 3 t3 in
-  let s = upd s 4 t4 in
-  let s = upd s 5 t5 in
-  let s = upd s 6 t6 in 
-  upd s 7 t7
-  
-
-val seqToTuple: s: lseq uint64 8 -> Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) 
-  {  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
-  index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7
-  })
-
-let seqToTuple s = 
-  let s0 = index s 0 in 
-  let s1 = index s 1 in 
-  let s2 = index s 2 in 
-  let s3 = index s 3 in 
-  let s4 = index s 4 in 
-  let s5 = index s 5 in 
-  let s6 = index s 6 in 
-  let s7 = index s 7 in 
-  (s0, s1, s2, s3, s4, s5, s6, s7)
 
 
 inline_for_extraction
@@ -417,27 +458,13 @@ let key_expansion_step_s (prev0, prev1, prev2, prev3, prev4, prev5, prev6, prev7
   let next6 = key_expand1_s prev6 next6 in 
   let next7 = key_expand1_s prev7 next7 in 
   (next0, next1, next2, next3, next4, next5, next6, next7)
-  
-(*
-inline_for_extraction
-val xor_block_s: st0: uint64 -> st1: uint64 -> st2: uint64 -> st3: uint64 -> st4: uint64 -> st5: uint64 -> st6: uint64 -> st7: uint64 -> ost0: uint64 -> ost1: uint64 -> ost2: uint64 -> ost3: uint64 -> ost4: uint64 -> ost5: uint64 -> ost6: uint64 -> ost7: uint64 ->
-Tot (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
 
-let xor_block_s st0 st1 st2 st3 st4 st5 st6 st7 ost0 ost1 ost2 ost3 ost4 ost5 ost6 ost7 = 
-  let st0 = st0 ^. ost0 in 
-  let st1 = st1 ^. ost1 in 
-  let st2 = st2 ^. ost2 in 
-  let st3 = st3 ^. ost3 in 
-  let st4 = st4 ^. ost4 in 
-  let st5 = st5 ^. ost5 in 
-  let st6 = st6 ^. ost6 in 
-  let st7 = st7 ^. ost7 in 
-  (st0, st1, st2, st3, st4, st5, st6, st7)
-*)
 
-assume val tuple8ToBlock4: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)  -> Hacl.Spec.AES.block4
-assume val seqToBlock4: s: lseq uint64 8 -> Hacl.Spec.AES.block4
-assume val lemmaSeqToTupleToBlock: a: lseq uint64 8 -> Lemma (tuple8ToBlock4 (seqToTuple a) == seqToBlock4 a)
+val key_expansion_step_as_seq: prev: state_seq -> next: state_seq -> state_seq
+
+let key_expansion_step_as_seq prev next = 
+  let (next0, next1, next2, next3, next4, next5, next6, next7) = key_expansion_step_s (seqToTuple prev) (seqToTuple next) in 
+  tupleToSeq ((next0, next1, next2, next3, next4, next5, next6, next7))
 
 
 inline_for_extraction
@@ -464,10 +491,31 @@ let  xor_state_s(st0, st1, st2, st3, st4, st5, st6, st7) (ost0, ost1, ost2, ost3
   (st0, st1, st2, st3, st4, st5, st6, st7)
 
 
+val xor_state_as_seq: st: state_seq -> ost: state_seq -> Tot (r: state_seq
+  {
+    Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.xor_block (Lib.ByteSequence.uints_to_bytes_le st) (Lib.ByteSequence.uints_to_bytes_le ost)
+  }
+)  
+    
+
+let xor_state_as_seq st ost = 
+  admit();
+  let (st0,st1,st2,st3,st4,st5,st6,st7) = xor_state_s (st.[0], st.[1], st.[2], st.[3],st.[4], st.[5], st.[6], st.[7])
+     (ost.[0], ost.[1], ost.[2], ost.[3], ost.[4], ost.[5], ost.[6], ost.[7])
+  in
+  let st = upd st 0 st0 in 
+  let st = upd st 1 st1 in   
+  let st = upd st 2 st2 in 
+  let st = upd st 3 st3 in 
+  let st = upd st 4 st4 in 
+  let st = upd st 5 st5 in 
+  let st = upd st 6 st6 in 
+  upd st 7 st7
+
+
 val aes_enc_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot (r: lseq uint64 8
     {
-      Lib.ByteSequence.uints_from_bytes_le r == Hacl.Spec.aes_enc (Lib.ByteSequence.uints_to_bytes_le state) (Lib.ByteSequence.uints_to_bytes_le key)
-      })
+      Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.aes_enc (Lib.ByteSequence.uints_to_bytes_le state) (Lib.ByteSequence.uints_to_bytes_le key)})
 
 
 let aes_enc_s state key =
@@ -479,5 +527,22 @@ let aes_enc_s state key =
    let  (st0,st1,st2,st3,st4,st5,st6,st7) = mix_col64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
    let  (st0,st1,st2,st3,st4,st5,st6,st7) = xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) in 
 
+   admit();
    tupleToSeq (st0,st1,st2,st3,st4,st5,st6,st7)
 
+
+val aes_enc_last_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot (r: lseq uint64 8
+    {
+      Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.aes_enc_last (Lib.ByteSequence.uints_to_bytes_le state) (Lib.ByteSequence.uints_to_bytes_le key)})
+
+
+let aes_enc_last_s state key =   
+  let (st0, st1, st2, st3, st4, st5, st6, st7) = seqToTuple state in 
+  let (k0, k1, k2, k3, k4, k5, k6, k7) = seqToTuple key in 
+
+  let  (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
+  let  (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st0,st1,st2,st3,st4,st5,st6,st7) in 
+  let  (st0,st1,st2,st3,st4,st5,st6,st7) = xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) in 
+  
+  admit();
+  tupleToSeq (st0,st1,st2,st3,st4,st5,st6,st7)

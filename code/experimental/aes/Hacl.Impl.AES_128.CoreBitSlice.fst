@@ -173,7 +173,7 @@ val xor_state_key1:
   -> ost: state ->
   Stack unit
   (requires (fun h -> live h st /\ live h ost))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 ost))))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 ost)) /\ as_seq h1 st == xor_state_as_seq (as_seq h0 st) (as_seq h0 ost)))
 
 let xor_state_key1 st ost =
   let (st0, st1, st2, st3, st4, st5, st6, st7) = 
@@ -255,7 +255,8 @@ val mix_columns_state:
   st: state ->
   Stack unit
   (requires (fun h -> live h st))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ seqToTuple (as_seq h1 st) == mix_col64x8 (seqToTuple (as_seq h0 st))))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ as_seq h1 st == mix_col64_as_seq (as_seq h0 st) /\ 
+   seqToTuple (as_seq h1 st) == mix_col64x8 (seqToTuple (as_seq h0 st))))
 
 let mix_columns_state st =
 let (st0, st1, st2, st3, st4, st5, st6, st7) = mix_col64x8 (st.(size 0), st.(size 1), st.(size 2), st.(size 3),
@@ -269,8 +270,6 @@ let (st0, st1, st2, st3, st4, st5, st6, st7) = mix_col64x8 (st.(size 0), st.(siz
   st.(size 5) <- st5;
   st.(size 6) <- st6;
   st.(size 7) <- st7
-
-#reset-options "--z3rlimit  100"
 
 val aes_enc:
     st: state
@@ -288,17 +287,23 @@ let aes_enc st key =
     let h1 = ST.get() in 
   assert(Seq.equal (as_seq h1 st) (aes_enc_s (as_seq h0 st) (as_seq h0 key)))
 
+
+#reset-options "--z3rlimit 100 --z3refresh"
+
 val aes_enc_last:
     st: state
   -> key: key1 ->
   Stack unit
-  (requires (fun h -> live h st /\ live h key))
-  (ensures (fun h0 _ h1 -> modifies1 st h0 h1))
+  (requires (fun h -> live h st /\ live h key /\ disjoint st key))
+  (ensures (fun h0 _ h1 -> modifies1 st h0 h1 /\ as_seq h1 st == aes_enc_last_s (as_seq h0 st) (as_seq h0 key)))
 
-let aes_enc_last st key =
+let aes_enc_last st key = 
+    let h0 = ST.get() in 
   sub_bytes_state st;
   shift_rows_state st;
-  xor_state_key1 st key
+  xor_state_key1 st key;
+    let h1 = ST.get() in 
+  assert(Seq.equal (as_seq h1 st) (aes_enc_last_s (as_seq h0 st) (as_seq h0 key)))
 
 
 let rcon : b:ilbuffer uint8 11ul =
@@ -310,22 +315,7 @@ let rcon : b:ilbuffer uint8 11ul =
   ] in
   assert_norm (List.Tot.length rcon_l == 11);
   createL_global rcon_l
-
-
-inline_for_extraction
-val aes_keygen_assisti: rcon:uint8 -> i:shiftval U8 -> u:uint64 -> Tot uint64
-let aes_keygen_assisti rcon i u =
-  (* 
-  let n = (u &. u64 0xf000f000f000f000) >>. size 12 in
-  let n = ((n >>. size 1) |. (n <<. size 3)) &. u64  0x000f000f000f000f in
-  let ri = to_u64 ((rcon >>. i) &. u8 1) in
-  let ri = ri ^. (ri <<. size 16) in
-  let ri = ri ^. (ri <<. size 32) in
-  let n = n ^. ri in
-  let n = n <<. size 12 in
-  n *)
-  aes_key_assisti_s rcon i u
-
+  
 
 val aes_keygen_assist:
     next: state
@@ -333,9 +323,10 @@ val aes_keygen_assist:
   -> rcon: uint8 ->
   Stack unit
   (requires (fun h -> live h next /\ live h prev /\ disjoint next prev))
-  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 /\ seqToTuple (as_seq h1 next) == aes_key_assist_s (seqToTuple (as_seq h0 prev)) rcon))
+  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 /\ seqToTuple (as_seq h1 next) == aes_key_assist_s (seqToTuple (as_seq h0 prev)) rcon  /\ as_seq h1 next == aes_key_assist_as_seq (as_seq h0 prev) rcon))
 
 let aes_keygen_assist next prev rcon =
+    let h0 = ST.get() in 
   let (next0, next1, next2, next3, next4, next5, next6, next7)  =  aes_key_assist_s (prev.(size 0), prev.(size 1), prev.(size 2), prev.(size 3), prev.(size 4), prev.(size 5), prev.(size 6), prev.(size 7)) rcon in 
   next.(size 0) <- next0;
   next.(size 1) <- next1;
@@ -344,22 +335,25 @@ let aes_keygen_assist next prev rcon =
   next.(size 4) <- next4;
   next.(size 5) <- next5;
   next.(size 6) <- next6;
-  next.(size 7) <- next7
+  next.(size 7) <- next7;
+    let h1 = ST.get() in 
+  assert(Lib.Sequence.equal (as_seq h1 next) (aes_key_assist_as_seq (as_seq h0 prev) rcon))
 
-
+(*
 inline_for_extraction
 let key_expand1 (p:uint64) (n:uint64) = key_expand1_s p n
-
+*)
 val key_expansion_step:
     next: state
   -> prev: state ->
   ST unit
-  (requires (fun h -> live h prev /\ live h next))
-  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 /\ seqToTuple (as_seq h1 next) == key_expansion_step_s (seqToTuple (as_seq h0 prev)) (seqToTuple (as_seq h0 next))
+  (requires (fun h -> live h prev /\ live h next /\ disjoint next prev))
+  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 /\ seqToTuple (as_seq h1 next) == key_expansion_step_s (seqToTuple (as_seq h0 prev)) (seqToTuple (as_seq h0 next)) /\ as_seq h1 next == key_expansion_step_as_seq (as_seq h0 prev) (as_seq h0 next)
   ))
 
 
 let key_expansion_step next prev =
+    let h0 = ST.get() in 
   let (next0, next1, next2, next3, next4, next5, next6, next7) = 
     key_expansion_step_s (prev.(size 0), prev.(size 1), prev.(size 2), prev.(size 3), prev.(size 4), prev.(size 5), prev.(size 6), prev.(size 7))  
     (next.(size 0), next.(size 1), next.(size 2), next.(size 3), next.(size 4), next.(size 5), next.(size 6), next.(size 7)) in 
@@ -370,4 +364,6 @@ let key_expansion_step next prev =
   next.(size 4) <- next4;
   next.(size 5) <- next5;
   next.(size 6) <- next6;
-  next.(size 7) <- next7
+  next.(size 7) <- next7;
+    let h1 = ST.get() in 
+    assert(Lib.Sequence.equal (as_seq h1 next) (key_expansion_step_as_seq (as_seq h0 prev) (as_seq h0 next)))

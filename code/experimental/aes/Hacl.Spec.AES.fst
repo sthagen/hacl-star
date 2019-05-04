@@ -156,9 +156,15 @@ let addRoundKey (key:block4) (state: block4) : Tot block4 =
   xor_block state key
 
 
-let aes_enc (key:block4) (state:block4) : Tot block4 =
+let aes_enc (state:block4) (key: block4) : Tot block4 =
   let state = subBytes state  in
   let state = shiftRows state in
   let state = mixColumns state in
+  let state = addRoundKey key state in
+  state
+
+let aes_enc_last (state: block4) (key: block4) : Tot block4 = 
+  let state = subBytes state  in
+  let state = shiftRows state in
   let state = addRoundKey key state in
   state
