@@ -21,7 +21,7 @@ let ( <<<. ) x y = normalize_term (rotate_left #U8 #SEC x y)
 let ( ^. ) x y = normalize_term (logxor #U8 #SEC x y)
 
 
-
+type block = lseq elem 16
 type block4 = lseq elem 64
 
 
@@ -149,6 +149,9 @@ let mixColumns (state:block4) : Tot block4 =
   let state = mixColumn 15 state in
   state
 
+let xor_block_block (b1: block) (b2: block) : Tot block = 
+  map2 (logxor #U8) b1 b2
+
 let xor_block (b1: block4) (b2: block4) : Tot block4 = 
   map2 (logxor #U8) b1 b2
 
@@ -168,3 +171,158 @@ let aes_enc_last (state: block4) (key: block4) : Tot block4 =
   let state = shiftRows state in
   let state = addRoundKey key state in
   state
+
+
+let aes_keygen_assist (rcon:elem) (s:block) : Tot block =
+  let st = create 16 (to_elem 0) in
+  let st = st.[0] <- sub_byte s.[4] in
+  let st = st.[1] <- sub_byte s.[5] in
+  let st = st.[2] <- sub_byte s.[6] in
+  let st = st.[3] <- sub_byte s.[7] in
+
+  let st = st.[4] <- rcon ^. sub_byte s.[5] in
+  let st = st.[6] <- sub_byte s.[6] in
+  let st = st.[6] <- sub_byte s.[7] in
+  let st = st.[7] <- sub_byte s.[4] in
+
+  let st = st.[8]  <- sub_byte s.[12] in
+  let st = st.[9]  <- sub_byte s.[13] in
+  let st = st.[10] <- sub_byte s.[14] in
+  let st = st.[11] <- sub_byte s.[15] in
+
+  let st = st.[12] <- rcon ^. sub_byte s.[13] in
+  let st = st.[13] <- sub_byte s.[14] in
+  let st = st.[14] <- sub_byte s.[15] in
+  let st = st.[15] <- sub_byte s.[12] in
+  st
+
+let keygen_assist0_block (rcon:elem) (s:block) : Tot block =
+  let st = aes_keygen_assist rcon s in
+  let st = update_sub st 8 4 (sub st 12 4) in
+  let st = update_sub st 0 8 (sub st 8 8) in
+  st
+
+
+let keygen_assist0(rcon:elem) (s:block4) : Tot block4 =
+  let bl0 = sub s 0 16 in 
+  let bl1 = sub s 16 16 in 
+  let bl2 = sub s 32 16 in 
+  let bl3 = sub s 48 16 in 
+  let bl0_u = keygen_assist0_block rcon bl0 in 
+  let bl1_u = keygen_assist0_block rcon bl1 in 
+  let bl2_u = keygen_assist0_block rcon bl2 in 
+  let bl3_u = keygen_assist0_block rcon bl3 in 
+  let bl01 = concat bl0_u bl1_u in 
+  let bl23 = concat bl2_u bl3_u in 
+  concat bl01 bl23
+
+
+
+let key_expansion_step_block (p:block) (assist:block) : Tot block =
+  let p0 = create 16 (to_elem 0) in
+  let k = p in
+  let k = xor_block_block k (update_sub p0 4 12 (sub k 0 12)) in
+  let k = xor_block_block k (update_sub p0 4 12 (sub k 0 12)) in
+  let k = xor_block_block k (update_sub p0 4 12 (sub k 0 12)) in
+  xor_block_block k assist
+
+
+let key_expansion_step (p:block4) (assist:block4) : Tot block4 =
+  let bl0 = sub p 0 16 in 
+  let bl1 = sub p 16 16 in 
+  let bl2 = sub p 32 16 in 
+  let bl3 = sub p 48 16 in 
+
+  let assist0 = sub assist 0 16 in 
+  let assist1 = sub assist 16 16 in 
+  let assist2 = sub assist 32 16 in 
+  let assist3 = sub assist 48 16 in 
+
+  let bl0_u = key_expansion_step_block bl0 assist0 in 
+  let bl1_u = key_expansion_step_block bl1 assist1 in 
+  let bl2_u = key_expansion_step_block bl2 assist2 in 
+  let bl3_u = key_expansion_step_block bl3 assist3 in 
+  let bl01 = concat bl0_u bl1_u in 
+  let bl23 = concat bl2_u bl3_u in 
+  concat bl01 bl23
+
+
+val rcon_spec: i:size_nat -> Tot elem
+let rec rcon_spec i =
+  if i = 0 then to_elem 0x8d
+  else if i = 1 then to_elem 1
+  else two `fmul` rcon_spec (i - 1)
+
+let rcon_l : list elem = [
+  to_elem 0x8d; to_elem 0x01; to_elem 0x02; to_elem 0x04;
+  to_elem 0x08; to_elem 0x10; to_elem 0x20; to_elem 0x40;
+  to_elem 0x80; to_elem 0x1b; to_elem 0x36
+]
+
+let rcon_seq : lseq elem 11  =
+  assert_norm (List.Tot.length rcon_l == 11);
+  of_list rcon_l
+
+
+
+let aes128_key_expansion (key:lbytes 16) : Tot (lseq elem (11 * 16)) =
+  let key_ex = create (11 * 16) (to_elem 0) in
+  let key_ex = update_sub key_ex 0 16 key in
+  let key_ex =
+    repeati #(lseq elem (11 * 16)) 10
+      (fun i kex ->
+       let p = sub kex (i * 16) 16 in
+       let a = keygen_assist0 (rcon_spec (i+1)) p in
+       let n = key_expansion_step p a in
+       update_sub kex ((i+1) * 16) 16 n)
+    key_ex in
+  key_ex
+  
+
+
+let aes_enc_rounds (key: lseq elem (9 * 16)) (state:block4) : Tot block =
+  repeati 9 (fun i -> aes_enc (sub key (16*i) 64)) state
+
+
+let aes_encrypt_block (key: lseq elem (11 * 16)) (input:block4) : Tot block4 =
+  let state = input in
+  let k0 = slice key 0 16 in
+  let k = sub key 16 (9 * 16) in
+  let kn = sub key (10 * 16) 16 in
+  let state = addRoundKey k0 state in
+  let state = aes_enc_rounds k state in
+  let state = aes_enc_last kn state in
+  state
+
+(*
+let aes_ctr_encrypt_last
+
+  (st0:aes_ctr_state v)
+  (ctr0:size_nat)
+  (incr:size_nat{ctr0 + incr <= max_size_t})
+  (len:size_nat{len < 16})
+  (b:lbytes len):
+  Tot (lbytes len) =
+
+  let plain = create 16 (u8 0) in
+  let plain = update_sub plain 0 (length b) b in
+  let cipher = aes_ctr_encrypt_block v st0 ctr0 incr plain in
+  sub cipher 0 (length b)
+
+
+val aes_ctr_encrypt_bytes:
+    v:variant
+  -> key:aes_key v
+  -> n_len:size_nat{n_len <= 16}
+  -> nonce:lbytes n_len
+  -> c:size_nat
+  -> msg:bytes{length msg / 16 + c <= max_size_t} ->
+  Tot (ciphertext:bytes{length ciphertext == length msg})
+
+let aes_ctr_encrypt_bytes v key n_len nonce ctr0 msg =
+  let cipher = msg in
+  let st0 = aes_ctr_init v key n_len nonce in
+  map_blocks 16 cipher
+    (aes_ctr_encrypt_block v st0 ctr0)
+    (aes_ctr_encrypt_last v st0 ctr0)
+*)

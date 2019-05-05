@@ -40,14 +40,18 @@ val copy_state:
 let copy_state next prev = copy next prev
 
 
+open Lib.LoopCombinators
+
+
 val load_block0:
-    out: state
-  -> inp: block ->
+    out: state -> inp: block ->
   ST unit
   (requires (fun h -> live h out /\ live h inp))
-  (ensures (fun h0 _ h1 -> modifies1 out h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 out h0 h1 /\ as_seq h1 out == load_block0_seq (as_seq h0 inp) (as_seq h0 out)))
 
-let load_block0 (out:state) (inp:block) =
+
+let load_block0 (out:state) (inp:block) = 
+
   let b1 = sub inp (size 0) (size 8) in
   let b2 = sub inp (size 8) (size 8) in
   let fst = uint_from_bytes_le #U64 b1 in
@@ -55,12 +59,17 @@ let load_block0 (out:state) (inp:block) =
   let fst = transpose_bits64 fst in
   let snd = transpose_bits64 snd in
   let h0 = ST.get() in
-  Lib.Buffer.loop_nospec #h0 (size 8) out
-    (fun i ->
+  [@inline_let]
+  let spec h = Hacl.Spec.AES_128.BitSlice.load_block0_inner fst snd in 
+  Lib.Buffer.loop1 #uint64 #(size 8) h0 (size 8) out spec  (fun i ->
       let sh = i *. (size 8) in
       let u = (fst >>. sh) &. u64 0xff in
       let u = u ^. (((snd >>. sh) &. u64 0xff) <<. size 8) in
-      out.(i) <- u)
+      out.(i) <- u;
+      admit()
+      );
+  let h1 = ST.get() in     
+  assert(as_seq h1 out == repeati 8 (spec h0) (as_seq h0 out))
 
 
 val transpose_state:
@@ -112,17 +121,21 @@ val load_key1:
   -> k: block ->
   Stack unit
   (requires (fun h -> live h out /\ live h k))
-  (ensures (fun h0 _ h1 -> modifies1 out h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 out h0 h1 /\ as_seq h1 out == load_key1_seq (as_seq h0 out) (as_seq h0 k)))
 
 let load_key1 (out:state) (k:block) =
   load_block0 out k;
   let h0 = ST.get() in
-  loop_nospec #h0 (size 8) out
+  [@inline_let]
+  let spec h = Hacl.Spec.AES_128.BitSlice.load_key1_inner in 
+  loop1 h0 (size 8) out spec 
     (fun i ->
       let u = out.(i) in
       let u = u ^. (u <<. size 16) in
       let u = u ^. (u <<. size 32) in
-      out.(i) <- u)
+      out.(i) <- u;
+      admit())
+    
 
 
 val load_nonce:
@@ -130,9 +143,10 @@ val load_nonce:
   -> nonce: lbuffer uint8 12ul ->
   Stack unit
   (requires (fun h -> live h out /\ live h nonce))
-  (ensures (fun h0 _ h1 -> modifies1 out h0 h1))
+  (ensures (fun h0 _ h1 -> modifies1 out h0 h1 /\ as_seq h1 out == load_nonce_seq (as_seq h0 out) (as_seq h0 nonce)))
 
 let load_nonce out nonce =
+admit();
   push_frame();
   let nb = create 16ul (u8 0) in
   copy (sub nb 0ul 12ul) nonce;
@@ -323,7 +337,7 @@ val aes_keygen_assist:
   -> rcon: uint8 ->
   Stack unit
   (requires (fun h -> live h next /\ live h prev /\ disjoint next prev))
-  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 /\ seqToTuple (as_seq h1 next) == aes_key_assist_s (seqToTuple (as_seq h0 prev)) rcon  /\ as_seq h1 next == aes_key_assist_as_seq (as_seq h0 prev) rcon))
+  (ensures (fun h0 _ h1 -> modifies1 next h0 h1 /\ seqToTuple (as_seq h1 next) == aes_key_assist_s (seqToTuple (as_seq h0 prev)) rcon  /\ as_seq h1 next == aes_key_assist_as_seq (as_seq h0 next) (as_seq h0 prev)  rcon))
 
 let aes_keygen_assist next prev rcon =
     let h0 = ST.get() in 
@@ -337,7 +351,7 @@ let aes_keygen_assist next prev rcon =
   next.(size 6) <- next6;
   next.(size 7) <- next7;
     let h1 = ST.get() in 
-  assert(Lib.Sequence.equal (as_seq h1 next) (aes_key_assist_as_seq (as_seq h0 prev) rcon))
+  assert(Lib.Sequence.equal (as_seq h1 next) (aes_key_assist_as_seq (as_seq h0 next) (as_seq h0 prev) rcon))
 
 (*
 inline_for_extraction

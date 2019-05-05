@@ -5,12 +5,11 @@ open FStar.HyperStack.All
 open Lib.IntTypes
 open Lib.Buffer
 open Hacl.Impl.AES_128.Core
-open Hacl.Spec.AES_128.BitSlice
 
 
 module ST = FStar.HyperStack.ST
 
-
+#set-options "--z3rlimit 100"
 
 (* TODO: AES-256. All the AES-256 functions below are untested and most likely wrong. *)
 
@@ -64,7 +63,7 @@ val create_ctx:
 
 let create_ctx (m:m_spec) = create (ctxlen m ) (elem_zero m)
 
-module S = Hacl.Spec.AES
+
 
 inline_for_extraction
 val add_round_key:
@@ -73,83 +72,9 @@ val add_round_key:
   -> key: key1 m ->
   ST unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key (* /\ (
-    match m with 
-      |M32 -> seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 key))
-      |_ -> True
-  )*)
-))      
-  
-let add_round_key #m st key = 
-    xor_state_key1 #m st key
+  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1))
 
-#reset-options "--z3rlimit  10 --z3refresh"
-
-(* unroll the next method n = 9 *)
-inline_for_extraction 
-val enc_rounds_unrolled: #m: m_spec -> st: state m -> key: keyr m -> ST unit 
-  (requires (fun h -> live h st /\ live h key /\ disjoint st key))
-  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1 /\ (
-    match m with 
-    |M32 -> as_seq h1 st == enc_round_as_seq (as_seq h0 st) (as_seq h0 key)
-    |MAES -> True)
-  )) 
-     
-
-let enc_rounds_unrolled #m st key = 
-    let h0 = ST.get() in 
-  let subkey0 = sub key (size 0) (klen m) in 
-  let subkey1 = sub key (klen m) (klen m) in 
-  let subkey2 = sub key ((size 2) *. klen m) (klen m) in 
-  let subkey3 = sub key ((size 3) *. klen m) (klen m) in 
-  let subkey4 = sub key ((size 4) *. klen m) (klen m) in 
-  let subkey5 = sub key ((size 5) *. klen m) (klen m) in 
-  let subkey6 = sub key ((size 6) *. klen m) (klen m) in 
-  let subkey7 = sub key ((size 7) *. klen m) (klen m) in 
-  let subkey8 = sub key ((size 8) *. klen m) (klen m) in 
-
-  aes_enc #m st subkey0;
-  aes_enc #m st subkey1;
-  aes_enc #m st subkey2;
-  aes_enc #m st subkey3;
-  aes_enc #m st subkey4;
-  aes_enc #m st subkey5;
-  aes_enc #m st subkey6;
-  aes_enc #m st subkey7;
-  aes_enc #m st subkey8
-
-
-val enc_rounds_unrolled_m:  st: state M32 -> key: keyr M32 -> ST unit 
-  (requires (fun h -> live h st /\ live h key /\ disjoint st key))
-  (ensures (fun h0 _ h1 ->live h1 st /\ live h1 key /\ modifies (loc st) h0 h1 /\ as_seq h1 st == 
-    enc_round_as_seq (as_seq h0 st) (as_seq h0 key)))
-    
-
-let enc_rounds_unrolled_m st key = 
-    let h0 = ST.get() in 
-  let subkey0 = sub key (size 0) (size 8) in 
-  let subkey1 = sub key (size 8) (size 8) in 
-  let subkey2 = sub key (size 16) (size 8)  in 
-  let subkey3 = sub key (size 24) (size 8)  in 
-  let subkey4 = sub key (size 32) (size 8) in 
-  let subkey5 = sub key (size 40) (size 8)  in 
-  let subkey6 = sub key (size 48) (size 8)  in 
-  let subkey7 = sub key (size 56) (size 8)  in 
-  let subkey8 = sub key (size 64) (size 8)  in 
- 
-  aes_enc #M32 st subkey0;
-  aes_enc #M32 st subkey1;
-  aes_enc #M32 st subkey2;
-  aes_enc #M32 st subkey3;
-  aes_enc #M32 st subkey4;
-  aes_enc #M32 st subkey5;
-  aes_enc #M32 st subkey6;
-  aes_enc #M32 st subkey7;
-  aes_enc #M32 st subkey8;
-    let h1 = ST.get() in 
-  admit() 
-
-
+let add_round_key #m st key = xor_state_key1 #m st key
 
 inline_for_extraction
 val enc_rounds:
@@ -158,14 +83,21 @@ val enc_rounds:
   -> key: keyr m
   -> n: size_t{v n <= 9} ->
   ST unit
-  (requires (fun h -> live h st /\ live h key /\ disjoint key st))
-  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1))
+  (requires (fun h -> live h st /\ live h key))
+  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1 /\ 
+    (match m with 
+    |M32 -> as_seq h1 st == Hacl.Spec.AES_128.BitSlice.enc_round_as_seq2 (as_seq h0 st) (as_seq h0 key) (uint_v n)
+    |MAES -> True)
+  ))
 
 let enc_rounds #m st key n =
-  let h0 = ST.get() in 
+  admit();
+  let h0 = ST.get() in
   loop_nospec #h0 n st
     (fun i -> let sub_key = sub key (i *. klen m) (klen m) in
            aes_enc #m st sub_key)
+
+#reset-options "--z3refresh --z3rlimit  100"
 
 
 inline_for_extraction
@@ -176,21 +108,40 @@ val block_cipher:
   -> n:size_t{v n == 10} ->
   ST unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1))
+  (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1 /\ 
+    (
+      match m with |MAES -> True
+      |M32 -> as_seq h1 st == Hacl.Spec.AES_128.BitSlice.block_cipher_as_seq (as_seq h0 st) (as_seq h0 key) (uint_v n)
+    )
+  
+  ))
 
 let block_cipher #m st key n =
+  admit();
   let inner_rounds = n -. size 1 in
   let klen = klen m in
   let k0 = sub key (size 0) klen in
   let kr = sub key klen (inner_rounds *. klen) in
   let kn = sub key (n *. klen) klen in
   add_round_key #m st k0;
-  (*enc_rounds #m st kr (n -. size 1);*)
-  enc_rounds_unrolled st kr;
+  enc_rounds #m st kr (n -. size 1);
   aes_enc_last #m st kn
-
+  
 
 #set-options "--admit_smt_queries true"
+
+
+let rcon : b:ilbuffer uint8 11ul =
+  [@ inline_let]
+  let rcon_l = [
+    u8(0x8d); u8(0x01); u8(0x02); u8(0x04);
+    u8(0x08); u8(0x10); u8(0x20); u8(0x40);
+    u8(0x80); u8(0x1b); u8(0x36)
+  ] in
+  assert_norm (List.Tot.length rcon_l == 11);
+  createL_global rcon_l
+
+
 
 inline_for_extraction
 val key_expansion128:
@@ -199,62 +150,27 @@ val key_expansion128:
   -> key:lbuffer uint8 16ul ->
   ST unit
   (requires (fun h -> live h keyx /\ live h key))
-  (ensures (fun h0 _ h1 -> live h1 keyx /\ live h1 key /\ modifies (loc keyx) h0 h1))
+  (ensures (fun h0 _ h1 -> live h1 keyx /\ live h1 key /\ modifies (loc keyx) h0 h1 /\ 
+    (match m with
+    |M32 -> as_seq h1 keyx == Hacl.Spec.AES_128.BitSlice.key_expansion128_as_seq (as_seq h0 keyx) (as_seq h0 key)
+    |MAES -> True
+    )
+    ))
 
 [@ CInline ]
 let key_expansion128 #m keyx key =
   let klen = klen m in
   load_key1 (sub keyx (size 0) klen) key;
   let h0 = ST.get() in
-  (* I WOULD LIKE TO HAVE A LOOP HERE BUT AES_KEYGEN_ASSIST INSISTS ON AN IMMEDIATE RCON *)
-  (* MAYBE WE SHOULD UNROLL ONLY THIS LOOP *)
-  (* loop_nospec #h0 (size 10) keyx
-   (fun i ->
-     let prev = sub keyx i (size 1) in
-     let next = sub keyx (i +. size 1) (size 1) in
-     aes_keygen_assist next rcon.(i +. size 1);
+  [@inline_let]
+  let spec h = Hacl.Spec.AES_128.BitSlice.key_expansion128_inner in 
+  loop1 h0 (size 10) keyx spec
+    (fun i ->
+     let prev = sub keyx (klen *. i) klen in
+     let next = sub keyx (klen *. (i +. size 1)) klen in
+     let rcon_ = index rcon (i +. size 1) in 
+     aes_keygen_assist next prev rcon_;
      key_expansion_step #m next prev)
-  *)
-  let prev = sub keyx (size 0) klen in
-  let next = sub keyx klen klen in
-  aes_keygen_assist #m next prev (u8 0x01);
-  key_expansion_step #m next prev;
-  let prev = sub keyx klen klen in
-  let next = sub keyx (size 2 *. klen) klen in
-  aes_keygen_assist #m next prev (u8 0x02);
-  key_expansion_step #m next prev;
-  let prev = sub keyx (klen *. size 2) (klen) in
-  let next = sub keyx (klen *. size 3) (klen) in
-  aes_keygen_assist #m next prev (u8 0x04);
-  key_expansion_step #m next prev;
-  let prev = sub keyx (klen *. size 3) (klen) in
-  let next = sub keyx (klen *. size 4) (klen) in
-  aes_keygen_assist #m next prev (u8 0x08);
-  key_expansion_step #m next prev;
-  let prev = sub keyx (klen *. size 4) (klen) in
-  let next = sub keyx (klen *. size 5) (klen) in
-  aes_keygen_assist #m next prev (u8 0x10);
-  key_expansion_step #m next prev;
-  let prev = sub keyx (klen *. size 5) (klen) in
-  let next = sub keyx (klen *. size 6) (klen) in
-  aes_keygen_assist #m next prev (u8 0x20);
-  key_expansion_step #m next prev;
-  let prev = sub keyx (klen *. size 6) (klen) in
-  let next = sub keyx (klen *. size 7) (klen) in
-  aes_keygen_assist #m next prev (u8 0x40);
-  key_expansion_step #m next prev;
-  let prev = sub keyx (klen *. size 7) (klen) in
-  let next = sub keyx (klen *. size 8) (klen) in
-  aes_keygen_assist #m next prev (u8 0x80);
-  key_expansion_step #m next prev;
-  let prev = sub keyx (klen *. size 8) (klen) in
-  let next = sub keyx (klen *. size 9) (klen) in
-  aes_keygen_assist #m next prev (u8 0x1b);
-  key_expansion_step #m next prev;
-  let prev = sub keyx (klen *. size 9) (klen) in
-  let next = sub keyx (klen *. size 10) (klen) in
-  aes_keygen_assist #m next prev (u8 0x36);
-  key_expansion_step #m next prev
 
 
 inline_for_extraction

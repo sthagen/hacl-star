@@ -233,11 +233,13 @@ let keygen_assist0 (rcon:elem) (s:block) : Tot block =
   let st = update_sub st 0 8 (sub st 8 8) in
   st
 
+(*)
 let keygen_assist1 (s:block) : Tot block =
   let st = aes_keygen_assist zero s in
   let st = update_sub st 12 4 (sub st 8 4) in
   let st = update_sub st 0 8 (sub st 8 8) in
   st
+*)
 
 let key_expansion_step (p:block) (assist:block) : Tot block =
   let p0 = create 16 (to_elem 0) in
@@ -260,6 +262,7 @@ let aes128_key_expansion (key:lbytes 16) : Tot (lseq elem (11 * 16)) =
     key_ex in
   key_ex
 
+(*)
 let aes256_key_expansion (key:lbytes 32) : Tot (lseq elem (15 * 16)) =
   let key_ex = create (15 * 16) (to_elem 0) in
   let key_ex = update_sub key_ex 0 32 key in
@@ -280,12 +283,14 @@ let aes256_key_expansion (key:lbytes 32) : Tot (lseq elem (15 * 16)) =
   let a14 = keygen_assist0 (rcon_spec 7) p1 in
   let n14 = key_expansion_step p0 a14 in
   update_sub key_ex (14 * 16) 16 n14
+*)
 
 let aes_key_expansion (v:variant) (key: aes_key v) : aes_xkey v =
   match v with
   | AES128 -> aes128_key_expansion key
   | AES256 -> aes256_key_expansion key
 
+(*)
 let aes_dec_key_expansion (v:variant) (key:aes_key v): aes_xkey v =
   let ekey_ex : aes_xkey v = aes_key_expansion v key in
   let k0 = sub ekey_ex 0 16 in
@@ -299,6 +304,8 @@ let aes_dec_key_expansion (v:variant) (key:aes_key v): aes_xkey v =
 		    (),inv_mixColumns b
 		  else (),b) () in
   key_ex
+*)
+
 
 let aes_enc_rounds (v:variant) (key:aes_ikey v) (state:block) : Tot block =
   repeati (num_rounds v-1) (fun i -> aes_enc (sub key (16*i) 16)) state

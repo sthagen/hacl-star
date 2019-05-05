@@ -127,14 +127,7 @@ val xor_state_key1:
   -> key: key1 m ->
   Stack unit
   (requires (fun h -> live h st /\ live h key))
-  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1 /\
-    (
-      match m with 
-      |M32 -> seqToTuple (as_seq h1 st) == xor_state_s (seqToTuple (as_seq h0 st)) (seqToTuple (as_seq h0 key)) /\
-	seqToBlock4 (as_seq h1 st) == Hacl.Spec.AES.xor_block (seqToBlock4 (as_seq h0 st)) (seqToBlock4(as_seq h0 key))
-      |MAES -> True
-	     
-  )))
+  (ensures  (fun h0 _ h1 -> modifies1 st h0 h1))
 
 inline_for_extraction
 val xor_block:

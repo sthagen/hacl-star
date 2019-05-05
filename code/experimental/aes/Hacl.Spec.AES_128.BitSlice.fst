@@ -1,9 +1,6 @@
 module Hacl.Spec.AES_128.BitSlice
 
 open Lib.IntTypes
-
-
-
 open Lib.Sequence
 
 val tupleToSeq: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) ->Tot (s: Seq.lseq uint64 8{
@@ -22,10 +19,11 @@ let tupleToSeq (t0, t1, t2, t3, t4, t5, t6, t7) =
   upd s 7 t7
   
 
-val seqToTuple: s: lseq uint64 8 -> Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) 
-  {  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
-  index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7
-  })
+val seqToTuple: s: lseq uint64 8 -> Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) {  
+  let (t0, t1, t2, t3, t4, t5, t6, t7) = t in 
+  index #_ #8 s 0   == t0 /\index #_ #8 s 1  == t1 /\ index #_ #8 s 2  == t2 /\ index #_ #8 s 3 == t3 /\ 
+  index #_ #8 s 4 == t4 /\ index #_ #8 s 5 == t5 /\ index #_ #8 s 6 == t6 /\ index #_ #8 s 7 == t7 }
+)
 
 let seqToTuple s = 
   let s0 = index s 0 in 
@@ -38,13 +36,15 @@ let seqToTuple s =
   let s7 = index s 7 in 
   (s0, s1, s2, s3, s4, s5, s6, s7)
 
-assume val tuple8ToBlock4: t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)  -> Hacl.Spec.AES.block4
-assume val seqToBlock4: s: lseq uint64 8 -> Hacl.Spec.AES.block4
-assume val lemmaSeqToTupleToBlock: a: lseq uint64 8 -> Lemma (tuple8ToBlock4 (seqToTuple a) == seqToBlock4 a)
 
+type state_seq = lseq uint64 8
+type block_seq = lseq uint8 16 
+type key1_seq = lseq uint64 8
+type nonce_seq = lseq uint64 8
 
+type keyex_seq = lseq uint64 120
 
-
+assume val stateToGFBytes: st: state_seq -> Hacl.Spec.AES.block4
 
 
 
@@ -275,14 +275,10 @@ let sub_bytes64x8 (st0, st1, st2, st3, st4, st5, st6, st7) =
   (st0,st1,st2,st3,st4,st5,st6,st7)
 
 
-type state_seq = lseq uint64 8
-
-
 val sub_bytes_state_as_seq: st: state_seq -> Tot (r: state_seq {
-  Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.subBytes (Lib.ByteSequence.uints_to_bytes_le st)})
+  stateToGFBytes r == Hacl.Spec.AES.subBytes (stateToGFBytes st)})
 
 let sub_bytes_state_as_seq st =
-  admit();
    let (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st.[0], st.[1], st.[2], st.[3],st.[4], st.[5], st.[6], st.[7])
   in
   let st = upd st 0 st0 in 
@@ -292,6 +288,7 @@ let sub_bytes_state_as_seq st =
   let st = upd st 4 st4 in 
   let st = upd st 5 st5 in 
   let st = upd st 6 st6 in 
+  admit();
   upd st 7 st7
 
 
@@ -322,10 +319,7 @@ let shift_row_state_s (st0, st1, st2, st3, st4, st5, st6, st7) =
   
 
 val shift_row_state_as_seq:  st: state_seq -> (r: state_seq 
-  {
-    Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.shiftRows (Lib.ByteSequence.uints_to_bytes_le st)
-  }
- )
+  {stateToGFBytes r == Hacl.Spec.AES.shiftRows (stateToGFBytes st)})
 
 let shift_row_state_as_seq st = 
   admit();
@@ -383,9 +377,11 @@ let mix_col64x8 (st0, st1, st2, st3, st4, st5, st6, st7) =
   (st0, st1, st2, st3, st4, st5, st6, st7)
 
 
-val mix_col64_as_seq: st: state_seq -> state_seq 
+val mix_col64_as_seq: st: state_seq -> Tot (r: state_seq
+  {stateToGFBytes r == Hacl.Spec.AES.mixColumns (stateToGFBytes st)})
 
 let mix_col64_as_seq st = 
+  admit();
   let (st0, st1, st2, st3, st4, st5, st6, st7) =  mix_col64x8 (st.[0], st.[1], st.[2], st.[3],st.[4], st.[5], st.[6], st.[7])  in
   let st = upd st 0 st0 in 
   let st = upd st 1 st1 in   
@@ -398,7 +394,7 @@ let mix_col64_as_seq st =
 
 
 
-val aes_key_assisti_s: rcon: uint8 -> i: shiftval U8 -> u: uint64 -> Tot uint64 
+val aes_key_assisti_s: rcon: uint8 -> i: shiftval U8 -> u: uint64 -> Tot uint64  
 
 let aes_key_assisti_s rcon i u = 
   let n = (u &. u64 0xf000f000f000f000) >>. size 12 in
@@ -426,12 +422,13 @@ let aes_key_assist_s (prev0, prev1, prev2, prev3, prev4, prev5, prev6, prev7) rc
   (next0, next1, next2, next3, next4, next5, next6, next7)
   
 
-val aes_key_assist_as_seq: prev: state_seq -> rcon : uint8 -> state_seq 
+val aes_key_assist_as_seq: next: state_seq -> prev: state_seq -> rcon : uint8 -> (r: state_seq)
 
-let aes_key_assist_as_seq prev rcon = 
+let aes_key_assist_as_seq next prev rcon = 
+  admit();
   let (next0, next1, next2, next3, next4, next5, next6, next7)  =  
     aes_key_assist_s (prev.[0], prev.[1], prev.[2], prev.[3], prev.[4], prev.[5], prev.[6], prev.[7]) rcon in 
-  tupleToSeq ((next0, next1, next2, next3, next4, next5, next6, next7)) 
+  tupleToSeq ((next0, next1, next2, next3, next4, next5, next6, next7))
 
 
 inline_for_extraction
@@ -460,23 +457,99 @@ let key_expansion_step_s (prev0, prev1, prev2, prev3, prev4, prev5, prev6, prev7
   (next0, next1, next2, next3, next4, next5, next6, next7)
 
 
-val key_expansion_step_as_seq: prev: state_seq -> next: state_seq -> state_seq
+val key_expansion_step_as_seq: prev: state_seq -> next: state_seq ->
+  (t: state_seq)
 
 let key_expansion_step_as_seq prev next = 
   let (next0, next1, next2, next3, next4, next5, next6, next7) = key_expansion_step_s (seqToTuple prev) (seqToTuple next) in 
   tupleToSeq ((next0, next1, next2, next3, next4, next5, next6, next7))
 
 
+
+
+let rcon : b:lseq uint8 11 =
+  [@ inline_let]
+  let rcon_l = [
+    u8(0x8d); u8(0x01); u8(0x02); u8(0x04);
+    u8(0x08); u8(0x10); u8(0x20); u8(0x40);
+    u8(0x80); u8(0x1b); u8(0x36)
+  ] in
+  assert_norm (List.Tot.length rcon_l == 11);
+  createL rcon_l
+
+
+val load_block0_inner: fst: uint64 ->  snd: uint64 ->  i: size_nat {i < 8} -> out: state_seq -> Tot state_seq
+
+let load_block0_inner fst snd i out = 
+  let open FStar.Mul in 
+    let sh = size (i * 8) in 
+    let u = (fst >>. sh) &.u64 0xff in 
+    let u = u ^. (((snd >>. sh) &. u64 0xff) <<. size 8) in 
+    out.[i] <- u
+
+
+val load_block0_seq: input: block_seq -> output:state_seq -> state_seq
+
+let load_block0_seq input output = 
+  let open FStar.Mul in 
+  let b1 = sub input 0 8 in 
+  let b2 = sub input 8 8 in 
+  let fst = Lib.ByteSequence.uint_from_bytes_le b1 in 
+  let snd = Lib.ByteSequence.uint_from_bytes_le b2 in 
+  let fst = transpose_bits64 fst in 
+  let snd = transpose_bits64 snd in 
+  Lib.LoopCombinators.repeati 8 (load_block0_inner fst snd) output
+    
+
+val load_key1_inner: i: size_nat {i < 8} -> out: state_seq -> Tot state_seq
+
+let load_key1_inner i out = 
+  let u = out.[i] in
+  let u = u ^. (u <<. size 16) in
+  let u = u ^. (u <<. size 32) in
+  out.[i] <- u
+
+val load_key1_seq: out: key1_seq ->  k: block_seq  -> Tot (out: key1_seq)
+
+let load_key1_seq out k = 
+  let out = load_block0_seq k out in 
+  Lib.LoopCombinators.repeati 8 (load_key1_inner) out
+
+
+val load_nonce_seq: out: nonce_seq -> nonce: lseq uint8 12 -> Tot (nonce_seq)
+
+let load_nonce_seq out nonce = 
+  let nb = create 16 (u8 0) in 
+  let nb = update_sub nb 0 12 nonce in 
+  load_key1_seq out nb
+
+
+
+val key_expansion128_inner: i: size_nat { i < 10} -> keyx: keyex_seq -> Tot keyex_seq
+
+let key_expansion128_inner i keyx = 
+  let open FStar.Mul in 
+   let prev = sub keyx (8 * i) 8 in
+   let next = sub keyx (8 * (i + 1)) 8 in
+   let rcon_ = index rcon (i +  1) in 
+   let next = aes_key_assist_as_seq next prev rcon_ in 
+   let next = key_expansion_step_as_seq next prev in 
+   update_sub keyx (8 * (i + 1)) 8 next
+
+
+(* corresponds to aes_128_key_expansion *)
+val key_expansion128_as_seq: keyx: lseq uint64 120 -> key: lseq uint8 16 -> lseq uint64 120
+
+let key_expansion128_as_seq keyx key = 
+  let klen = 8 in 
+  let k = load_key1_seq (sub keyx 0 klen) key in 
+  Lib.LoopCombinators.repeati 10 key_expansion128_inner keyx
+
+
+
 inline_for_extraction
 val xor_state_s: st: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) -> ost: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64) -> 
-Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64)
-  {
-    let st0 = tuple8ToBlock4 t in 
-    let ost0 = tuple8ToBlock4 t in 
-    let t0 = tuple8ToBlock4 t in 
-    t0 == Hacl.Spec.AES.xor_block st0 ost0
-  }
-)
+Tot (t: (uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64 * uint64))
 
 let  xor_state_s(st0, st1, st2, st3, st4, st5, st6, st7) (ost0, ost1, ost2, ost3, ost4, ost5, ost6, ost7) = 
   let st0 = st0 ^. ost0 in 
@@ -491,9 +564,16 @@ let  xor_state_s(st0, st1, st2, st3, st4, st5, st6, st7) (ost0, ost1, ost2, ost3
   (st0, st1, st2, st3, st4, st5, st6, st7)
 
 
+
+
+
+
+
+
+
 val xor_state_as_seq: st: state_seq -> ost: state_seq -> Tot (r: state_seq
-  {
-    Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.xor_block (Lib.ByteSequence.uints_to_bytes_le st) (Lib.ByteSequence.uints_to_bytes_le ost)
+  { 
+    stateToGFBytes r ==  Hacl.Spec.AES.xor_block (stateToGFBytes st) (stateToGFBytes ost)
   }
 )  
     
@@ -512,41 +592,32 @@ let xor_state_as_seq st ost =
   let st = upd st 6 st6 in 
   upd st 7 st7
 
+#reset-options "--z3rlimit  100 --z3refresh"
 
-
-val aes_enc_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot (r: lseq uint64 8
+val aes_enc_s: state: state_seq -> key: lseq uint64 8 -> Tot (r: lseq uint64 8
     {
-      Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.aes_enc (Lib.ByteSequence.uints_to_bytes_le state) (Lib.ByteSequence.uints_to_bytes_le key)
-    })
+      stateToGFBytes r == Hacl.Spec.AES.aes_enc (stateToGFBytes state) (stateToGFBytes key)
+    }
+)
 
 
 let aes_enc_s state key =
-  let (st0, st1, st2, st3, st4, st5, st6, st7) = seqToTuple state in 
-  let (k0, k1, k2, k3, k4, k5, k6, k7) = seqToTuple key in 
-
-   let  (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
-   let  (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st0,st1,st2,st3,st4,st5,st6,st7) in 
-   let  (st0,st1,st2,st3,st4,st5,st6,st7) = mix_col64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
-   let  (st0,st1,st2,st3,st4,st5,st6,st7) = xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) in 
-
-   admit();
-   tupleToSeq (st0,st1,st2,st3,st4,st5,st6,st7)
+  let state1 = sub_bytes_state_as_seq state in 
+  let state2 = shift_row_state_as_seq state1 in 
+  let state3 = mix_col64_as_seq state2 in 
+  xor_state_as_seq state3 key
 
 
 val aes_enc_last_s: state: lseq uint64 8 -> key: lseq uint64 8 -> Tot (r: lseq uint64 8
     {
-      Lib.ByteSequence.uints_to_bytes_le r == Hacl.Spec.AES.aes_enc_last (Lib.ByteSequence.uints_to_bytes_le state) (Lib.ByteSequence.uints_to_bytes_le key)})
+      stateToGFBytes r == Hacl.Spec.AES.aes_enc_last (stateToGFBytes state) (stateToGFBytes key)
+    }
+)
 
 let aes_enc_last_s state key =   
-  let (st0, st1, st2, st3, st4, st5, st6, st7) = seqToTuple state in 
-  let (k0, k1, k2, k3, k4, k5, k6, k7) = seqToTuple key in 
-
-  let  (st0,st1,st2,st3,st4,st5,st6,st7) = sub_bytes64x8 (st0,st1,st2,st3,st4,st5,st6,st7) in 
-  let  (st0,st1,st2,st3,st4,st5,st6,st7) = shift_row_state_s (st0,st1,st2,st3,st4,st5,st6,st7) in 
-  let  (st0,st1,st2,st3,st4,st5,st6,st7) = xor_state_s (st0,st1,st2,st3,st4,st5,st6,st7) (k0, k1, k2, k3, k4, k5, k6, k7) in 
-  
-  admit();
-  tupleToSeq (st0,st1,st2,st3,st4,st5,st6,st7)
+  let state1 = sub_bytes_state_as_seq state in 
+  let state2 = shift_row_state_as_seq state1 in 
+  xor_state_as_seq state2 key
 
 
 val enc_round_as_seq: st: state_seq -> key: lseq uint64 72 -> state_seq
@@ -571,4 +642,50 @@ let enc_round_as_seq st key =
   let st = aes_enc_s st k6 in 
   let st = aes_enc_s st k7 in 
   aes_enc_s st k8 
-    
+
+
+
+val enc_round_as_seq2: st: state_seq -> key: lseq uint64 72  -> n: size_nat {n <= 9} -> state_seq
+
+let enc_round_as_seq2 st key n =
+  let open FStar.Mul in 
+   Lib.LoopCombinators.repeati n (fun i bl -> 
+   let sub_key = Lib.Sequence.sub key (i * 8) 8 in aes_enc_s bl sub_key) st
+
+
+val block_cipher_as_seq: st: state_seq -> key: lseq uint64 120 -> n: size_nat{n == 10} -> state_seq
+
+let block_cipher_as_seq st key n = 
+  let open FStar.Mul in 
+  let inner_rounds = n - 1 in 
+  let klen = 8 in 
+  let k0 = sub key 0 klen in 
+  let kr = sub key klen (inner_rounds * klen)  in 
+  let kn = sub key (n * klen) klen in 
+  
+  let st = xor_state_as_seq st k0 in 
+  let st = enc_round_as_seq2 st kr (n - 1) in 
+  let st = aes_enc_last_s st kn in 
+  st
+
+
+(*
+val aes128_init: ctx: aes_ctx_seq -> key: skey_seq -> nonce : lseq uint8 12 -> aes_ctx_seq
+
+val aes128_set_nonce: ctx: aes_ctx_seq -> aes_ctx_seq
+
+val aes128_encrypt_block: ctx: aes_ctx_seq -> ib: lseq uint8 16 -> lseq uint8 16
+
+val aes128_key_block_seq: kb: lseq uint8 16 -> ctx: aes_ctx_seq -> counter : size_nat -> lseq uint8 16
+
+val aes_update4_seq: input : lseq uint8 len -> ctx: aes_ctx_seq -> counter : size_nat -> rounds: size_nat -> Tot (lseq uint8 len)
+
+assume val aes_ctr_seq: len: size_nat -> input: lseq uint8 len -> ctx: aes_ctx_seq -> counter: size_nat -> rounds: size_nat -> 
+  Tot (output : lseq uint8 len)
+
+let aes128_ctr_encrypt_seq in_len input k n c = 
+  let ctx = create_ctx () in 
+  let ctx = aes128_init_seq ctx k n in 
+  aes_ctr_seq in_len input ctx c 10
+  
+*)
