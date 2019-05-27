@@ -60,8 +60,8 @@ let skey_lenght (v: variant) =
 
 
 (* ??? *)
-unfold let ctxlen (m:m_spec) =  nlen m +. (15ul *. klen m)
-
+unfold let ctxlen (m:m_spec) (v: variant) =  nlen m +. (keyex_size v *. klen m)
+ 
 
 unfold type keyr (m: m_spec) (v: variant) = lbuffer (stelem m) (keyr_size v *. klen m)
 unfold type keyex (m: m_spec) (v: variant) = lbuffer (stelem m) (keyex_size v *. klen m)
@@ -69,42 +69,43 @@ unfold type key_t (m: m_spec) (v: variant) = lbuffer uint8 (key_size v)
 
 unfold type nonce_t = lbuffer uint8 12ul
 
-unfold type aes_ctx (m:m_spec) = lbuffer (stelem m) (ctxlen m)
+unfold type aes_ctx (m:m_spec) (v: variant) = lbuffer (stelem m) (ctxlen m v)
 
 
 inline_for_extraction
 val get_nonce: 
     #m: m_spec
-  -> ctx: aes_ctx m ->
+  -> #v: variant   
+  -> ctx: aes_ctx m v ->
   Stack (lbuffer (stelem m) (nlen m))
   (requires (fun h -> live h ctx))
   (ensures (fun h0 x h1 -> h0 == h1 /\ live h1 x /\ x == gsub ctx 0ul (nlen m)))
 
 inline_for_extraction
-let get_nonce (#m:m_spec) (ctx:aes_ctx m) = sub ctx (size 0) (nlen m)
+let get_nonce #m #v ctx = sub ctx (size 0) (nlen m)
 
 
 inline_for_extraction
 val get_kex:
-    #m: m_spec
-  -> v: variant  
-  -> ctx: aes_ctx m ->
+    #m: m_spec  
+  -> #v: variant  
+  -> ctx: aes_ctx m v ->
   Stack (keyex m v)
   (requires (fun h -> live h ctx))
   (ensures (fun h0 x h1 -> h0 == h1 /\ live h1 x /\ x == gsub ctx (nlen m ) ((keyex_size v) *. klen m)))
 
 inline_for_extraction
-let get_kex #m v ctx = sub ctx (nlen m) ((keyex_size v) *. klen m)
+let get_kex #m #v ctx = sub ctx (nlen m) ((keyex_size v) *. klen m)
 
 
 inline_for_extraction
-val create_ctx:
-  m: m_spec ->
-  StackInline (aes_ctx m)
+val create_ctx: m: m_spec ->
+  v: variant ->
+  StackInline (aes_ctx m v)
   (requires (fun h -> True))
   (ensures (fun h0 f h1 -> live h1 f))
 
-let create_ctx (m:m_spec) = create (ctxlen m ) (elem_zero m)
+let create_ctx m v = create (ctxlen m v) (elem_zero m)
 
 
 inline_for_extraction
@@ -121,7 +122,7 @@ let add_round_key #m st key = xor_state_key1 #m st key
 inline_for_extraction
 val enc_rounds: 
     #m: m_spec
-  -> var: variant   
+  -> #var: variant   
   -> st: state m
   -> key: keyr m var 
   -> n: size_t{v n <= uint_v (nr var) - 1 } ->
@@ -129,7 +130,7 @@ val enc_rounds:
   (requires (fun h -> live h st /\ live h key))
   (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1))
 
-let enc_rounds #m v st key n =
+let enc_rounds #m #v st key n =
   let h0 = ST.get() in
   loop_nospec #h0 n st
     (fun i -> let sub_key = sub key (i *. klen m) (klen m) in
@@ -142,14 +143,14 @@ let enc_rounds #m v st key n =
 inline_for_extraction
 val block_cipher:
     #m: m_spec
-  -> var: variant  
+  -> #var: variant  
   -> st: state m
   -> key: keyex m var ->
   ST unit
   (requires (fun h -> live h st /\ live h key))
   (ensures (fun h0 _ h1 -> live h1 st /\ live h1 key /\ modifies (loc st) h0 h1))
 
-let block_cipher #m var st key =
+let block_cipher #m #var st key =
   let n = nr var in 
   let inner_rounds = n -. size 1 in
   let klen = klen m in
@@ -157,7 +158,7 @@ let block_cipher #m var st key =
   let kr = sub key klen (inner_rounds *. klen) in
   let kn = sub key (n *. klen) klen in
   add_round_key #m st k0;
-  enc_rounds #m var st kr (n -. size 1);
+  enc_rounds #m #var st kr (n -. size 1);
   aes_enc_last #m st kn
   
 
@@ -276,14 +277,14 @@ let key_expansion256 #m keyx key =
 inline_for_extraction
 val key_expansion:
     #m: m_spec
-  -> v: variant   
+  -> #v: variant   
   -> keyx: keyex m v
   -> key: key_t m v ->
   ST unit
   (requires (fun h -> live h keyx /\ live h key))
   (ensures (fun h0 _ h1 -> live h1 keyx /\ live h1 key /\ modifies (loc keyx) h0 h1))
 
-let key_expansion #m v keyx key = 
+let key_expansion #m #v keyx key = 
   match v with 
   |AES128 -> key_expansion128 keyx key
   |AES256 -> key_expansion256 keyx key
@@ -293,8 +294,8 @@ let key_expansion #m v keyx key =
 
 inline_for_extraction
 val aes128_init_:
-    #m: m_spec   
-  -> ctx: aes_ctx m
+    #m: m_spec  
+  -> ctx: aes_ctx m AES128
   -> key: key_t m AES128 
   -> nonce: nonce_t ->
   ST unit
@@ -304,15 +305,15 @@ val aes128_init_:
 #set-options "--max_fuel 0 --max_ifuel 1 --z3rlimit 20"
 
 let aes128_init_ #m ctx key nonce =
-  let kex = get_kex AES128 ctx in
+  let kex = get_kex ctx in
   let n = get_nonce ctx in
-  key_expansion #m AES128 kex key;
-  load_nonce #m n nonce
+  key_expansion kex key;
+  load_nonce  n nonce
 
 
 (* PATTERN FOR AVOIDING INLINING *)
 val aes128_init_bitslice:
-  ctx: aes_ctx M32
+  ctx: aes_ctx  M32 AES128
   -> key: key_t M32 AES128 
   -> nonce: nonce_t ->
   ST unit
@@ -325,7 +326,7 @@ let aes128_init_bitslice ctx key nonce = aes128_init_ #M32 ctx key nonce
 [@ CInline]
 inline_for_extraction
 val aes128_init_ni:
-    ctx: aes_ctx MAES
+    ctx: aes_ctx MAES AES128
   -> key: key_t MAES AES128
   -> nonce: nonce_t ->
   ST unit
