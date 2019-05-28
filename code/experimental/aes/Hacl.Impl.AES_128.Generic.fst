@@ -65,7 +65,7 @@ unfold let ctxlen (m:m_spec) (v: variant) =  nlen m +. (keyex_size v *. klen m)
 
 unfold type keyr (m: m_spec) (v: variant) = lbuffer (stelem m) (keyr_size v *. klen m)
 unfold type keyex (m: m_spec) (v: variant) = lbuffer (stelem m) (keyex_size v *. klen m)
-unfold type key_t (m: m_spec) (v: variant) = lbuffer uint8 (key_size v)
+unfold type skey (m: m_spec) (v: variant) = lbuffer uint8 (key_size v)
 
 unfold type nonce_t = lbuffer uint8 12ul
 
@@ -181,7 +181,7 @@ inline_for_extraction
 val key_expansion128:
     #m: m_spec
   -> keyx: keyex m AES128 
-  -> key:key_t m AES128 ->
+  -> key:skey m AES128 ->
   ST unit
   (requires (fun h -> live h keyx /\ live h key))
   (ensures (fun h0 _ h1 -> live h1 keyx /\ live h1 key /\ modifies (loc keyx) h0 h1))
@@ -206,7 +206,7 @@ inline_for_extraction
 val key_expansion256:
     #m: m_spec
   -> keyx: keyex m AES256
-  -> key: key_t m AES256 ->
+  -> key: skey m AES256 ->
   ST unit
   (requires (fun h -> live h keyx /\ live h key))
   (ensures (fun h0 _ h1 -> live h1 keyx /\ live h1 key /\ modifies (loc keyx) h0 h1))
@@ -279,7 +279,7 @@ val key_expansion:
     #m: m_spec
   -> #v: variant   
   -> keyx: keyex m v
-  -> key: key_t m v ->
+  -> key: skey m v ->
   ST unit
   (requires (fun h -> live h keyx /\ live h key))
   (ensures (fun h0 _ h1 -> live h1 keyx /\ live h1 key /\ modifies (loc keyx) h0 h1))
@@ -297,7 +297,7 @@ val aes_init_:
     #m: m_spec  
   -> #v: variant   
   -> ctx: aes_ctx m v
-  -> key: key_t m v 
+  -> key: skey m v 
   -> nonce: nonce_t ->
   ST unit
   (requires (fun h -> live h ctx /\ live h nonce /\ live h key))
@@ -315,7 +315,7 @@ let aes_init_ #m #v ctx key nonce =
 (* PATTERN FOR AVOIDING INLINING *)
 val aes128_init_bitslice:
   ctx: aes_ctx  M32 AES128
-  -> key: key_t M32 AES128 
+  -> key: skey M32 AES128 
   -> nonce: nonce_t ->
   ST unit
   (requires (fun h -> live h ctx /\ live h nonce /\ live h key))
@@ -328,7 +328,7 @@ let aes128_init_bitslice ctx key nonce = aes_init_ #M32 #AES128 ctx key nonce
 inline_for_extraction
 val aes128_init_ni:
     ctx: aes_ctx MAES AES128
-  -> key: key_t MAES AES128
+  -> key: skey MAES AES128
   -> nonce: nonce_t ->
   ST unit
   (requires (fun h -> live h ctx /\ live h nonce /\ live h key))
@@ -336,13 +336,31 @@ val aes128_init_ni:
 
 let aes128_init_ni ctx key nonce = aes_init_ #MAES #AES128 ctx key nonce
 
+(* change?  *)
+inline_for_extraction
+val aes128_init:
+    #m :m_spec
+  -> ctx: aes_ctx m AES128
+  -> key: skey m AES128
+  -> nonce: nonce_t ->
+  ST unit
+  (requires (fun h -> live h ctx /\ live h nonce /\ live h key))
+  (ensures (fun h0 b h1 -> modifies (loc ctx) h0 h1))
+
+let aes128_init #m  ctx key nonce =
+    match m with
+    | M32 -> aes128_init_bitslice ctx key nonce
+    | MAES -> aes128_init_ni ctx key nonce
+    
+
+
 
 inline_for_extraction
 val aes_init:
     #m :m_spec
   -> #v: variant 
   -> ctx: aes_ctx m v
-  -> key: key_t m v
+  -> key: skey m v
   -> nonce: nonce_t ->
   ST unit
   (requires (fun h -> live h ctx /\ live h nonce /\ live h key))
@@ -351,10 +369,7 @@ val aes_init:
 let aes_init #m #v ctx key nonce =
   match v with 
   |AES256 -> aes_init_ ctx key nonce
-  |AES128 -> 
-    match m with
-    | M32 -> aes128_init_bitslice ctx key nonce
-    | MAES -> aes128_init_ni ctx key nonce
+  |AES128 -> aes128_init ctx key nonce
     
 
 
@@ -372,6 +387,7 @@ let aes128_set_nonce #m ctx nonce =
   load_nonce #m n nonce
 *)
 
+inline_for_extraction
 val aes_set_nonce: 
   #m: m_spec 
   -> #v: variant 
@@ -383,7 +399,7 @@ val aes_set_nonce:
 
 let aes_set_nonce #m #v ctx nonce = 
   let n = get_nonce ctx in 
-  load_nonce n nonce
+  load_nonce #m n nonce
 
 
 (*
@@ -408,7 +424,7 @@ let aes128_encrypt_block #m ob ctx ib =
   pop_frame()
 *)
 
-
+inline_for_extraction
 val aes_encrypt_block:
     #m: m_spec
   -> #v: variant   
@@ -588,10 +604,14 @@ let aes_ctr #m #v len out inp ctx counter  =
 inline_for_extraction
 let aes_ctr_encrypt (#m: m_spec) (#v: variant) in_len out inp k n c = 
   push_frame();
-  let ctx = create_ctx m in  
+  let ctx = create_ctx m v in  
   aes_init #m #v ctx k n;
   aes_ctr #m #v in_len out inp ctx c;
   pop_frame()
+
+inline_for_extraction 
+let aes_ctr_decrypt  (#m: m_spec) (#v: variant) in_len out inp k n c = 
+  aes_ctr_encrypt #m #v in_len out inp k n c
 
 inline_for_extraction
 let aes128_ctr_encrypt (#m: m_spec) in_len out inp k n c = 

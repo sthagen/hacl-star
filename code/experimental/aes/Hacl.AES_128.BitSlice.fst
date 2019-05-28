@@ -11,26 +11,27 @@ open Hacl.Impl.AES_128.Generic
 
 
 
-let state = state M32
-let key1 = key1 M32
-let keyr = keyr M32
-let keyex = keyex M32
+let state = state M32 
+let key1 = key1 M32 
+let keyr = keyr M32 AES128
+let keyex = keyex M32 AES128
+let aes_ctx = aes_ctx M32 AES128
 
-let aes_ctx_len = 128ul
-let aes_ctx = lbuffer uint64 aes_ctx_len
+(*let aes_ctx_len = 128ul
+let aes_ctx = lbuffer uint64 aes_ctx_len*)
 
 
 [@ CInline ]
 val aes128_init:
     ctx: aes_ctx
-  -> key: skey
+  -> key: skey M32 AES128
   -> nonce: lbuffer uint8 12ul ->
   Stack unit
   (requires (fun h -> live h ctx /\ live h nonce /\ live h key))
   (ensures (fun h0 _ h1 -> modifies1 ctx h0 h1))
 
 [@ CInline ]
-let aes128_init ctx key nonce = aes128_init #M32 ctx key nonce
+let aes128_init ctx key nonce = aes_init #M32 #AES128 ctx key nonce
 
 
 [@ CInline ]
@@ -42,7 +43,7 @@ val aes128_set_nonce:
   (ensures  (fun h0 _ h1 -> modifies1 ctx h0 h1))
 
 [@ CInline ]
-let aes128_set_nonce ctx nonce = aes128_set_nonce #M32 ctx nonce
+let aes128_set_nonce ctx nonce = aes_set_nonce #M32 #AES128 ctx nonce
 
 
 [@ CInline ]
@@ -55,9 +56,10 @@ val aes128_key_block:
   (ensures  (fun h0 _ h1 -> modifies1 kb h0 h1))
 
 [@ CInline ]
-let aes128_key_block kb ctx counter = aes128_key_block #M32 kb ctx counter
+let aes128_key_block kb ctx counter = aes_key_block #M32 #AES128 kb ctx counter
 
 
+[@ CInline]
 inline_for_extraction
 val aes128_update4:
     out: lbuffer uint8 64ul
@@ -68,7 +70,7 @@ val aes128_update4:
   (requires (fun h -> live h out /\ live h inp /\ live h ctx))
   (ensures  (fun h0 _ h1 -> modifies1 out h0 h1))
 
-let aes128_update4 out inp ctx ctr = aes_update4 #M32 out inp ctx ctr 10ul
+let aes128_update4 out inp ctx ctr = aes_update4 #M32 #AES128 out inp ctx ctr 
 
 
 [@ CInline ]
@@ -83,12 +85,10 @@ val aes128_ctr:
   (ensures  (fun h0 _ h1 -> modifies1 out h0 h1))
 
 [@ CInline ]
-let aes128_ctr len out inp ctx counter = aes_ctr #M32 len out inp ctx counter 10ul
-
-
-[@ CInline ]
-let aes128_ctr_encrypt len out inp k n c = aes128_ctr_encrypt #M32 len out inp k n c
-
+let aes128_ctr len out inp ctx counter = aes_ctr #M32 #AES128 len out inp ctx counter
 
 [@ CInline ]
-let aes128_ctr_decrypt len out inp k n c = aes128_ctr_decrypt #M32 len out inp k n c
+let aes128_ctr_encrypt len out inp k n c = aes_ctr_encrypt #M32 #AES128  len out inp k n c
+
+[@ CInline ]
+let aes128_ctr_decrypt len out inp k n c = aes_ctr_decrypt #M32 #AES128 len out inp k n c

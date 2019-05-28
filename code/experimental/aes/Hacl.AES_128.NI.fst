@@ -13,32 +13,32 @@ module ST = FStar.HyperStack.ST
 
 let state = state MAES
 let key1 = key1 MAES
-let keyr = keyr MAES
-let keyex = keyex MAES
-let aes_ctx = aes_ctx MAES
+let keyr = keyr MAES AES128
+let keyex = keyex MAES AES128
+let aes_ctx = aes_ctx MAES AES128
 
 
 [@ CInline ]
 val create_ctx: unit ->
-  StackInline aes_ctx
+  StackInline  aes_ctx
   (requires (fun h -> True))
   (ensures  (fun h0 f h1 -> live h1 f))
 
 [@ CInline ]
-let create_ctx () = create_ctx MAES
+let create_ctx () = create_ctx 
 
 
 [@ CInline ]
 val aes128_init:
     ctx: aes_ctx
-  -> key: skey
+  -> key: skey MAES AES128
   -> nonce: lbuffer uint8 12ul ->
   Stack unit
   (requires (fun h -> live h ctx /\ live h nonce /\ live h key))
   (ensures  (fun h0 _ h1 -> modifies1 ctx h0 h1))
 
 [@ CInline ]
-let aes128_init ctx key nonce = aes128_init #MAES ctx key nonce
+let aes128_init ctx key nonce = aes_init #MAES #AES128 ctx key nonce
 
 
 [@ CInline ]
@@ -50,7 +50,7 @@ val aes128_set_nonce:
   (ensures  (fun h0 _ h1 -> modifies1 ctx h0 h1))
 
 [@ CInline ]
-let aes128_set_nonce ctx nonce = aes128_set_nonce #MAES ctx nonce
+let aes128_set_nonce ctx nonce = aes_set_nonce #MAES #AES128 ctx nonce
 
 
 [@ CInline ]
@@ -63,7 +63,7 @@ val aes128_key_block:
   (ensures  (fun h0 _ h1 -> modifies1 kb h0 h1))
 
 [@ CInline ]
-let aes128_key_block kb ctx counter = aes128_key_block #MAES kb ctx counter
+let aes128_key_block kb ctx counter = aes_key_block #MAES #AES128 kb ctx counter
 
 
 inline_for_extraction
@@ -76,7 +76,7 @@ val aes128_update4:
   (requires (fun h -> live h out /\ live h inp /\ live h ctx))
   (ensures  (fun h0 _ h1 -> modifies1 out h0 h1))
 
-let aes128_update4 out inp ctx ctr = aes_update4 #MAES out inp ctx ctr 10ul
+let aes128_update4 out inp ctx ctr = aes_update4 #MAES #AES128 out inp ctx ctr
 
 
 [@ CInline ]
@@ -91,12 +91,12 @@ val aes128_ctr:
   (ensures  (fun h0 _ h1 -> modifies1 out h0 h1))
 
 [@ CInline ]
-let aes128_ctr len out inp ctx counter  = aes_ctr #MAES len out inp ctx counter 10ul
+let aes128_ctr len out inp ctx counter  = aes_ctr #MAES #AES128 len out inp ctx counter
 
 
 [@ CInline ]
-let aes128_ctr_encrypt len out inp k n c = aes128_ctr_encrypt #MAES len out inp k n c
+let aes128_ctr_encrypt len out inp k n c = aes_ctr_encrypt #MAES #AES128 len out inp k n c
 
 
 [@ CInline ]
-let aes128_ctr_decrypt len out inp k n c = aes128_ctr_decrypt #MAES len out inp k n c
+let aes128_ctr_decrypt len out inp k n c = aes_ctr_decrypt #MAES #AES128 len out inp k n c
