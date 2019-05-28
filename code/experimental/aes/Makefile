@@ -27,14 +27,13 @@ AES_BS_FILES= $(HACL_HOME)/lib/Lib.IntTypes.fst \
 	Hacl.Impl.AES_128.Generic.fst \
 	Hacl.AES_128.BitSlice.fst
 
-AES_256_BS_FILES= $(HACL_HOME)/lib/fst/Lib.IntTypes.fst \
-	$(HACL_HOME)/lib/fst/Lib.RawIntTypes.fst \
-	$(HACL_HOME)/lib/fst/Lib.Buffer.fst \
-	$(HACL_HOME)/lib/fst/Lib.ByteBuffer.fst \
-	$(HACL_HOME)/lib/fst/Lib.Loops.fst \
+AES_256_BS_FILES= $(HACL_HOME)/lib/Lib.IntTypes.fst \
+	$(HACL_HOME)/lib/Lib.RawIntTypes.fst \
+	$(HACL_HOME)/lib/Lib.Buffer.fst \
+	$(HACL_HOME)/lib/Lib.ByteBuffer.fst \
+	$(HACL_HOME)/lib/Lib.Loops.fst \
 	Hacl.Impl.AES_128.CoreBitSlice.fst \
 	Hacl.Impl.AES_128.Core.fst \
-	Hacl.Impl.AES_256.Generic.fst  \
 	Hacl.AES_256.BitSlice.fst
 
 AES_NI_FILES= $(HACL_HOME)/lib/Lib.IntTypes.fst \

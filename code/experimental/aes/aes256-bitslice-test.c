@@ -57,7 +57,7 @@ int main() {
 
   uint64_t ctx[(uint32_t)8U + (uint32_t)15U * (uint32_t)8U] = {0};
 
-  Hacl_AES_256_BitSlice_aes256_encrypt_block_bitsliced(comp,k,in);
+  Hacl_AES_256_BitSlice_aes256_encrypt_block(comp,k,in);
 
   printf("AES-BitSlice computed:");
   for (int i = 0; i < 16; i++)

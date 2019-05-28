@@ -402,28 +402,6 @@ let aes_set_nonce #m #v ctx nonce =
   load_nonce #m n nonce
 
 
-(*
-inline_for_extraction
-val aes128_encrypt_block:
-    #m: m_spec
-  -> ob: lbuffer uint8 16ul
-  -> ctx: aes_ctx m AES128
-  -> ib: lbuffer uint8 16ul ->
-  ST unit
-  (requires (fun h -> live h ob /\ live h ctx /\ live h ib))
-  (ensures (fun h0 _ h1 -> modifies (loc ob) h0 h1))
-
-let aes128_encrypt_block #m ob ctx ib =
-  push_frame();
-  let kex = get_kex ctx in
-  let n = get_nonce ctx in
-  let st = create_state #m in
-  load_block0 st ib;
-  block_cipher st kex;
-  store_block0 ob st;
-  pop_frame()
-*)
-
 inline_for_extraction
 val aes_encrypt_block:
     #m: m_spec
@@ -436,7 +414,7 @@ val aes_encrypt_block:
   (ensures (fun h0 _ h1 -> modifies (loc ob) h0 h1))
 
 let aes_encrypt_block #m #v ob ctx ib =
-  push_frame();
+  push_frame(); 
   let kex = get_kex ctx in
   let n = get_nonce ctx in
   let st = create_state #m in
