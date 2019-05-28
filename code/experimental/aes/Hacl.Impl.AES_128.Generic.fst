@@ -409,7 +409,27 @@ let aes128_encrypt_block #m ob ctx ib =
 *)
 
 
+val aes_encrypt_block:
+    #m: m_spec
+  -> #v: variant   
+  -> ob: lbuffer uint8 16ul
+  -> ctx: aes_ctx m v
+  -> ib: lbuffer uint8 16ul ->
+  ST unit
+  (requires (fun h -> live h ob /\ live h ctx /\ live h ib))
+  (ensures (fun h0 _ h1 -> modifies (loc ob) h0 h1))
 
+let aes_encrypt_block #m #v ob ctx ib =
+  push_frame();
+  let kex = get_kex ctx in
+  let n = get_nonce ctx in
+  let st = create_state #m in
+  load_block0 st ib;
+  block_cipher st kex;
+  store_block0 ob st;
+  pop_frame()
+
+(*
 inline_for_extraction
 val aes128_key_block:
     #m: m_spec
@@ -429,6 +449,29 @@ let aes128_key_block #m kb ctx counter =
   block_cipher  st kex;
   store_block0  kb st;
   pop_frame()
+*)
+
+inline_for_extraction
+val aes_key_block:
+    #m: m_spec
+  -> #v: variant   
+  -> kb: lbuffer uint8 16ul
+  -> ctx: aes_ctx m v
+  -> counter: size_t ->
+  ST unit
+  (requires (fun h -> live h kb /\ live h ctx))
+  (ensures (fun h0 _ h1 -> modifies (loc kb) h0 h1))
+
+let aes_key_block #m #v kb ctx counter =
+  push_frame();
+  let kex = get_kex  ctx in
+  let n = get_nonce ctx in
+  let st = create_state #m in
+  load_state #m st n counter;
+  block_cipher  st kex;
+  store_block0  kb st;
+  pop_frame()
+
 
 
 inline_for_extraction
@@ -542,19 +585,17 @@ let aes_ctr #m #v len out inp ctx counter  =
 (* END PATTERN *)
 
 
-
-
 inline_for_extraction
 let aes_ctr_encrypt (#m: m_spec) (#v: variant) in_len out inp k n c = 
   push_frame();
   let ctx = create_ctx m in  
-  aes_init ctx k n;
-  aes_ctr in_len out inp ctx c;
+  aes_init #m #v ctx k n;
+  aes_ctr #m #v in_len out inp ctx c;
   pop_frame()
 
 inline_for_extraction
 let aes128_ctr_encrypt (#m: m_spec) in_len out inp k n c = 
-  aes_ctr_encrypt #m AES128 in_len out inp k n c
+  aes_ctr_encrypt #m #AES128 in_len out inp k n c
 
 inline_for_extraction
 let aes128_ctr_decrypt (#m: m_spec) in_len out inp k n c = 
@@ -563,7 +604,7 @@ let aes128_ctr_decrypt (#m: m_spec) in_len out inp k n c =
 
 inline_for_extraction
 let aes256_ctr_encrypt (#m: m_spec) in_len out inp k n c = 
-  aes_ctr_encrypt #m AES256 in_len out inp k n c
+  aes_ctr_encrypt #m #AES256 in_len out inp k n c
 
 inline_for_extraction
 let aes256_ctr_decrypt (#m: m_spec) in_len out inp k n c = 
