@@ -3,8 +3,6 @@ module MerkleTree.New.High.Correct.Path
 open EverCrypt
 open EverCrypt.Helpers
 
-open MerkleTree.Spec
-open MerkleTree.New.High
 open MerkleTree.New.High.Correct.Base
 // Need to use some facts of `mt_get_root`
 open MerkleTree.New.High.Correct.Rhs
@@ -23,6 +21,7 @@ type uint8_t = U8.t
 
 module EHS = EverCrypt.Hash
 module MTS = MerkleTree.Spec
+module MTH = MerkleTree.New.High
 
 #reset-options "--z3rlimit 20" // default for this file
 
