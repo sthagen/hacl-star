@@ -7,7 +7,6 @@ open FStar.Seq
 module S = FStar.Seq
 
 module MTS = MerkleTree.Spec
-
 open MerkleTree.New.High
 open MerkleTree.New.High.Correct.Base
 

@@ -247,7 +247,7 @@ let mt_create hsz f init =
 
 /// Getting the Merkle root and path
 
-type path (#hsz:pos) = S.seq (hash #hsz)
+type merkle_path (#hsz:pos) = S.seq (hash #hsz)
 
 // Construct the rightmost hashes for a given (incomplete) Merkle tree.
 // This function calculates the Merkle root as well, which is the final
@@ -375,7 +375,7 @@ val mt_get_root_rhs_ok_false:
                    (MT (MT?.i mt) (MT?.j mt) (MT?.hs mt) true nrhs rt (MT?.tag_fun mt), rt)))
 let mt_get_root_rhs_ok_false #_ _ _ = ()
 
-val path_insert: (#hsz:pos) -> p:path #hsz -> hp:hash #hsz -> GTot (path #hsz)
+val path_insert: (#hsz:pos) -> p:merkle_path #hsz -> hp:hash #hsz -> GTot (merkle_path #hsz)
 let path_insert #_ p hp = S.snoc p hp
 
 val mt_path_length_step:
@@ -404,9 +404,9 @@ val mt_get_path_step:
     j <> 0 /\ i <= j /\ j < pow2 (32 - lv) /\
     hs_wf_elts lv hs i j} ->
   k:nat{i <= k && k <= j} ->
-  p:path #hsz ->
+  p:merkle_path #hsz ->
   actd:bool ->
-  GTot (path #hsz)
+  GTot (merkle_path #hsz)
 let mt_get_path_step #hsz lv hs rhs i j k p actd =
   let ofs = offset_of i in
   if k % 2 = 1
@@ -430,9 +430,9 @@ val mt_get_path_:
     i <= j /\ j < pow2 (32 - lv) /\
     hs_wf_elts lv hs i j} ->
   k:nat{i <= k && k <= j} ->
-  p:path #hsz ->
+  p:merkle_path #hsz ->
   actd:bool ->
-  GTot (np:path #hsz {S.length np = S.length p + mt_path_length k j actd})
+  GTot (np:merkle_path #hsz {S.length np = S.length p + mt_path_length k j actd})
        (decreases (32 - lv))
 let rec mt_get_path_ #hsz lv hs rhs i j k p actd =
   let ofs = offset_of i in
@@ -452,7 +452,7 @@ val mt_get_path_unchanged:
     i <= j /\ j < pow2 (32 - lv) /\
     hs_wf_elts #hsz lv hs i j} ->
   k:nat{i <= k && k <= j} ->
-  p:path #hsz ->
+  p:merkle_path #hsz ->
   actd:bool ->
   Lemma (requires True)
         (ensures S.equal p (S.slice (mt_get_path_ lv hs rhs i j k p actd)
@@ -479,7 +479,7 @@ val mt_get_path_pull:
     i <= j /\ j < pow2 (32 - lv) /\
     hs_wf_elts lv hs i j} ->
   k:nat{i <= k && k <= j} ->
-  p:path #hsz ->
+  p:merkle_path #hsz ->
   actd:bool ->
   Lemma (requires True)
         (ensures  S.equal (mt_get_path_ lv hs rhs i j k p actd)
@@ -507,7 +507,7 @@ val mt_get_path_slice:
     i <= j /\ j < pow2 (32 - lv) /\
     hs_wf_elts lv hs i j} ->
   k:nat{i <= k && k <= j} ->
-  p:path #hsz ->
+  p:merkle_path #hsz ->
   actd:bool ->
   Lemma (requires True)
         (ensures  S.equal (S.slice (mt_get_path_ lv hs rhs i j k p actd)
@@ -523,7 +523,7 @@ val mt_get_path:
   idx:nat{MT?.i mt <= idx /\ idx < MT?.j mt} ->
   drt:hash #hsz ->
   GTot (nat *
-       (np:path #hsz {S.length np = 1 + mt_path_length idx (MT?.j mt) false}) *
+       (np:merkle_path #hsz {S.length np = 1 + mt_path_length idx (MT?.j mt) false}) *
        hash #hsz)
 let mt_get_path #hsz mt idx drt =
   let (umt, root) = mt_get_root mt drt in
@@ -650,7 +650,7 @@ val mt_verify_:
   #hsz:pos -> #f:MTS.tag_fun_t #hsz ->
   k:nat ->
   j:nat{k <= j} ->
-  p:path #hsz ->
+  p:merkle_path #hsz ->
   ppos:nat ->
   acc:hash #hsz ->
   actd:bool{ppos + mt_path_length k j actd <= S.length p} ->
@@ -670,7 +670,7 @@ val mt_verify:
   #hsz:pos -> #f:MTS.tag_fun_t #hsz ->
   k:nat ->
   j:nat{k < j} ->
-  p:path #hsz {S.length p = 1 + mt_path_length k j false} ->
+  p:merkle_path #hsz {S.length p = 1 + mt_path_length k j false} ->
   rt:hash #hsz ->
   GTot prop
 let mt_verify #_ #f k j p rt =
