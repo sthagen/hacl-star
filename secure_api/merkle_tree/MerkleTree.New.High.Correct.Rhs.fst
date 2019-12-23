@@ -214,8 +214,7 @@ let rec rhs_equiv_inv_preserved #_ #f j smt rhs1 rhs2 actd =
       (S.tail rhs1) (S.tail rhs2) true
   end
 
-#push-options "--z3rlimit 750 --initial_fuel 1 --max_fuel 1 --max_ifuel 1"
-
+#push-options "--z3rlimit 1000 --initial_fuel 2 --max_fuel 2 --initial_ifuel 1 --max_ifuel 1"
 val construct_rhs_acc_consistent:
   #hsz:pos -> #f:MTS.hash_fun_t #hsz ->
   lv:nat{lv <= 32} ->
