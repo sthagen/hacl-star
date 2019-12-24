@@ -16,6 +16,8 @@ module P = Spec.Curve25519
 module S = Hacl.Spec.Curve25519.Field64.Definition
 module SC = Hacl.Spec.Curve25519.Field64
 
+module Meta = Meta.Attribute
+
 /// This module defines the core functions for which we will want to swap out
 /// implementations. They are marked as assume val's since we strictly have more
 /// than one implementation per index value.
