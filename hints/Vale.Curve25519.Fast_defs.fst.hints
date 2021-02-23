@@ -8,7 +8,7 @@
       0,
       [ "@query" ],
       0,
-      "73f645cc815ab7993bf3c6fbf655df5c"
+      "ae05e4301158c8a78ca7fe5ae790fdf7"
     ],
     [
       "Vale.Curve25519.Fast_defs.uu___1",
@@ -17,7 +17,7 @@
       0,
       [ "@query" ],
       0,
-      "1a571f30430b2aa59fcf286f6848f714"
+      "a2ba6c331e179425e7e512a162770d77"
     ],
     [
       "Vale.Curve25519.Fast_defs.uu___2",
@@ -26,7 +26,7 @@
       0,
       [ "@query" ],
       0,
-      "5b75343c48897c2f6b28d265da4464c2"
+      "771db9ffd5bb90aa52a4902cc9ebff6e"
     ],
     [
       "Vale.Curve25519.Fast_defs.uu___3",
@@ -35,7 +35,7 @@
       0,
       [ "@query" ],
       0,
-      "cbdce3153fa8a8d8b0a919a534385a9a"
+      "e56eb06e00a37d89cf7a290c27df996c"
     ],
     [
       "Vale.Curve25519.Fast_defs.uu___4",
@@ -44,7 +44,7 @@
       0,
       [ "@query" ],
       0,
-      "cecf65cffafe2846441dfae1da90a8a1"
+      "b6a40b23711c19bb734e0c9221cce8a0"
     ],
     [
       "Vale.Curve25519.Fast_defs.uu___5",
@@ -53,7 +53,7 @@
       0,
       [ "@query" ],
       0,
-      "5a11705b97b2fd4e87688391a5d58d48"
+      "389db0a442a03487e3caf46481859a52"
     ],
     [
       "Vale.Curve25519.Fast_defs.pow2_two",
@@ -66,7 +66,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "03d8ed4dc2509cd8cebe48be5ae7b3de"
+      "c4037755e80b4d2f7b597185e4dfeee1"
     ],
     [
       "Vale.Curve25519.Fast_defs.pow2_three",
@@ -81,7 +81,7 @@
         "typing_Vale.Curve25519.Fast_defs.pow2_two"
       ],
       0,
-      "9e2f397dd078b920e32f32eb3352868e"
+      "ab80dc69bca275247be15d391a00e315"
     ],
     [
       "Vale.Curve25519.Fast_defs.pow2_four",
@@ -96,7 +96,7 @@
         "typing_Vale.Curve25519.Fast_defs.pow2_three"
       ],
       0,
-      "8f3f2ee04a21cb324abcf724eede1345"
+      "e9f5bac05364ee82878fed476f72a024"
     ],
     [
       "Vale.Curve25519.Fast_defs.pow2_five",
@@ -111,7 +111,7 @@
         "typing_Vale.Curve25519.Fast_defs.pow2_four"
       ],
       0,
-      "b5156f4a4a67a0b546522eab920a1fce"
+      "af5d9b6d4c03fd5e0bd46a05a987d35a"
     ],
     [
       "Vale.Curve25519.Fast_defs.pow2_six",
@@ -126,7 +126,7 @@
         "typing_Vale.Curve25519.Fast_defs.pow2_five"
       ],
       0,
-      "55d7085cb4727a84fe4136bd9e56af86"
+      "b9a57e1d172966699b4f27bbe78aa0e4"
     ],
     [
       "Vale.Curve25519.Fast_defs.pow2_seven",
@@ -141,7 +141,7 @@
         "typing_Vale.Curve25519.Fast_defs.pow2_six"
       ],
       0,
-      "b86984205af44a951fa55f42e60bb61b"
+      "daf557faccc23ece067d9d4ed09ddede"
     ],
     [
       "Vale.Curve25519.Fast_defs.pow2_eight",
@@ -156,7 +156,7 @@
         "typing_Vale.Curve25519.Fast_defs.pow2_seven"
       ],
       0,
-      "f0b08f643afd902178bf9919673952d8"
+      "53c20a69b4dbb6f5c6ebda6eda0c038c"
     ],
     [
       "Vale.Curve25519.Fast_defs.pow2_nine",
@@ -171,7 +171,7 @@
         "typing_Vale.Curve25519.Fast_defs.pow2_eight"
       ],
       0,
-      "aa5a4475328ceec0711c9e46b40c2b2b"
+      "73a8470132c3357164c0aecddd8d50d4"
     ],
     [
       "Vale.Curve25519.Fast_defs.mul_nats",
@@ -184,7 +184,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "9ab8999669f206f329469c954128bb3f"
+      "b609418dd089ad6fd46af434a1ff49c6"
     ],
     [
       "Vale.Curve25519.Fast_defs.add_carry",
@@ -203,211 +203,7 @@
         "refinement_interpretation_Tm_refine_b51b45ce195a33a465eab411d92fdae9"
       ],
       0,
-      "c1617f3e202e4f24926d62506d1ab0d3"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.uu___0",
-      2,
-      1,
-      0,
-      [ "@query" ],
-      0,
-      "90d6d2d7c322121164d01b8f42163814"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.uu___1",
-      2,
-      1,
-      0,
-      [ "@query" ],
-      0,
-      "f7de6cb073c66186865705af89032c1f"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.uu___2",
-      2,
-      1,
-      0,
-      [ "@query" ],
-      0,
-      "7fc8630c8e01ab85135165512fabbb0a"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.uu___3",
-      2,
-      1,
-      0,
-      [ "@query" ],
-      0,
-      "2a91ef077ff09f0a96088a943a7afa12"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.uu___4",
-      2,
-      1,
-      0,
-      [ "@query" ],
-      0,
-      "d6a3fccacc94b2c9dc93d4db60c083f8"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.uu___5",
-      2,
-      1,
-      0,
-      [ "@query" ],
-      0,
-      "8acea6e7e5d1d4938565740ceebad819"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.pow2_two",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
-      ],
-      0,
-      "7dc1c721af1313494d241f7b14424aea"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.pow2_three",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "equation_Vale.Curve25519.Fast_defs.pow2_two",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
-        "typing_Vale.Curve25519.Fast_defs.pow2_two"
-      ],
-      0,
-      "2987ee512e7c2520c00903a88012f945"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.pow2_four",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "equation_Vale.Curve25519.Fast_defs.pow2_three",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
-        "typing_Vale.Curve25519.Fast_defs.pow2_three"
-      ],
-      0,
-      "86c62d0b20acf0a952eb9f86ad26a966"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.pow2_five",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "equation_Vale.Curve25519.Fast_defs.pow2_four",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
-        "typing_Vale.Curve25519.Fast_defs.pow2_four"
-      ],
-      0,
-      "887c678fb8b76747e4ed68466b084034"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.pow2_six",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "equation_Vale.Curve25519.Fast_defs.pow2_five",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
-        "typing_Vale.Curve25519.Fast_defs.pow2_five"
-      ],
-      0,
-      "65a929fc7c80d1485736c9390ad26ad7"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.pow2_seven",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "equation_Vale.Curve25519.Fast_defs.pow2_six",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
-        "typing_Vale.Curve25519.Fast_defs.pow2_six"
-      ],
-      0,
-      "0ef44152f0655a72c23529e459c6e5bb"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.pow2_eight",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "equation_Vale.Curve25519.Fast_defs.pow2_seven",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
-        "typing_Vale.Curve25519.Fast_defs.pow2_seven"
-      ],
-      0,
-      "0cb26d6d19fd2b30a532f0b9efbd5738"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.pow2_nine",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "equation_Vale.Curve25519.Fast_defs.pow2_eight",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
-        "typing_Vale.Curve25519.Fast_defs.pow2_eight"
-      ],
-      0,
-      "28dffed20e1bddb558c91a961e5a65bc"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.mul_nats",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
-      ],
-      0,
-      "6cd8fedf94645c30913f683db8504183"
-    ],
-    [
-      "Vale.Curve25519.Fast_defs.add_carry",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "Prims_pretyping_ae567c2fb75be05905677af440075565",
-        "equation_Prims.nat", "equation_Vale.Curve25519.Fast_defs.bit",
-        "function_token_typing_Prims.__cache_version_number__",
-        "int_inversion", "primitive_Prims.op_Equality",
-        "projection_inverse_BoxBool_proj_0",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
-        "refinement_interpretation_Tm_refine_b51b45ce195a33a465eab411d92fdae9"
-      ],
-      0,
-      "6b23b0ae398e5c0f35ce085a69591e16"
+      "bd13e168d3346e39d5e6053d9b6337bd"
     ]
   ]
 ]

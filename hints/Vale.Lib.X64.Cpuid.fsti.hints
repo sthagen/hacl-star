@@ -1,5 +1,5 @@
 [
-  "Ÿ’ûlèw8S \u0000İ}!|",
+  "¿R3üX\u000b\toa:;¼< +¤",
   [
     [
       "Vale.Lib.X64.Cpuid.va_quick_Check_aesni_support",
@@ -11,7 +11,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "af3b3542da2488ec60d15168006427ac"
+      "96e0e613ff93ce6cb1ef071fc78f8bea"
     ],
     [
       "Vale.Lib.X64.Cpuid.va_quick_Check_sha_support",
@@ -23,7 +23,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "9fa2a02dc8cb288e6fdf03bff982932a"
+      "bf6f0bead40a91a0a04309b76f4f69ba"
     ],
     [
       "Vale.Lib.X64.Cpuid.va_quick_Check_adx_bmi2_support",
@@ -35,7 +35,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "de36de6c5fbfbe702f3cf2fce4e38334"
+      "73b49769e14545dd2b23b45f18ed61ab"
     ],
     [
       "Vale.Lib.X64.Cpuid.va_quick_Check_avx_support",
@@ -47,7 +47,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "a6100bc40ed5720855aad45dd740ecb7"
+      "553a37b249cb74338e8e985685b21fff"
     ],
     [
       "Vale.Lib.X64.Cpuid.va_quick_Check_avx2_support",
@@ -59,7 +59,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "807ad5344abee3ed399fa6ef3d5440b9"
+      "f12c29ebfa06ecf86e5e95a4cee7a699"
     ],
     [
       "Vale.Lib.X64.Cpuid.va_quick_Check_movbe_support",
@@ -71,7 +71,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "b3521730c1b13ae87849a1c91e1ad88e"
+      "e06cfb8b6e489e14c93aa9444ad7a03e"
     ],
     [
       "Vale.Lib.X64.Cpuid.va_quick_Check_sse_support",
@@ -83,7 +83,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "a64c4f1673567e745e75f7fcdd856215"
+      "62f12b69d70f42ff5296f02904d1b8dd"
     ],
     [
       "Vale.Lib.X64.Cpuid.va_quick_Check_rdrand_support",
@@ -95,7 +95,55 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "6c052f47213080d4a1816b189ed2ff73"
+      "5189692bb9e76e878eccdb56734fa690"
+    ],
+    [
+      "Vale.Lib.X64.Cpuid.va_quick_Check_avx512_support",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "f828623fd01f4af99d2eeaadcd022a51"
+    ],
+    [
+      "Vale.Lib.X64.Cpuid.va_quick_Check_osxsave_support",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "30b1cfc757933254a63ddec10f1cc0e1"
+    ],
+    [
+      "Vale.Lib.X64.Cpuid.va_quick_Check_avx_xcr0_support",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "b775e33f491d615f760807bb02b5648e"
+    ],
+    [
+      "Vale.Lib.X64.Cpuid.va_quick_Check_avx512_xcr0_support",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "66f4665bf3e53a8c253b2912129a5187"
     ]
   ]
 ]

@@ -21,6 +21,14 @@
  * SOFTWARE.
  */
 
+
+#ifndef __Vale_H
+#define __Vale_H
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include "evercrypt_targetconfig.h"
 #include "libintvector.h"
 #include "kremlin/internal/types.h"
@@ -28,23 +36,20 @@
 #include <string.h>
 #include "kremlin/internal/target.h"
 
-#ifndef __Vale_H
-#define __Vale_H
 
 
 
+/* SNIPPET_START: add_scalar_e */
 
-/* SNIPPET_START: add1 */
+extern uint64_t add_scalar_e(uint64_t *x0, uint64_t *x1, uint64_t x2);
 
-extern uint64_t add1(uint64_t *x0, uint64_t *x1, uint64_t x2);
+/* SNIPPET_END: add_scalar_e */
 
-/* SNIPPET_END: add1 */
+/* SNIPPET_START: fadd_e */
 
-/* SNIPPET_START: fadd_ */
+extern uint64_t fadd_e(uint64_t *x0, uint64_t *x1, uint64_t *x2);
 
-extern uint64_t fadd_(uint64_t *x0, uint64_t *x1, uint64_t *x2);
-
-/* SNIPPET_END: fadd_ */
+/* SNIPPET_END: fadd_e */
 
 /* SNIPPET_START: sha256_update */
 
@@ -106,47 +111,71 @@ extern uint64_t check_rdrand();
 
 /* SNIPPET_END: check_rdrand */
 
-/* SNIPPET_START: cswap2 */
+/* SNIPPET_START: check_avx512 */
 
-extern uint64_t cswap2(uint64_t x0, uint64_t *x1, uint64_t *x2);
+extern uint64_t check_avx512();
 
-/* SNIPPET_END: cswap2 */
+/* SNIPPET_END: check_avx512 */
 
-/* SNIPPET_START: fsqr */
+/* SNIPPET_START: check_osxsave */
 
-extern uint64_t fsqr(uint64_t *x0, uint64_t *x1, uint64_t *x2);
+extern uint64_t check_osxsave();
 
-/* SNIPPET_END: fsqr */
+/* SNIPPET_END: check_osxsave */
 
-/* SNIPPET_START: fsqr2 */
+/* SNIPPET_START: check_avx_xcr0 */
 
-extern uint64_t fsqr2(uint64_t *x0, uint64_t *x1, uint64_t *x2);
+extern uint64_t check_avx_xcr0();
 
-/* SNIPPET_END: fsqr2 */
+/* SNIPPET_END: check_avx_xcr0 */
 
-/* SNIPPET_START: fmul_ */
+/* SNIPPET_START: check_avx512_xcr0 */
 
-extern uint64_t fmul_(uint64_t *x0, uint64_t *x1, uint64_t *x2, uint64_t *x3);
+extern uint64_t check_avx512_xcr0();
 
-/* SNIPPET_END: fmul_ */
+/* SNIPPET_END: check_avx512_xcr0 */
 
-/* SNIPPET_START: fmul2 */
+/* SNIPPET_START: cswap2_e */
 
-extern uint64_t fmul2(uint64_t *x0, uint64_t *x1, uint64_t *x2, uint64_t *x3);
+extern uint64_t cswap2_e(uint64_t x0, uint64_t *x1, uint64_t *x2);
 
-/* SNIPPET_END: fmul2 */
+/* SNIPPET_END: cswap2_e */
 
-/* SNIPPET_START: fmul1 */
+/* SNIPPET_START: fsqr_e */
 
-extern uint64_t fmul1(uint64_t *x0, uint64_t *x1, uint64_t x2);
+extern uint64_t fsqr_e(uint64_t *x0, uint64_t *x1, uint64_t *x2);
 
-/* SNIPPET_END: fmul1 */
+/* SNIPPET_END: fsqr_e */
 
-/* SNIPPET_START: fsub_ */
+/* SNIPPET_START: fsqr2_e */
 
-extern uint64_t fsub_(uint64_t *x0, uint64_t *x1, uint64_t *x2);
+extern uint64_t fsqr2_e(uint64_t *x0, uint64_t *x1, uint64_t *x2);
 
-/* SNIPPET_END: fsub_ */
+/* SNIPPET_END: fsqr2_e */
+
+/* SNIPPET_START: fmul_e */
+
+extern uint64_t fmul_e(uint64_t *x0, uint64_t *x1, uint64_t *x2, uint64_t *x3);
+
+/* SNIPPET_END: fmul_e */
+
+/* SNIPPET_START: fmul2_e */
+
+extern uint64_t fmul2_e(uint64_t *x0, uint64_t *x1, uint64_t *x2, uint64_t *x3);
+
+/* SNIPPET_END: fmul2_e */
+
+/* SNIPPET_START: fmul_scalar_e */
+
+extern uint64_t fmul_scalar_e(uint64_t *x0, uint64_t *x1, uint64_t x2);
+
+/* SNIPPET_END: fmul_scalar_e */
+
+/* SNIPPET_START: fsub_e */
+
+extern uint64_t fsub_e(uint64_t *x0, uint64_t *x1, uint64_t *x2);
+
+/* SNIPPET_END: fsub_e */
 
 /* SNIPPET_START: gcm128_decrypt_opt */
 
@@ -315,6 +344,10 @@ gctr256_bytes(
 );
 
 /* SNIPPET_END: gctr256_bytes */
+
+#if defined(__cplusplus)
+}
+#endif
 
 #define __Vale_H_DEFINED
 #endif

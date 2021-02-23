@@ -21,6 +21,14 @@
  * SOFTWARE.
  */
 
+
+#ifndef __Hacl_NaCl_H
+#define __Hacl_NaCl_H
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include "evercrypt_targetconfig.h"
 #include "libintvector.h"
 #include "kremlin/internal/types.h"
@@ -28,14 +36,11 @@
 #include <string.h>
 #include "kremlin/internal/target.h"
 
-#ifndef __Hacl_NaCl_H
-#define __Hacl_NaCl_H
 
 #include "Hacl_Kremlib.h"
 #include "Hacl_Salsa20.h"
 #include "Hacl_Poly1305_32.h"
 #include "Hacl_Curve25519_51.h"
-
 
 uint32_t
 Hacl_NaCl_crypto_secretbox_detached(
@@ -43,7 +48,7 @@ Hacl_NaCl_crypto_secretbox_detached(
   uint8_t *tag,
   uint8_t *m,
   uint32_t mlen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *k
 );
 
@@ -53,19 +58,19 @@ Hacl_NaCl_crypto_secretbox_open_detached(
   uint8_t *c,
   uint8_t *tag,
   uint32_t mlen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *k
 );
 
 uint32_t
-Hacl_NaCl_crypto_secretbox_easy(uint8_t *c, uint8_t *m, uint32_t mlen, uint8_t *n1, uint8_t *k);
+Hacl_NaCl_crypto_secretbox_easy(uint8_t *c, uint8_t *m, uint32_t mlen, uint8_t *n, uint8_t *k);
 
 uint32_t
 Hacl_NaCl_crypto_secretbox_open_easy(
   uint8_t *m,
   uint8_t *c,
   uint32_t clen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *k
 );
 
@@ -77,7 +82,7 @@ Hacl_NaCl_crypto_box_detached_afternm(
   uint8_t *tag,
   uint8_t *m,
   uint32_t mlen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *k
 );
 
@@ -87,7 +92,7 @@ Hacl_NaCl_crypto_box_detached(
   uint8_t *tag,
   uint8_t *m,
   uint32_t mlen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *pk,
   uint8_t *sk
 );
@@ -98,7 +103,7 @@ Hacl_NaCl_crypto_box_open_detached_afternm(
   uint8_t *c,
   uint8_t *tag,
   uint32_t mlen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *k
 );
 
@@ -108,7 +113,7 @@ Hacl_NaCl_crypto_box_open_detached(
   uint8_t *c,
   uint8_t *tag,
   uint32_t mlen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *pk,
   uint8_t *sk
 );
@@ -118,7 +123,7 @@ Hacl_NaCl_crypto_box_easy_afternm(
   uint8_t *c,
   uint8_t *m,
   uint32_t mlen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *k
 );
 
@@ -127,7 +132,7 @@ Hacl_NaCl_crypto_box_easy(
   uint8_t *c,
   uint8_t *m,
   uint32_t mlen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *pk,
   uint8_t *sk
 );
@@ -137,7 +142,7 @@ Hacl_NaCl_crypto_box_open_easy_afternm(
   uint8_t *m,
   uint8_t *c,
   uint32_t clen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *k
 );
 
@@ -146,10 +151,14 @@ Hacl_NaCl_crypto_box_open_easy(
   uint8_t *m,
   uint8_t *c,
   uint32_t clen,
-  uint8_t *n1,
+  uint8_t *n,
   uint8_t *pk,
   uint8_t *sk
 );
+
+#if defined(__cplusplus)
+}
+#endif
 
 #define __Hacl_NaCl_H_DEFINED
 #endif

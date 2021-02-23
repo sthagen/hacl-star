@@ -1,5 +1,5 @@
 [
-  "¡z∫ZZŸÓ2\u000e:åòˆÈ∞ô",
+  "\u0002⁄\u0005ÌêOX\u0015¿¿5ˆJê√®",
   [
     [
       "Meta.Interface.assoc",
@@ -19,7 +19,7 @@
         "typing_FStar.Pervasives.Native.uu___is_Some"
       ],
       0,
-      "81e7419ee196dee3aec3a0779bda0f2e"
+      "c12a9599da7e456480ce2b6118e72827"
     ],
     [
       "Meta.Interface.__proj__Inline__item__new_name",
@@ -33,7 +33,7 @@
         "refinement_interpretation_Tm_refine_72d871bdf0e6e15cb9b70b8f1ef82b10"
       ],
       0,
-      "6f80e445f307103fcdf0ba54d8ce5296"
+      "289afe7a78956543c407eb50ec2425c3"
     ],
     [
       "Meta.Interface.string_of_mapping",
@@ -47,7 +47,7 @@
         "fuel_guarded_inversion_Meta.Interface.mapping"
       ],
       0,
-      "e1a97944fb731b8623e796f083ac2805"
+      "c11fefc449c2d3413899d86913b2a78e"
     ],
     [
       "Meta.Interface.string_of_name",
@@ -60,7 +60,7 @@
         "fuel_guarded_inversion_Prims.list"
       ],
       0,
-      "a7e7082b0936368e637695f4fa4cc7fa"
+      "6de4723bd8c9a3ddc6120dc2beaf2d5b"
     ],
     [
       "Meta.Interface.suffix_name",
@@ -73,28 +73,7 @@
         "fuel_guarded_inversion_Prims.list"
       ],
       0,
-      "6ce008e65c80a4f49c944f399b7d9a57"
-    ],
-    [
-      "Meta.Interface.in_namespace",
-      1,
-      2,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "binder_x_20ccd379c93014ff7fe3312d7f024a43_0",
-        "binder_x_dce109b66917edb1ca83b9408101b740_1",
-        "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
-        "equation_FStar.Reflection.Types.name",
-        "fuel_guarded_inversion_Prims.list",
-        "proj_equation_FStar.Pervasives.Native.Mktuple2__1",
-        "proj_equation_FStar.Pervasives.Native.Mktuple2__2",
-        "projection_inverse_FStar.Pervasives.Native.Mktuple2__1",
-        "projection_inverse_FStar.Pervasives.Native.Mktuple2__2",
-        "subterm_ordering_Prims.Cons"
-      ],
-      0,
-      "6c83fe57629df8b5ab35e82929907329"
+      "412cf3408916df88f9dc2a9b3ae64f09"
     ],
     [
       "Meta.Interface.must",
@@ -110,7 +89,7 @@
         "typing_FStar.Pervasives.Native.uu___is_Some"
       ],
       0,
-      "fbd074e6599e789a5b76fa4857519f8b"
+      "da4465d210a0ba24dde95399ed54d80c"
     ],
     [
       "Meta.Interface.visit_function",
@@ -118,24 +97,27 @@
       2,
       1,
       [
-        "@MaxIFuel_assumption", "@query", "bool_inversion",
+        "@MaxIFuel_assumption", "@query",
+        "FStar.Reflection.Types_pretyping_b57262eead998d474939c05a17e1ffab",
+        "bool_inversion", "bool_typing",
         "constructor_distinct_FStar.Tactics.Result.Failed",
         "constructor_distinct_FStar.Tactics.Result.Success",
+        "data_elim_FStar.Tactics.Result.Success",
         "disc_equation_FStar.Pervasives.Native.None",
+        "disc_equation_FStar.Pervasives.Native.Some",
         "fuel_guarded_inversion_FStar.Tactics.Result.__result",
         "function_token_typing_FStar.Reflection.Types.sigelt",
         "lemma_FStar.Pervasives.invertOption",
-        "projection_inverse_BoxBool_proj_0",
         "projection_inverse_FStar.Tactics.Result.Failed_a",
         "projection_inverse_FStar.Tactics.Result.Failed_exn",
         "projection_inverse_FStar.Tactics.Result.Failed_ps",
         "projection_inverse_FStar.Tactics.Result.Success_a",
         "projection_inverse_FStar.Tactics.Result.Success_ps",
         "projection_inverse_FStar.Tactics.Result.Success_v",
-        "typing_FStar.Pervasives.Native.uu___is_Some"
+        "typing_FStar.Reflection.Builtins.lookup_typ"
       ],
       0,
-      "3381c6847ba09b06f5894a3fd991c9e0"
+      "f9f05b2efeae8697fc8316fc4dd0caeb"
     ],
     [
       "Meta.Interface.visit_function",
@@ -148,8 +130,7 @@
         "@query",
         "FStar.Reflection.Data_pretyping_ee655bc751cef679bca813f86c407d6b",
         "Meta.Interface_pretyping_3687ebf883f49bee7aa0812c87d03fff",
-        "Prims_pretyping_ce036b6b736ef4e0bc3a9ff132a12aed",
-        "Prims_pretyping_f8666440faa91836cc5a13998af863fc", "bool_inversion",
+        "Prims_pretyping_ce036b6b736ef4e0bc3a9ff132a12aed", "bool_inversion",
         "bool_typing", "constructor_distinct_FStar.Tactics.Result.Failed",
         "constructor_distinct_FStar.Tactics.Result.Success",
         "constructor_distinct_Meta.Interface.Specialize",
@@ -176,20 +157,18 @@
         "disc_equation_FStar.Reflection.Data.Tv_Var",
         "disc_equation_Meta.Interface.Inline",
         "disc_equation_Meta.Interface.Specialize",
-        "equation_FStar.Reflection.Data.argv",
         "equation_FStar.Reflection.Types.name", "equation_Prims.eqtype",
         "fuel_guarded_inversion_FStar.Reflection.Data.term_view",
         "fuel_guarded_inversion_FStar.Tactics.Result.__result",
         "fuel_guarded_inversion_Meta.Interface.mapping",
         "fuel_guarded_inversion_Meta.Interface.state",
-        "fuel_guarded_inversion_Prims.list",
         "function_token_typing_FStar.Reflection.Types.bv",
         "function_token_typing_FStar.Reflection.Types.term",
         "function_token_typing_Prims.bool",
         "function_token_typing_Prims.string",
         "kinding_FStar.Pervasives.Native.tuple4@tok",
         "kinding_Meta.Interface.mapping@tok", "kinding_Prims.list@tok",
-        "lemma_FStar.Pervasives.invertOption", "primitive_Prims.op_Negation",
+        "lemma_FStar.Pervasives.invertOption",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_FStar.Tactics.Result.Failed_a",
         "projection_inverse_FStar.Tactics.Result.Failed_exn",
@@ -200,12 +179,12 @@
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
         "typing_FStar.List.Tot.Base.assoc",
         "typing_FStar.Pervasives.Native.uu___is_None",
-        "typing_FStar.Reflection.Basic.inspect_fv",
+        "typing_FStar.Reflection.Builtins.inspect_fv",
         "typing_FStar.Reflection.Types.name",
-        "typing_Meta.Interface.__proj__Mkstate__item__seen", "unit_typing"
+        "typing_Meta.Interface.__proj__Mkstate__item__seen"
       ],
       0,
-      "d7fd18b4ce5838243f7d3b0e0c43ec68"
+      "2c10dc3d64a60558643e4c5d93729b07"
     ]
   ]
 ]

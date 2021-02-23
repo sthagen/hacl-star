@@ -1,5 +1,5 @@
 [
-  "ò Õ\u0018>øÕ¡m'M‰cÑ>¿",
+  "Po»rMòrÓšõ4>E¨\u0000”",
   [
     [
       "Lib.Sequence.to_lseq",
@@ -11,7 +11,7 @@
         "refinement_interpretation_Tm_refine_63c2dd5c1d96d3ed77642e23ae97146c"
       ],
       0,
-      "da436aaab2ad6c743d786f424bab8031"
+      "a5151cd5a6e333d9cbf8f0efb83a1e7c"
     ],
     [
       "Lib.Sequence.index",
@@ -24,7 +24,7 @@
         "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42"
       ],
       0,
-      "c0d54c0844e17800ec703f29de295fdc"
+      "73d7bda71de990cdcf953b18d9b1342c"
     ],
     [
       "Lib.Sequence.create",
@@ -36,7 +36,7 @@
         "refinement_interpretation_Tm_refine_0ec011aea9f93256a3547ad9f0c667f1"
       ],
       0,
-      "7b80714fc87faec887c6e498a14996eb"
+      "4fe31e62437ed52a2b3dceecc6f26514"
     ],
     [
       "Lib.Sequence.concat",
@@ -51,7 +51,7 @@
         "refinement_interpretation_Tm_refine_87b488a9cf5689c8094f1a153b9356a0"
       ],
       0,
-      "45b1ce158d01ed901426539d2665568b"
+      "83be4162a0378826d5d186af64a5c404"
     ],
     [
       "Lib.Sequence.to_list",
@@ -65,7 +65,7 @@
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
       0,
-      "95aab3e01b1544f8b555fd44ab8c80f1"
+      "e6abfaa1bd995b4beac15519607596a5"
     ],
     [
       "Lib.Sequence.of_list",
@@ -77,7 +77,7 @@
         "refinement_interpretation_Tm_refine_f2f46e59ec8203b19b1042d057b66530"
       ],
       0,
-      "55e5b0c4d5d60bd20059682a0fd7eb09"
+      "e7b2f4a6f4d5901f8c5f71238b5e9497"
     ],
     [
       "Lib.Sequence.of_list_index",
@@ -90,21 +90,7 @@
         "refinement_interpretation_Tm_refine_f2f46e59ec8203b19b1042d057b66530"
       ],
       0,
-      "349bf950384f64353ef61fa28e30750c"
-    ],
-    [
-      "Lib.Sequence.equal",
-      1,
-      2,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query", "equation_Lib.Sequence.lseq",
-        "equation_Lib.Sequence.to_seq",
-        "refinement_interpretation_Tm_refine_62e53d9cfa59f3fc33281615a392dc08",
-        "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42"
-      ],
-      0,
-      "7c6c5cfe59e13b94cd9b9f6bda3e4fea"
+      "7bdc3377af57c308bc2636efc867ea35"
     ],
     [
       "Lib.Sequence.eq_intro",
@@ -118,7 +104,7 @@
         "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42"
       ],
       0,
-      "f49359c7a8ac4a64a1b47fa3e4388588"
+      "ab3ceaa3aef5a4435f8957c426ae5aa3"
     ],
     [
       "Lib.Sequence.upd",
@@ -135,7 +121,7 @@
         "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42"
       ],
       0,
-      "d847315e8bc2d8c0078da7a53acddcb5"
+      "aceab92ed86b24b87499b68a3d05623e"
     ],
     [
       "Lib.Sequence.sub",
@@ -156,7 +142,7 @@
         "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42"
       ],
       0,
-      "abafd8b9b9a917357394996e3d2235e8"
+      "afc807e0388cc509b624433e98f1a264"
     ],
     [
       "Lib.Sequence.slice",
@@ -172,7 +158,7 @@
         "refinement_interpretation_Tm_refine_782420a2054fd965084564ef5ff53609"
       ],
       0,
-      "067ff836b3ddf7822014b6da41c80fa0"
+      "b1874909f061c1d5bb3ff5295846fce2"
     ],
     [
       "Lib.Sequence.update_sub",
@@ -190,7 +176,7 @@
         "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42"
       ],
       0,
-      "58c08998ff57fe0cd06eb1d31b4b9c69"
+      "6726d6b706ad5440e4d5d306b19c25b4"
     ],
     [
       "Lib.Sequence.lemma_update_sub",
@@ -214,7 +200,7 @@
         "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42"
       ],
       0,
-      "036d42d94782328a27b75c794a18f26a"
+      "b5abedf091d0e22033625d4e2e30776f"
     ],
     [
       "Lib.Sequence.lemma_concat2",
@@ -229,7 +215,7 @@
         "refinement_interpretation_Tm_refine_87b488a9cf5689c8094f1a153b9356a0"
       ],
       0,
-      "f64cd7cba76a247995f6c4c017d974e6"
+      "3a91da7f2dd5cf26d8c50c56f6e1c732"
     ],
     [
       "Lib.Sequence.lemma_concat3",
@@ -245,7 +231,7 @@
         "refinement_interpretation_Tm_refine_87b488a9cf5689c8094f1a153b9356a0"
       ],
       0,
-      "35d926dd0a102b8f7eb7f5b29f70b699"
+      "850c20311dbb19f0cf3bb058fc077965"
     ],
     [
       "Lib.Sequence.update_slice",
@@ -261,7 +247,7 @@
         "refinement_interpretation_Tm_refine_782420a2054fd965084564ef5ff53609"
       ],
       0,
-      "81a4e468f0ad99c08dd8199369f84c67"
+      "cb44a8cfa55090a0dbdb090cec75f12b"
     ],
     [
       "Lib.Sequence.update_slice",
@@ -277,7 +263,7 @@
         "refinement_interpretation_Tm_refine_782420a2054fd965084564ef5ff53609"
       ],
       0,
-      "d2e8ca37409ea994d59347913307e5d5"
+      "8c82af4300a15718f92cf704e2d34339"
     ],
     [
       "Lib.Sequence.createi",
@@ -289,7 +275,7 @@
         "refinement_interpretation_Tm_refine_0ec011aea9f93256a3547ad9f0c667f1"
       ],
       0,
-      "aab139771aec5042ae20ff0d1b3e0efe"
+      "5bde9d70e89ea7cbc2838dae5615f079"
     ],
     [
       "Lib.Sequence.mapi",
@@ -301,7 +287,7 @@
         "refinement_interpretation_Tm_refine_0ec011aea9f93256a3547ad9f0c667f1"
       ],
       0,
-      "d89430c19918374f027e7a00a97f6a2f"
+      "37c7feef2e9dfaa33402c9d7a459e99c"
     ],
     [
       "Lib.Sequence.map",
@@ -313,7 +299,7 @@
         "refinement_interpretation_Tm_refine_0ec011aea9f93256a3547ad9f0c667f1"
       ],
       0,
-      "b9ee29b79ef00098d2caa58339f0daa9"
+      "9ba57279446f14be328a9fec3c8a1b43"
     ],
     [
       "Lib.Sequence.map2i",
@@ -325,7 +311,7 @@
         "refinement_interpretation_Tm_refine_0ec011aea9f93256a3547ad9f0c667f1"
       ],
       0,
-      "a03b05eaf94e0d9399a786b7b70ee044"
+      "45f2b67cc039d268cebc709ebda1abbd"
     ],
     [
       "Lib.Sequence.map2",
@@ -337,7 +323,7 @@
         "refinement_interpretation_Tm_refine_0ec011aea9f93256a3547ad9f0c667f1"
       ],
       0,
-      "a4935ee0a9e694ba7b4b4a948d0b490d"
+      "c89c532fd7648afcec81974928e78aef"
     ],
     [
       "Lib.Sequence.repeati_blocks",
@@ -349,7 +335,7 @@
         "refinement_interpretation_Tm_refine_854ac88ba27f00b6ffd4e86ced11eaad"
       ],
       0,
-      "48944dc9c53d67a305cdb786655f4bfa"
+      "4ef080c98c73c7d3b1b1e4ff745a71fe"
     ],
     [
       "Lib.Sequence.repeat_blocks_f",
@@ -358,7 +344,7 @@
       1,
       [ "@query" ],
       0,
-      "7e9f5741a86e99b5df5b18cb73d0bbca"
+      "4b7a5737ab870eefbbc1b0f5a3f68202"
     ],
     [
       "Lib.Sequence.repeat_blocks_f",
@@ -386,7 +372,7 @@
         "typing_FStar.Seq.Base.length"
       ],
       0,
-      "f8438e0c4eac8368e9566e1a37c41bad"
+      "62032d0a85db4ab5e0b9d10d3e0bfa61"
     ],
     [
       "Lib.Sequence.repeat_blocks",
@@ -395,7 +381,7 @@
       1,
       [ "@query" ],
       0,
-      "ae3ff1f8343c5c93f818c9d122fad373"
+      "a5da54b6cc76de9a865daef3f22be9da"
     ],
     [
       "Lib.Sequence.lemma_repeat_blocks",
@@ -420,7 +406,7 @@
         "typing_FStar.Seq.Base.length", "typing_Lib.Sequence.length"
       ],
       0,
-      "a4e670b16b392a9b1c63872417fcff38"
+      "a9958693344212e60295a4c971717435"
     ],
     [
       "Lib.Sequence.repeat_blocks_multi",
@@ -429,7 +415,7 @@
       1,
       [ "@query" ],
       0,
-      "5e690258aa22361cbcb8cdb597dd586a"
+      "96c1e2a729ea3d581eae40c729f767db"
     ],
     [
       "Lib.Sequence.lemma_repeat_blocks_multi",
@@ -448,7 +434,7 @@
         "typing_Lib.Sequence.length"
       ],
       0,
-      "2a13b09a200f7a966349b13534a807aa"
+      "d0ac6b3a5a4617c293124e64acff04b7"
     ],
     [
       "Lib.Sequence.generate_blocks",
@@ -463,7 +449,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "62b5850acedaec684d7c3abc59ecb383"
+      "c7792da16903d0922da559fa6823aec7"
     ],
     [
       "Lib.Sequence.generate_blocks_simple",
@@ -472,7 +458,7 @@
       0,
       [ "@query" ],
       0,
-      "529d18e7e6ab4c49620ae3c113526a90"
+      "3f7cfb21c8703fb3fa6833819bd7668b"
     ],
     [
       "Lib.Sequence.div_interval",
@@ -481,7 +467,7 @@
       0,
       [ "@query" ],
       0,
-      "4fd7c4da104065d79e07b33fc802e411"
+      "99cbba0f61f5f9690fb2a9f72fe2a9f3"
     ],
     [
       "Lib.Sequence.mod_interval_lt",
@@ -493,7 +479,7 @@
         "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5"
       ],
       0,
-      "aa59dae77b2029742ca310b4d9ec9997"
+      "873061a478417d8b6b6c19b5b76fe291"
     ],
     [
       "Lib.Sequence.div_mul_lt",
@@ -508,7 +494,7 @@
         "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5"
       ],
       0,
-      "fa6a1dabb15578e03f20c940aae0188e"
+      "a9df301094a32c1dc175a6b39d028036"
     ],
     [
       "Lib.Sequence.mod_div_lt",
@@ -520,7 +506,7 @@
         "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5"
       ],
       0,
-      "50ed01dac08bdec04a7080032618bb18"
+      "851a2edc7be1cf94a3fd3d63f9497e04"
     ],
     [
       "Lib.Sequence.div_mul_l",
@@ -534,7 +520,47 @@
         "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5"
       ],
       0,
-      "3b27e7a95830d559555918558baa9d7c"
+      "2bd99c2390a2017f5ff49a3def3671c8"
+    ],
+    [
+      "Lib.Sequence.map_blocks_f",
+      1,
+      0,
+      0,
+      [ "@query" ],
+      0,
+      "c2b03864f4697c35c7faa3e36d6aa596"
+    ],
+    [
+      "Lib.Sequence.map_blocks_f",
+      2,
+      0,
+      0,
+      [
+        "@MaxIFuel_assumption",
+        "@fuel_correspondence_Prims.pow2.fuel_instrumented", "@query",
+        "constructor_distinct_Lib.IntTypes.U32",
+        "equality_tok_Lib.IntTypes.U32@tok",
+        "equation_Lib.IntTypes.unsigned", "equation_Lib.Sequence.length",
+        "equation_Lib.Sequence.lseq", "equation_Lib.Sequence.map_blocks_a",
+        "equation_Lib.Sequence.seq", "equation_Prims.nat", "int_inversion",
+        "lemma_FStar.Seq.Base.lemma_len_append",
+        "lemma_FStar.Seq.Base.lemma_len_slice",
+        "primitive_Prims.op_Addition", "primitive_Prims.op_LessThanOrEqual",
+        "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
+        "projection_inverse_BoxBool_proj_0",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_1c325641987cce6783228428bd15a869",
+        "refinement_interpretation_Tm_refine_4822116822fd2cd76140beff9d06b6d5",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_81407705a0828c2c1b1976675443f647",
+        "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c",
+        "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42",
+        "refinement_interpretation_Tm_refine_f4f040c0afc8e02646bd007fb369c803",
+        "typing_FStar.Seq.Base.length", "typing_Lib.Sequence.length"
+      ],
+      0,
+      "2b8089f467602d259b419277f7570933"
     ],
     [
       "Lib.Sequence.map_blocks_multi",
@@ -547,7 +573,23 @@
         "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5"
       ],
       0,
-      "38e046c658683032a9df7233d1dccb16"
+      "a014241d0e56e4e63de91ae9590ff90a"
+    ],
+    [
+      "Lib.Sequence.lemma_map_blocks_multi",
+      1,
+      0,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Lib.Sequence.length",
+        "equation_Prims.pos", "primitive_Prims.op_Multiply",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_44540322a5aeeac77ad2eb12638c2b4f",
+        "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5",
+        "refinement_interpretation_Tm_refine_7e0b9b2dbca36eab00de093c1b701c6d"
+      ],
+      0,
+      "24b3ca225fa40a22be0b7933cd37dd6b"
     ],
     [
       "Lib.Sequence.index_map_blocks_multi",
@@ -578,7 +620,7 @@
         "typing_FStar.Seq.Base.length"
       ],
       0,
-      "a48f86640f3ffb68e36ca88e4a4973b1"
+      "d39bbe2c15353b1556799303bcd3ad43"
     ],
     [
       "Lib.Sequence.block",
@@ -587,7 +629,7 @@
       0,
       [ "@query" ],
       0,
-      "04e186c293f995ff8df28b8d761f0044"
+      "ccc1a350978c6b1ece55ba886dc79b81"
     ],
     [
       "Lib.Sequence.last",
@@ -596,7 +638,7 @@
       0,
       [ "@query" ],
       0,
-      "b569175d85d7cd7030224fb1f0c9c485"
+      "644750e0a6ce07117bd2290785f97b89"
     ],
     [
       "Lib.Sequence.map_blocks",
@@ -608,7 +650,32 @@
         "refinement_interpretation_Tm_refine_854ac88ba27f00b6ffd4e86ced11eaad"
       ],
       0,
-      "290e3faa6458a5eee2d9b17092534e18"
+      "b7662b0f773f37e0159eecbb767a335e"
+    ],
+    [
+      "Lib.Sequence.lemma_map_blocks",
+      1,
+      0,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "constructor_distinct_Lib.IntTypes.U32",
+        "equation_Lib.Sequence.length", "equation_Lib.Sequence.seq",
+        "equation_Prims.nat", "equation_Prims.pos", "int_inversion",
+        "int_typing", "lemma_FStar.Seq.Base.lemma_len_slice",
+        "primitive_Prims.op_Division", "primitive_Prims.op_LessThanOrEqual",
+        "primitive_Prims.op_Modulus", "primitive_Prims.op_Multiply",
+        "primitive_Prims.op_Subtraction",
+        "projection_inverse_BoxBool_proj_0",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_44540322a5aeeac77ad2eb12638c2b4f",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5",
+        "refinement_interpretation_Tm_refine_81407705a0828c2c1b1976675443f647",
+        "typing_FStar.Seq.Base.length", "typing_Lib.Sequence.length"
+      ],
+      0,
+      "cf00f8da8fc79a6220bf0f8085df74be"
     ],
     [
       "Lib.Sequence.get_block",
@@ -621,7 +688,7 @@
         "refinement_interpretation_Tm_refine_774ba3f728d91ead8ef40be66c9802e5"
       ],
       0,
-      "e14e20998dda235e887746c20f16eaed"
+      "1e3e7326a104f5a35f7f2ae6159077c8"
     ],
     [
       "Lib.Sequence.get_block",
@@ -649,7 +716,7 @@
         "typing_FStar.Seq.Base.length"
       ],
       0,
-      "0fc84351c4b86714b6d8eeb5d3ee9752"
+      "6c74f66bfac32a31f123ac5ffdc55d4c"
     ],
     [
       "Lib.Sequence.get_last",
@@ -658,7 +725,7 @@
       0,
       [ "@query" ],
       0,
-      "07256d16f5d806dceb9222294937704a"
+      "d201b273f063a7253cde2f4dd5786378"
     ],
     [
       "Lib.Sequence.get_last",
@@ -684,7 +751,7 @@
         "typing_FStar.Seq.Base.length"
       ],
       0,
-      "a3d3775953f29ae0a5fd2b5a1d961c84"
+      "09615a64dba081cbce6ef0270860f4b7"
     ],
     [
       "Lib.Sequence.index_map_blocks",
@@ -708,7 +775,7 @@
         "typing_Lib.Sequence.map_blocks"
       ],
       0,
-      "9b24fabd38bb43859a587099ecce81f4"
+      "5d09dbaac6d4c179e137c9d51dc76a49"
     ],
     [
       "Lib.Sequence.eq_generate_blocks0",
@@ -723,7 +790,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "aed5358818653c56197a8cb29946ef04"
+      "3e5a0e0baf63a875b054533454793639"
     ],
     [
       "Lib.Sequence.unfold_generate_blocks",
@@ -744,7 +811,7 @@
         "typing_FStar.Seq.Base.append", "typing_FStar.Seq.Base.length"
       ],
       0,
-      "2b135d5b4b3f714b2cb42ed0758e7fb8"
+      "5c9ffd52eeb1f30ca73b774a54e1ddde"
     ],
     [
       "Lib.Sequence.index_generate_blocks",
@@ -773,7 +840,7 @@
         "unit_typing"
       ],
       0,
-      "dc229231da93029151ad517c02ade670"
+      "921474325ce9ad26ff0e592d14e1c7d7"
     ]
   ]
 ]

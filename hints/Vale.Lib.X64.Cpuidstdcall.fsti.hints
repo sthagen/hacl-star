@@ -1,5 +1,5 @@
 [
-  "êJ\\\u001b¶Êoñ1~±^åWøæ",
+  "◊»‘ã(˘}Â- ùü\fb\nô",
   [
     [
       "Vale.Lib.X64.Cpuidstdcall.va_req_Check_aesni_stdcall",
@@ -14,7 +14,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "ff927decbc4a9a8b410ea83ec051cb64"
+      "0e8593dbeeb9a04d725eef7e44085dc4"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_aesni_stdcall",
@@ -29,7 +29,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "fcb7066e0086de6c1ce68968b56abff9"
+      "affb13ed9f8966d1f25f847c98f096bb"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_aesni_stdcall",
@@ -41,7 +41,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "65f65ced4c670fbc310db3282f3b85f1"
+      "2ab183166e1526bb6f79f315aa06a584"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_req_Check_sha_stdcall",
@@ -56,7 +56,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "ce836504d6748abcdc618a6a8f1ab1e7"
+      "1a35c303e37aaa9d9f3f658dfc638d22"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_sha_stdcall",
@@ -71,7 +71,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "71a4fac1bbf48487b4890216635ed0d4"
+      "3ac580aa236b9972f008f3832aa74bfb"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_sha_stdcall",
@@ -83,7 +83,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "eea9828ad3de7e87f20324ab3c961d69"
+      "632c989903e7f41e82fa5f5bc5341a44"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_req_Check_adx_bmi2_stdcall",
@@ -98,7 +98,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "5e1dbd680ddeec5b67c75f70c43d3751"
+      "03489e595bb0a1c90d511cd6a35a2ba6"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_adx_bmi2_stdcall",
@@ -113,7 +113,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "1e17c1213b452090b54a41bcbebbcdbe"
+      "4f1618f68709f2e05b05a3ac090bdbe1"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_adx_bmi2_stdcall",
@@ -125,7 +125,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "7e56565d495b88d2b641f0623b69d391"
+      "74de4b139defcd6da406102cc497c229"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_req_Check_avx_stdcall",
@@ -140,7 +140,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "85efd6599350c2bd628561072759faaa"
+      "94a10e2f9b060f3441612085c66847b6"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_avx_stdcall",
@@ -155,7 +155,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "b559702b653f549f3792c822ca3e2de8"
+      "b3e32cda9ecb8c5f924ac7a49c26416b"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_avx_stdcall",
@@ -167,7 +167,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "74673069157d6945489d8c23c0302773"
+      "40043b3ab1790080aaa9629a788a00b0"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_req_Check_avx2_stdcall",
@@ -182,7 +182,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "ce1ff50dbfb606b8382691b6d8d211bb"
+      "a6bcca41c5376ffe2d7f39a3ebc151d3"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_avx2_stdcall",
@@ -197,7 +197,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "44e97f54a082109302e5da7bdcd1d7eb"
+      "22abb62e4b78e5a97daba60ede0bddfd"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_avx2_stdcall",
@@ -209,7 +209,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "6c8d5cc453d05082d6e5cec74c597d36"
+      "c9d6bfc5da6b40d5c854840e14bc6b41"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_req_Check_movbe_stdcall",
@@ -224,7 +224,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "5981a41b381fd694ab1ccd4ad4fc6c99"
+      "0f9553ba44f0e90ea4b467c2acd8e9ab"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_movbe_stdcall",
@@ -239,7 +239,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "d720be6a84ffd8072cae90ea6423153f"
+      "24ad5b300a11734191314ad722ed1680"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_movbe_stdcall",
@@ -251,7 +251,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "bd84554622bb48794313eb41aff6a445"
+      "01eb0470cf215f3a23821b5bb0cb54a3"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_req_Check_sse_stdcall",
@@ -266,7 +266,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "a69cc32e54dc800fa8202b6f0d702a5b"
+      "09b12bbf14c22297ecefea8374e92d70"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_sse_stdcall",
@@ -281,7 +281,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "994bb17302213973c9d2d348b2af66fd"
+      "38ad666557058f2424ccdc3173f1e350"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_sse_stdcall",
@@ -293,7 +293,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "73ee67ebf32423acf2fdd38faa348e20"
+      "c58aafa503d53c4fe2c6c4b0115f55db"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_req_Check_rdrand_stdcall",
@@ -308,7 +308,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "fc2b87632ae13b629ededc4ac5b1e82c"
+      "8c32f192c2f560692224dabd8f2e443f"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_rdrand_stdcall",
@@ -323,7 +323,7 @@
         "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
       ],
       0,
-      "0b7fc13c1cbfe014353931ab8d3ad34c"
+      "6dc7c99c8c00f21c9e4047289513c471"
     ],
     [
       "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_rdrand_stdcall",
@@ -335,7 +335,171 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "4cfea7b8cbd0ee75e4cc878e95f51848"
+      "09c93f94eca8e19df782f6f6b1c6f2de"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_req_Check_avx512_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.squash", "equation_Prims.subtype_of",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
+      ],
+      0,
+      "93f4c9230ea48db0d462f7625e6c05ef"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_avx512_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.squash", "equation_Prims.subtype_of",
+        "equation_Vale.X64.Decls.va_state_eq",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
+      ],
+      0,
+      "ce1c24c15251dc67ac29bf71eb42fe43"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_avx512_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "65ed5f2fdc618cf65b1f6150a6d228df"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_req_Check_osxsave_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.squash", "equation_Prims.subtype_of",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
+      ],
+      0,
+      "b0c60550555403a63758e5889d7dbf2c"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_osxsave_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.squash", "equation_Prims.subtype_of",
+        "equation_Vale.X64.Decls.va_state_eq",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
+      ],
+      0,
+      "8d22b7d4e2f615f601dd8d3236880d81"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_osxsave_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "0bf40c20a61e22a9fe50cc3cba77d2c5"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_req_Check_avx_xcr0_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.squash", "equation_Prims.subtype_of",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
+      ],
+      0,
+      "e0ae636225f6570968099fb17871e017"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_avx_xcr0_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.squash", "equation_Prims.subtype_of",
+        "equation_Vale.X64.Decls.va_state_eq",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
+      ],
+      0,
+      "b895846045c674b5fd61e47ad67e2913"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_avx_xcr0_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "75f492aa0f997b23994c9bbd83d45ba5"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_req_Check_avx512_xcr0_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.squash", "equation_Prims.subtype_of",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
+      ],
+      0,
+      "11e1b52653922155eb945f9dcde70fde"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_ens_Check_avx512_xcr0_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.squash", "equation_Prims.subtype_of",
+        "equation_Vale.X64.Decls.va_state_eq",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c"
+      ],
+      0,
+      "b39e61ceb8fcb89a50f6dc3fc5965c82"
+    ],
+    [
+      "Vale.Lib.X64.Cpuidstdcall.va_quick_Check_avx512_xcr0_stdcall",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "29d106db5b8a8baf409bb41484f6556c"
     ]
   ]
 ]

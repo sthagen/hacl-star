@@ -40,8 +40,11 @@ add_library(evercrypt STATIC
   ${EVERCRYPT_SRC_DIR}/Hacl_Poly1305_32.c
   ${EVERCRYPT_SRC_DIR}/Hacl_Poly1305_128.c
   ${EVERCRYPT_SRC_DIR}/Hacl_Poly1305_256.c
+  ${EVERCRYPT_SRC_DIR}/Hacl_Blake2s_32.c
+  ${EVERCRYPT_SRC_DIR}/Hacl_Blake2b_32.c
   ${EVERCRYPT_SRC_DIR}/Hacl_SHA3.c
   ${EVERCRYPT_SRC_DIR}/Lib_PrintBuffer.c
+  ${EVERCRYPT_SRC_DIR}/Lib_Memzero0.c
   ${EVERCRYPT_SRC_DIR}/Lib_RandomBuffer_System.c)
 target_compile_options(evercrypt PRIVATE -Wno-parentheses -std=gnu11)
 target_include_directories(evercrypt PUBLIC ${EVERCRYPT_SRC_DIR})
@@ -67,7 +70,8 @@ if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
 endif()
 
 if(EXISTS ${EVERCRYPT_SRC_DIR}/MerkleTree.c)
-  target_sources(evercrypt PRIVATE ${EVERCRYPT_SRC_DIR}/MerkleTree.c)
+  target_sources(evercrypt PRIVATE
+    ${EVERCRYPT_SRC_DIR}/MerkleTree.c)
 endif()
 if(EXISTS ${EVERCRYPT_SRC_DIR}/LowStar.c)
   target_sources(evercrypt PRIVATE ${EVERCRYPT_SRC_DIR}/LowStar.c)
@@ -85,6 +89,7 @@ endif()
 # Hacl_Poly1305_256.o: CFLAGS += -mavx -mavx2
 set_source_files_properties(${EVERCRYPT_SRC_DIR}/Hacl_Poly1305_128.c PROPERTIES COMPILE_FLAGS "-mavx")
 set_source_files_properties(${EVERCRYPT_SRC_DIR}/Hacl_Poly1305_256.c PROPERTIES COMPILE_FLAGS "-mavx -mavx2")
+set_source_files_properties(${EVERCRYPT_SRC_DIR}/MerkleTree.c PROPERTIES COMPILE_FLAGS $<$<CONFIG:DEBUG>:-O2>)
 
 target_link_libraries(evercrypt PUBLIC kremlib)
 

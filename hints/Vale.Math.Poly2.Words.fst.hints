@@ -23,7 +23,7 @@
         "typing_Vale.Math.Poly2_s.shift", "typing_Vale.Math.Poly2_s.zero"
       ],
       0,
-      "43c09b0b520269b643258c06e1b2f902"
+      "e23a359d3afb2d6371172d9bc62d9778"
     ],
     [
       "Vale.Math.Poly2.Words.lemma_quad32_ones",
@@ -55,7 +55,7 @@
         "typing_Vale.Math.Poly2_s.shift"
       ],
       0,
-      "088c464b21d898622cc108d33cbee587"
+      "c807a4b44165e799a1eefb9b1050ca8a"
     ],
     [
       "Vale.Math.Poly2.Words.lemma_add128",
@@ -88,7 +88,7 @@
         "typing_Vale.Math.Poly2_s.shift"
       ],
       0,
-      "5ef8ddf1cec1a8bd766aa4a793dee53d"
+      "139e403b86b1265f51cd60dfd027cd92"
     ],
     [
       "Vale.Math.Poly2.Words.lemma_add_quad32",
@@ -105,7 +105,7 @@
         "typing_Vale.Math.Poly2.Bits_s.of_quad32"
       ],
       0,
-      "a117599528afa3ff39c4398b08f3d12f"
+      "28c02540260b84bbbe2dd694e8843b82"
     ],
     [
       "Vale.Math.Poly2.Words.lemma_and128",
@@ -135,7 +135,7 @@
         "typing_Vale.Math.Poly2_s.shift"
       ],
       0,
-      "4652e544714a78ae57721534d8e1ad92"
+      "a0883dcd9ecfae90ff92be00ab9d5b09"
     ],
     [
       "Vale.Math.Poly2.Words.lemma_and_quad32",
@@ -152,7 +152,7 @@
         "typing_Vale.Math.Poly2.Bits_s.of_quad32"
       ],
       0,
-      "4369950742096d9a3845e56193c32e82"
+      "c1b8d9a237241c6a7c693a9a07600da5"
     ],
     [
       "Vale.Math.Poly2.Words.lemma_quad32_double_shift",
@@ -187,7 +187,7 @@
         "typing_Vale.Math.Poly2_s.shift", "typing_Vale.Math.Poly2_s.zero"
       ],
       0,
-      "f9a3f64ca59509f2adced8173a7e0922"
+      "149b93add22692a91d2eb585e2d6b41b"
     ],
     [
       "Vale.Math.Poly2.Words.lemma_quad32_double_swap",
@@ -220,7 +220,7 @@
         "typing_Vale.Math.Poly2_s.shift"
       ],
       0,
-      "451142cd46cb28f841f55a2dddad29a5"
+      "757dc3737401348792bf3b8d367d6ca6"
     ]
   ]
 ]

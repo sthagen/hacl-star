@@ -110,7 +110,7 @@ let int64_to_uint128 a = int128_to_uint128 (int64_to_int128 a)
 val int128_to_uint64: a:Int128.t -> b:UInt64.t{UInt64.v b == Int128.v a % pow2 64}
 let int128_to_uint64 a = Int.Cast.Full.uint128_to_uint64 (int128_to_uint128 a)
 
-#push-options "--z3rlimit 700"
+#push-options "--z3rlimit 800"
 
 [@(strict_on_arguments [0;2])]
 let cast #t #l t' l' u =
@@ -477,6 +477,15 @@ let logxor_lemma1 #t #l a b =
     v_extensionality a b;
     UInt.logxor_self #(bits t) (v a)
 
+let logxor_spec #t #l a b =
+  match t with
+  | U1 ->
+    assert_norm (u1 0 `logxor` u1 0 == u1 0 /\ u1 0 `logxor` u1 1 == u1 1);
+    assert_norm (u1 1 `logxor` u1 0 == u1 1 /\ u1 1 `logxor` u1 1 == u1 0);
+    assert_norm (0 `logxor_v #U1` 0 == 0 /\ 0 `logxor_v #U1` 1 == 1);
+    assert_norm (1 `logxor_v #U1` 0 == 1 /\ 1 `logxor_v #U1` 1 == 0)
+  | _ -> ()
+
 #pop-options
 
 [@(strict_on_arguments [0])]
@@ -593,24 +602,24 @@ let logor_disjoint #t #l a b m =
 
 #pop-options
 
-let logor_zeros #t #l a = 
-  match t with 
+let logor_zeros #t #l a =
+  match t with
   |U1 -> assert_norm(u1 0 `logor` zeros U1 l == u1 0 /\ u1 1 `logor` zeros U1 l == u1 1)
   | U8 | U16 | U32 | U64 | U128 -> UInt.logor_lemma_1 #(bits t) (v a)
   | S8 | S16 | S32 | S64 | S128 -> Int.nth_lemma #(bits t) (Int.logor #(bits t) (v a) (Int.zero (bits t))) (v a)
 
 
-let logor_ones #t #l a = 
-  match t with 
+let logor_ones #t #l a =
+  match t with
   |U1 -> assert_norm(u1 0 `logor` ones U1 l == u1 1 /\ u1 1 `logor` ones U1 l == u1 1)
   | U8 | U16 | U32 | U64 | U128 -> UInt.logor_lemma_2 #(bits t) (v a)
   | S8 | S16 | S32 | S64 | S128 -> Int.nth_lemma (Int.logor #(bits t) (v a) (Int.ones (bits t))) (Int.ones (bits t))
 
-let logor_lemma #t #l a b = 
+let logor_lemma #t #l a b =
   logor_zeros #t #l b;
   logor_ones #t #l b;
-  match t with 
-  | U1 -> 
+  match t with
+  | U1 ->
     assert_norm(u1 0 `logor` ones U1 l == u1 1 /\ u1 1 `logor` ones U1 l == u1 1);
     assert_norm(u1 0 `logor` zeros U1 l == u1 0 /\ u1 1 `logor` zeros U1 l == u1 1)
   | U8 | U16 | U32 | U64 | U128 -> UInt.logor_commutative #(bits t) (v a) (v b)
@@ -624,7 +633,7 @@ let logor_spec #t #l a b =
     assert_norm (0 `logor_v #U1` 0 == 0 /\ 0 `logor_v #U1` 1 == 1);
     assert_norm (1 `logor_v #U1` 0 == 1 /\ 1 `logor_v #U1` 1 == 1)
   | _ -> ()
-  
+
 
 [@(strict_on_arguments [0])]
 let lognot #t #l a =
@@ -641,15 +650,22 @@ let lognot #t #l a =
   | S64  -> Int64.lognot a
   | S128 -> Int128.lognot a
 
-let lognot_lemma #t #l a = 
-  match t with 
+let lognot_lemma #t #l a =
+  match t with
   |U1 -> assert_norm(lognot (u1 0) == u1 1 /\ lognot (u1 1)  == u1 0)
-  | U8 | U16 | U32 | U64 | U128 -> 
-    FStar.UInt.lognot_lemma_1 #(bits t); 
+  | U8 | U16 | U32 | U64 | U128 ->
+    FStar.UInt.lognot_lemma_1 #(bits t);
     UInt.nth_lemma (FStar.UInt.lognot #(bits t) (UInt.ones (bits t))) (UInt.zero (bits t))
-  | S8 | S16 | S32 | S64 | S128 -> 
+  | S8 | S16 | S32 | S64 | S128 ->
     Int.nth_lemma (FStar.Int.lognot #(bits t) (Int.zero (bits t))) (Int.ones (bits t));
     Int.nth_lemma (FStar.Int.lognot #(bits t) (Int.ones (bits t))) (Int.zero (bits t))
+
+let lognot_spec #t #l a =
+  match t with
+  | U1 ->
+    assert_norm(lognot (u1 0) == u1 1 /\ lognot (u1 1)  == u1 0);
+    assert_norm(lognot_v #U1 0 == 1 /\ lognot_v #U1 1 == 0)
+  | _ -> ()
 
 
 [@(strict_on_arguments [0])]
@@ -797,7 +813,7 @@ let eq_mask_lemma_unsigned #t a b =
       lognot (u1 1) == u1 0 /\ lognot (u1 0) == u1 1)
   | U8 | U16 | U32 | U64 | U128 -> ()
 
-#push-options "--z3rlimit 100"
+#push-options "--z3rlimit 200"
 
 val eq_mask_lemma_signed: #t:inttype{signed t /\ ~(S128? t)} -> a:int_t t SEC -> b:int_t t SEC -> Lemma
   (if v a = v b then v (eq_mask a b) == ones_v t
@@ -968,7 +984,7 @@ let mod_mask_lemma #t #l a m =
   so that the result fits in t'; i.e.
   b = if a >= 2^(bits t' - 1) then a - 2^(bits t') else a
 *)
-inline_for_extraction noextract
+inline_for_extraction
 val conditional_subtract:
     #t:inttype{signed t}
   -> #l:secrecy_level

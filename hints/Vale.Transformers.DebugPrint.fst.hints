@@ -14,7 +14,7 @@
         "subterm_ordering_Prims.Cons"
       ],
       0,
-      "3fc7433b669aeaeb0b5ce4e15b22cc2e"
+      "5cc283221d84839c42c49918638451dd"
     ],
     [
       "Vale.Transformers.DebugPrint.aux_print_code",
@@ -37,7 +37,7 @@
         "subterm_ordering_Vale.X64.Machine_s.While"
       ],
       0,
-      "174cd59dd795abe3f92c4322a0a3373f"
+      "2c9c57c71ddef71be3b4263d9e1ec425"
     ],
     [
       "Vale.Transformers.DebugPrint.aux_print_code",
@@ -54,62 +54,7 @@
         "fuel_guarded_inversion_Prims.list", "subterm_ordering_Prims.Cons"
       ],
       0,
-      "730e5a57b591a6905a4f61852d9f4993"
-    ],
-    [
-      "Vale.Transformers.DebugPrint.get_non_space",
-      2,
-      1,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "binder_x_4bb2ecabb8dd73bd801eb57f838ec7dc_0",
-        "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
-        "equation_FStar.String.char", "fuel_guarded_inversion_Prims.list",
-        "subterm_ordering_Prims.Cons"
-      ],
-      0,
-      "3445778330e4458551e92f13c86b0b20"
-    ],
-    [
-      "Vale.Transformers.DebugPrint.aux_print_code",
-      3,
-      1,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "binder_x_97ef5ff619e486c846fe112d821f649f_0",
-        "disc_equation_Vale.X64.Machine_s.Block",
-        "disc_equation_Vale.X64.Machine_s.IfElse",
-        "disc_equation_Vale.X64.Machine_s.Ins",
-        "disc_equation_Vale.X64.Machine_s.While",
-        "equation_Vale.X64.Bytes_Code_s.code_t",
-        "equation_Vale.X64.Machine_Semantics_s.code",
-        "equation_Vale.X64.Machine_Semantics_s.codes",
-        "fuel_guarded_inversion_Vale.X64.Machine_s.precode",
-        "subterm_ordering_Vale.X64.Machine_s.Block",
-        "subterm_ordering_Vale.X64.Machine_s.IfElse",
-        "subterm_ordering_Vale.X64.Machine_s.While"
-      ],
-      0,
-      "a22aeaf9571d4a84a056ada1c5b72b3b"
-    ],
-    [
-      "Vale.Transformers.DebugPrint.aux_print_code",
-      4,
-      1,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "binder_x_69b3af25a4334715774d1242034fc6f2_0",
-        "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
-        "equation_Vale.X64.Bytes_Code_s.codes_t",
-        "equation_Vale.X64.Machine_Semantics_s.code",
-        "equation_Vale.X64.Machine_Semantics_s.codes",
-        "fuel_guarded_inversion_Prims.list", "subterm_ordering_Prims.Cons"
-      ],
-      0,
-      "06a865bf2d62b9253541c1efc3230e8e"
+      "3d551a85c641de8d9b621f901abc4058"
     ]
   ]
 ]

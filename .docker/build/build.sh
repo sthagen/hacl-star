@@ -29,9 +29,16 @@ function export_home() {
 function vale_test() {
   echo Running Vale Test &&
   fetch_kremlin &&
-        fetch_vale &&
-        env VALE_SCONS_PARALLEL_OPT="-j $threads" make -j $threads vale.build -k
+      fetch_vale &&
+      make -j $threads vale.build -k
 }
+
+# This is just out of complete obsessiveness about CI: we check that the code
+# compiles on antediluvian machines: mtune=generic is the lowest target GCC
+# accepts, and seems to default to -mtune=core2 on most recent versions of GCC.
+declare -A cflags
+cflags[portable-gcc-compatible]="-mtune=generic"
+cflags[gcc-compatible]="-march=native -mtune=native"
 
 function hacl_test() {
     make_target=ci
@@ -48,15 +55,15 @@ function hacl_test() {
           cd dist
           r=true
           for a in *; do
-            if [[ $a != "kremlin" && $a != "vale" && -d $a ]]; then
+            if [[ $a != "kremlin" && $a != "vale" && $a != "linux" && $a != "wasm" && $a != "merkle-tree" && $a != "test" && -d $a ]]; then
               echo "Building snapshot: $a"
-              make -C $a -j $threads || r=false
+              CFLAGS="${cflags[$a]}" make -C $a -j $threads || r=false
               echo
             fi
           done
           $r
         ) &&
-        env VALE_SCONS_PARALLEL_OPT="-j $threads" make -j $threads $make_target -k
+        make -j $threads $make_target -k
 }
 
 function hacl_test_hints_dist() {
@@ -81,7 +88,7 @@ function fetch_and_make_kremlin() {
 # By default, kremlin master works against F* stable. Can also be overridden.
 function fetch_kremlin() {
     if [ ! -d kremlin ]; then
-        git clone https://github.com/FStarLang/kremlin kremlin
+        git clone https://github.com/FStarLang/kremlin kremlin || return 1
     fi
     cd kremlin
     git fetch origin
@@ -104,7 +111,7 @@ function fetch_and_make_mlcrypto() {
 
 function fetch_mlcrypto() {
     if [ ! -d mlcrypto ]; then
-        git clone https://github.com/project-everest/MLCrypto mlcrypto
+        git clone https://github.com/project-everest/MLCrypto mlcrypto || return 1
     fi
     cd mlcrypto
     git fetch origin
@@ -124,7 +131,7 @@ function fetch_mlcrypto() {
 # By default, mitls-fstar master works against F* stable. Can also be overridden.
 function fetch_mitls() {
     if [ ! -d mitls-fstar ]; then
-        git clone https://github.com/mitls/mitls-fstar mitls-fstar
+        git clone https://github.com/mitls/mitls-fstar mitls-fstar || return 1
     fi
     cd mitls-fstar
     git fetch origin
@@ -150,11 +157,11 @@ function refresh_doc() {
   git config --global user.name "Dzomo, the Everest Yak"
   git config --global user.email "everbld@microsoft.com"
 
-  git clone git@github.com:fstarlang/fstarlang.github.io fstarlang-github-io
+  git clone git@github.com:hacl-star/hacl-star.github.io website
 
-  (cd doc/reference && ./ci.sh ../../fstarlang-github-io/evercrypt/html/)
+  (cd doc && ./ci.sh ../website/)
 
-  pushd fstarlang-github-io && {
+  pushd website && {
     git add -A . &&
     if ! git diff --exit-code HEAD > /dev/null; then
         git commit -m "[CI] Refresh HACL & EverCrypt doc" &&
@@ -171,10 +178,10 @@ function refresh_doc() {
 function refresh_hacl_hints_dist() {
     # We should not generate hints when building on Windows
     if [[ "$OS" != "Windows_NT" ]]; then
-        refresh_hints_dist "git@github.com:mitls/hacl-star.git" "true" "regenerate hints and dist" "."
         if [[ $branchname == "master" ]] ; then
           refresh_doc
         fi
+        refresh_hints_dist "git@github.com:mitls/hacl-star.git" "true" "regenerate hints and dist" "hints"
     fi
 }
 
@@ -182,13 +189,13 @@ function refresh_hacl_hints_dist() {
 # Then add changes to git.
 function clean_build_dist() {
     ORANGE_FILE="../orange_file.txt"
-    rm -rf dist/*/*
-    env VALE_SCONS_PARALLEL_OPT="-j $threads" make -j $threads all-unstaged -k
-    echo "Searching for a diff in dist/"
+    rm -rf dist/*/* &&
+    make -j $threads all-unstaged test-c -k &&
+    echo "Searching for a diff in dist/" &&
     if ! git diff --exit-code --name-only -- dist :!dist/*/INFO.txt; then
         echo "GIT DIFF: the files in dist/ have a git diff"
         { echo " - dist-diff (hacl-star)" >> $ORANGE_FILE; }
-    fi
+    fi &&
     git add dist
 }
 
@@ -215,7 +222,7 @@ function refresh_hints_dist() {
     # outputting the list of files to stdout
     eval "$extra"
 
-    clean_build_dist
+    clean_build_dist || return 1
 
     git commit --allow-empty -m "[CI] $msg"
     # Memorize that commit
@@ -263,19 +270,11 @@ function exec_build() {
 
     if [[ $target == "hacl-ci" || $target == "mozilla-ci" ]]; then
         echo target - >hacl-ci
-        if [[ $branchname == "vale" ||  $branchname == "_vale" ]]; then
-          vale_test && echo -n true >$status_file
-        else
-          hacl_test && echo -n true >$status_file
-        fi
+        hacl_test && echo -n true >$status_file
     elif [[ $target == "hacl-nightly" ]]; then
         echo target - >hacl-nightly
-        if [[ $branchname == "vale" ||  $branchname == "_vale" ]]; then
-          vale_test && echo -n true >$status_file
-        else
-          export OTHERFLAGS="--record_hints $OTHERFLAGS --z3rlimit_factor 2"
-          hacl_test_hints_dist && echo -n true >$status_file
-        fi
+        export OTHERFLAGS="--record_hints $OTHERFLAGS --z3rlimit_factor 2"
+        hacl_test_hints_dist && echo -n true >$status_file
     else
         echo "Invalid target"
         echo Failure >$result_file

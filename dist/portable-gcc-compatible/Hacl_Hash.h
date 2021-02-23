@@ -21,6 +21,14 @@
  * SOFTWARE.
  */
 
+
+#ifndef __Hacl_Hash_H
+#define __Hacl_Hash_H
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include "evercrypt_targetconfig.h"
 #include "libintvector.h"
 #include "kremlin/internal/types.h"
@@ -28,11 +36,131 @@
 #include <string.h>
 #include "kremlin/internal/target.h"
 
-#ifndef __Hacl_Hash_H
-#define __Hacl_Hash_H
 
 #include "Hacl_Kremlib.h"
+#include "Hacl_Blake2s_32.h"
+#include "Lib_Memzero0.h"
+#include "Hacl_Blake2b_32.h"
+#include "Hacl_Impl_Blake2_Constants.h"
+#include "Hacl_Spec.h"
 
+/* SNIPPET_START: Hacl_Hash_Core_Blake2_update_blake2s_32 */
+
+uint64_t Hacl_Hash_Core_Blake2_update_blake2s_32(uint32_t *s, uint64_t totlen, uint8_t *block);
+
+/* SNIPPET_END: Hacl_Hash_Core_Blake2_update_blake2s_32 */
+
+/* SNIPPET_START: Hacl_Hash_Core_Blake2_finish_blake2s_32 */
+
+void Hacl_Hash_Core_Blake2_finish_blake2s_32(uint32_t *s, uint64_t ev, uint8_t *dst);
+
+/* SNIPPET_END: Hacl_Hash_Core_Blake2_finish_blake2s_32 */
+
+/* SNIPPET_START: Hacl_Hash_Core_Blake2_update_blake2b_32 */
+
+FStar_UInt128_uint128
+Hacl_Hash_Core_Blake2_update_blake2b_32(
+  uint64_t *s,
+  FStar_UInt128_uint128 totlen,
+  uint8_t *block
+);
+
+/* SNIPPET_END: Hacl_Hash_Core_Blake2_update_blake2b_32 */
+
+/* SNIPPET_START: Hacl_Hash_Core_Blake2_finish_blake2b_32 */
+
+void
+Hacl_Hash_Core_Blake2_finish_blake2b_32(uint64_t *s, FStar_UInt128_uint128 ev, uint8_t *dst);
+
+/* SNIPPET_END: Hacl_Hash_Core_Blake2_finish_blake2b_32 */
+
+/* SNIPPET_START: Hacl_Hash_Blake2_update_multi_blake2s_32 */
+
+uint64_t
+Hacl_Hash_Blake2_update_multi_blake2s_32(
+  uint32_t *s,
+  uint64_t ev,
+  uint8_t *blocks,
+  uint32_t n_blocks
+);
+
+/* SNIPPET_END: Hacl_Hash_Blake2_update_multi_blake2s_32 */
+
+/* SNIPPET_START: Hacl_Hash_Blake2_update_multi_blake2b_32 */
+
+FStar_UInt128_uint128
+Hacl_Hash_Blake2_update_multi_blake2b_32(
+  uint64_t *s,
+  FStar_UInt128_uint128 ev,
+  uint8_t *blocks,
+  uint32_t n_blocks
+);
+
+/* SNIPPET_END: Hacl_Hash_Blake2_update_multi_blake2b_32 */
+
+/* SNIPPET_START: K___uint32_t_uint32_t_uint32_t__uint8_t___uint8_t_ */
+
+typedef struct K___uint32_t_uint32_t_uint32_t__uint8_t___uint8_t__s
+{
+  uint32_t fst;
+  uint32_t snd;
+  uint32_t thd;
+  uint8_t *f3;
+  uint8_t *f4;
+}
+K___uint32_t_uint32_t_uint32_t__uint8_t___uint8_t_;
+
+/* SNIPPET_END: K___uint32_t_uint32_t_uint32_t__uint8_t___uint8_t_ */
+
+/* SNIPPET_START: K___uint32_t_uint32_t_uint32_t */
+
+typedef struct K___uint32_t_uint32_t_uint32_t_s
+{
+  uint32_t fst;
+  uint32_t snd;
+  uint32_t thd;
+}
+K___uint32_t_uint32_t_uint32_t;
+
+/* SNIPPET_END: K___uint32_t_uint32_t_uint32_t */
+
+/* SNIPPET_START: Hacl_Hash_Blake2_update_last_blake2s_32 */
+
+uint64_t
+Hacl_Hash_Blake2_update_last_blake2s_32(
+  uint32_t *s,
+  uint64_t ev,
+  uint64_t prev_len,
+  uint8_t *input,
+  uint32_t input_len
+);
+
+/* SNIPPET_END: Hacl_Hash_Blake2_update_last_blake2s_32 */
+
+/* SNIPPET_START: Hacl_Hash_Blake2_update_last_blake2b_32 */
+
+FStar_UInt128_uint128
+Hacl_Hash_Blake2_update_last_blake2b_32(
+  uint64_t *s,
+  FStar_UInt128_uint128 ev,
+  FStar_UInt128_uint128 prev_len,
+  uint8_t *input,
+  uint32_t input_len
+);
+
+/* SNIPPET_END: Hacl_Hash_Blake2_update_last_blake2b_32 */
+
+/* SNIPPET_START: Hacl_Hash_Blake2_hash_blake2s_32 */
+
+void Hacl_Hash_Blake2_hash_blake2s_32(uint8_t *input, uint32_t input_len, uint8_t *dst);
+
+/* SNIPPET_END: Hacl_Hash_Blake2_hash_blake2s_32 */
+
+/* SNIPPET_START: Hacl_Hash_Blake2_hash_blake2b_32 */
+
+void Hacl_Hash_Blake2_hash_blake2b_32(uint8_t *input, uint32_t input_len, uint8_t *dst);
+
+/* SNIPPET_END: Hacl_Hash_Blake2_hash_blake2b_32 */
 
 /* SNIPPET_START: Hacl_Hash_MD5_legacy_update_multi */
 
@@ -252,25 +380,25 @@ void Hacl_Hash_Core_SHA2_init_512(uint64_t *s);
 
 /* SNIPPET_START: Hacl_Hash_Core_SHA2_update_224 */
 
-void Hacl_Hash_Core_SHA2_update_224(uint32_t *hash1, uint8_t *block);
+void Hacl_Hash_Core_SHA2_update_224(uint32_t *hash, uint8_t *block);
 
 /* SNIPPET_END: Hacl_Hash_Core_SHA2_update_224 */
 
 /* SNIPPET_START: Hacl_Hash_Core_SHA2_update_256 */
 
-void Hacl_Hash_Core_SHA2_update_256(uint32_t *hash1, uint8_t *block);
+void Hacl_Hash_Core_SHA2_update_256(uint32_t *hash, uint8_t *block);
 
 /* SNIPPET_END: Hacl_Hash_Core_SHA2_update_256 */
 
 /* SNIPPET_START: Hacl_Hash_Core_SHA2_update_384 */
 
-void Hacl_Hash_Core_SHA2_update_384(uint64_t *hash1, uint8_t *block);
+void Hacl_Hash_Core_SHA2_update_384(uint64_t *hash, uint8_t *block);
 
 /* SNIPPET_END: Hacl_Hash_Core_SHA2_update_384 */
 
 /* SNIPPET_START: Hacl_Hash_Core_SHA2_update_512 */
 
-void Hacl_Hash_Core_SHA2_update_512(uint64_t *hash1, uint8_t *block);
+void Hacl_Hash_Core_SHA2_update_512(uint64_t *hash, uint8_t *block);
 
 /* SNIPPET_END: Hacl_Hash_Core_SHA2_update_512 */
 
@@ -322,17 +450,33 @@ void Hacl_Hash_Core_SHA2_finish_512(uint64_t *s, uint8_t *dst);
 
 /* SNIPPET_END: Hacl_Hash_Core_SHA2_finish_512 */
 
-/* SNIPPET_START: Hacl_Hash_Core_SHA2_Constants_k224_256 */
+/* SNIPPET_START: Hacl_Hash_Definitions_word_len */
 
-extern uint32_t Hacl_Hash_Core_SHA2_Constants_k224_256[64U];
+uint32_t Hacl_Hash_Definitions_word_len(Spec_Hash_Definitions_hash_alg a);
 
-/* SNIPPET_END: Hacl_Hash_Core_SHA2_Constants_k224_256 */
+/* SNIPPET_END: Hacl_Hash_Definitions_word_len */
 
-/* SNIPPET_START: Hacl_Hash_Core_SHA2_Constants_k384_512 */
+/* SNIPPET_START: Hacl_Hash_Definitions_block_len */
 
-extern uint64_t Hacl_Hash_Core_SHA2_Constants_k384_512[80U];
+uint32_t Hacl_Hash_Definitions_block_len(Spec_Hash_Definitions_hash_alg a);
 
-/* SNIPPET_END: Hacl_Hash_Core_SHA2_Constants_k384_512 */
+/* SNIPPET_END: Hacl_Hash_Definitions_block_len */
+
+/* SNIPPET_START: Hacl_Hash_Definitions_hash_word_len */
+
+uint32_t Hacl_Hash_Definitions_hash_word_len(Spec_Hash_Definitions_hash_alg a);
+
+/* SNIPPET_END: Hacl_Hash_Definitions_hash_word_len */
+
+/* SNIPPET_START: Hacl_Hash_Definitions_hash_len */
+
+uint32_t Hacl_Hash_Definitions_hash_len(Spec_Hash_Definitions_hash_alg a);
+
+/* SNIPPET_END: Hacl_Hash_Definitions_hash_len */
+
+#if defined(__cplusplus)
+}
+#endif
 
 #define __Hacl_Hash_H_DEFINED
 #endif

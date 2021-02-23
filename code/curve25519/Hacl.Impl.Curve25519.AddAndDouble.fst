@@ -18,7 +18,7 @@ module F64 = Hacl.Impl.Curve25519.Field64
 module P = Spec.Curve25519
 module S = Hacl.Spec.Curve25519.AddAndDouble
 
-#reset-options "--z3rlimit 150 --max_fuel 1 --using_facts_from '* -FStar.Seq' --record_options"
+#reset-options "--z3rlimit 300 --fuel 0 --ifuel 1 --using_facts_from '* -FStar.Seq' --record_options"
 
 inline_for_extraction noextract
 let point (s:field_spec) = lbuffer (limb s) (nlimb s +! nlimb s)
@@ -57,7 +57,6 @@ val point_add_and_double0:
   -> tmp2:felem_wide2 s
   -> Stack unit
     (requires fun h0 ->
-      (s = M64 ==> Vale.X64.CPU_Features_s.(adx_enabled /\ bmi2_enabled)) /\
       live h0 nq_p1 /\ live h0 ab /\ live h0 dc /\ live h0 tmp2 /\
       disjoint nq_p1 ab /\ disjoint nq_p1 dc /\ disjoint nq_p1 tmp2 /\
       disjoint ab dc /\ disjoint ab tmp2 /\ disjoint dc tmp2 /\
@@ -95,7 +94,6 @@ val point_add_and_double1:
   -> tmp2:felem_wide2 s
   -> Stack unit
     (requires fun h0 ->
-      (s = M64 ==> Vale.X64.CPU_Features_s.(adx_enabled /\ bmi2_enabled)) /\
       live h0 nq /\ live h0 nq_p1 /\ live h0 tmp1 /\ live h0 tmp2 /\
       disjoint nq nq_p1 /\ disjoint nq tmp1 /\ disjoint nq tmp2 /\
       disjoint nq_p1 tmp1 /\ disjoint nq_p1 tmp2 /\ disjoint tmp1 tmp2 /\
@@ -151,15 +149,13 @@ val point_add_and_double:
   -> tmp2:felem_wide2 s
   -> Stack unit
     (requires fun h0 ->
-      (s = M64 ==> Vale.X64.CPU_Features_s.(adx_enabled /\ bmi2_enabled)) /\
-    (
       let nq = gsub p01_tmp1 0ul (2ul *! nlimb s) in
       let nq_p1 = gsub p01_tmp1 (2ul *! nlimb s) (2ul *! nlimb s) in
       live h0 q /\ live h0 p01_tmp1 /\ live h0 tmp2 /\
       disjoint q p01_tmp1 /\ disjoint q tmp2 /\ disjoint p01_tmp1 tmp2 /\
       state_inv_t h0 (get_x q) /\ state_inv_t h0 (get_z q) /\
       state_inv_t h0 (get_x nq) /\ state_inv_t h0 (get_z nq) /\
-      state_inv_t h0 (get_x nq_p1) /\ state_inv_t h0 (get_z nq_p1)))
+      state_inv_t h0 (get_x nq_p1) /\ state_inv_t h0 (get_z nq_p1))
     (ensures  fun h0 _ h1 -> (
       let nq = gsub p01_tmp1 0ul (2ul *! nlimb s) in
       let nq_p1 = gsub p01_tmp1 (2ul *! nlimb s) (2ul *! nlimb s) in
@@ -168,6 +164,7 @@ val point_add_and_double:
       state_inv_t h1 (get_x nq_p1) /\ state_inv_t h1 (get_z nq_p1) /\
      (let p2, p3 = P.add_and_double (fget_xz h0 q) (fget_xz h0 nq) (fget_xz h0 nq_p1) in
       fget_xz h1 nq == p2 /\ fget_xz h1 nq_p1 == p3)))
+
 [@ Meta.Attribute.specialize ]
 let point_add_and_double #s q p01_tmp1 tmp2 =
   let h0 = ST.get () in
@@ -200,7 +197,6 @@ val point_double:
   -> tmp2:felem_wide2 s
   -> Stack unit
     (requires fun h0 ->
-      (s = M64 ==> Vale.X64.CPU_Features_s.(adx_enabled /\ bmi2_enabled)) /\
       live h0 nq /\ live h0 tmp1 /\ live h0 tmp2 /\
       disjoint nq tmp1 /\ disjoint nq tmp2 /\ disjoint tmp1 tmp2 /\
       state_inv_t h0 (get_x nq) /\ state_inv_t h0 (get_z nq))

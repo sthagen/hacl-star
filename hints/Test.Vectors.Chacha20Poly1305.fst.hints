@@ -20,7 +20,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -28,7 +28,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "780e1290f1ebdec96c8dfb98e94b0747"
+      "ce9e0851238005d4416ddba1d16d8c54"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key0_len",
@@ -37,11 +37,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key0"
       ],
       0,
-      "9e0d1cfb3f99f5c2bd2f3f90a3aad4cd"
+      "f1256986f9ea5c34fdc7d0a51bec1006"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce0",
@@ -62,7 +62,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -70,7 +70,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "dd9d671181792bae09d90ca2cbe40fd4"
+      "eeb700a62315cfd8b7e9fa20a8aa36fe"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce0_len",
@@ -79,11 +79,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce0"
       ],
       0,
-      "aee723d8712e35f4c2813e23724a10be"
+      "ecb8be4dbac72f689a935acf6d8cf73e"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad0",
@@ -104,7 +104,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -112,7 +112,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "0851259c8ce9c90237f77f3247c1065b"
+      "65667a7b8bb81f7f2c9929da22b7c96b"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad0_len",
@@ -121,11 +121,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.aad0"
       ],
       0,
-      "18c91ea6d278740ac0d4a8655497c06b"
+      "c2ae515e051fadff79f1e00a99589ba3"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input0",
@@ -145,7 +145,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -159,17 +158,17 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
-        "refinement_interpretation_Tm_refine_2797cd56f154d6a19fec80698b47b6b5",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_e117f8451ead9813171cbe564e63d67e",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -178,7 +177,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad0"
       ],
       0,
-      "dad9741af6daa1e692db8d6c99de91d6"
+      "73e03b02f91fa1ae3d30397d1a3b7b18"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input0_len",
@@ -187,11 +186,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_1851140a5a9d6bf151cff94e730d2ede",
+        "refinement_interpretation_Tm_refine_0aa5f24116ae34d7ed7665d0478f3b4d",
         "typing_Test.Vectors.Chacha20Poly1305.input0"
       ],
       0,
-      "3b4ef9956e02ac4e1c65e17e6c4e3108"
+      "df4e2ebd71dfe5a159620d617c991c70"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output0",
@@ -211,8 +210,8 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
-        "refinement_interpretation_Tm_refine_1680ab71baf816a11a1cd1dcfe6d64c0",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
+        "refinement_interpretation_Tm_refine_9ad630f63fb29672c5030882cababaa2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -220,7 +219,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "d2b2e92f4aef260c9b6eb298616f4599"
+      "842b0dcd6ac84904c903bfa91c23b954"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output0_len",
@@ -229,11 +228,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_d52561b7d3766f37a92500f68cfb8cc8",
+        "refinement_interpretation_Tm_refine_dedbd06bc7ae0079e9959f8cbc8d3b38",
         "typing_Test.Vectors.Chacha20Poly1305.output0"
       ],
       0,
-      "f3a0078054e8cbb56f451caf3c109a66"
+      "455c7c17d282b0a3afad1881db622b4a"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key1",
@@ -254,7 +253,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -262,7 +261,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "3b4388e6ed094c4581faed253bf6b951"
+      "09890b5be0b9c6c185b5fb000fa9f2c0"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key1_len",
@@ -271,11 +270,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key1"
       ],
       0,
-      "dd4f99ebff8364a3be608359af1d0fde"
+      "2fab9b71a284be59659cd1e09607e9e7"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce1",
@@ -296,7 +295,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -304,7 +303,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "8438b8bbd187123d0ff380693eeaf47d"
+      "f673a035d8f9d511d823f2291d3e21aa"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce1_len",
@@ -313,11 +312,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce1"
       ],
       0,
-      "e41ade6220a2a669d8ba2287b7a77be6"
+      "b863470b3ed6e31437371e1babea9e51"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad1",
@@ -345,7 +344,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "cd5d4260daef6ea558fece7e381157f4"
+      "d3a50ed9bbc5b2d00183c93fba9adaa1"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad1_len",
@@ -354,11 +353,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
         "typing_Test.Vectors.Chacha20Poly1305.aad1"
       ],
       0,
-      "5e9fb1ef6de296a5cf80072c7b0c4c73"
+      "8239cea96948cf0baf83ee41c9c0610e"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input1",
@@ -378,7 +377,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -394,15 +392,15 @@
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_a72e4f0f5620bd118d5609c286d5f4b8",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
+        "refinement_interpretation_Tm_refine_a4ec12512fabef911c6c75ffd253a87b",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -411,7 +409,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad1"
       ],
       0,
-      "20d6a9351d879d6c0a7ee7eae9b0117c"
+      "2f9664963ee4ae8a46b603ed0e743260"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input1_len",
@@ -420,11 +418,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_5dccf04464b669d881c826e935365436",
+        "refinement_interpretation_Tm_refine_72a313438505af1568dcc65012fd9cfc",
         "typing_Test.Vectors.Chacha20Poly1305.input1"
       ],
       0,
-      "975de14c566ab6d7937d6c05ba50eef8"
+      "1471863b0ba008cbac5454ab0dae7f69"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output1",
@@ -445,7 +443,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_da79c9363cdb5abcffa152eada6a861f",
+        "refinement_interpretation_Tm_refine_5361ddac5a39d39800941d80f898fc83",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -453,7 +451,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "e0265ac79437104047745751d4c85134"
+      "3dfc5abd7fa411237391bdd9792f226a"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output1_len",
@@ -462,11 +460,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_7e594ad2af0f3614996ce396263cb36e",
+        "refinement_interpretation_Tm_refine_16cc6a6b0029ec3a75e511ab54cc0631",
         "typing_Test.Vectors.Chacha20Poly1305.output1"
       ],
       0,
-      "5c97cd6cc7e88497b9f068dfb6c3e030"
+      "dee3ead811d033b1659de3c27047608f"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key2",
@@ -487,7 +485,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -495,7 +493,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "275ba64c1c14ec1db16e6a96484f682e"
+      "2cd530bd7bc1833b696d9b142fdc29cb"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key2_len",
@@ -504,11 +502,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key2"
       ],
       0,
-      "b92594d9ba0de511729b3f45f013571d"
+      "d602ffcf37c836f1d1f00643f02f3a3f"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce2",
@@ -529,7 +527,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -537,7 +535,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "4b4d3337ca5065540e159fb801dd4c0d"
+      "4c8955b96a68c1023d8bbc696ba62da5"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce2_len",
@@ -546,11 +544,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce2"
       ],
       0,
-      "f81f1ff28bedf347129e25c19f19efee"
+      "a8fb35df4223d350950f4b297ad23c4f"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad2",
@@ -570,8 +568,8 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
+        "refinement_interpretation_Tm_refine_31db687240398c6877bc341a1850cf99",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_f6bacda43435b7375ee04d185a218f51",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -579,7 +577,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "1669e9f2dd7baa1afe013b97f1c1d501"
+      "d03c159113c74379f1be4f9ed7aa8df2"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad2_len",
@@ -588,11 +586,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_2f657d06ee5fc775edea771370ee385a",
+        "refinement_interpretation_Tm_refine_be39cf5f5def3d988cb238fa7560426b",
         "typing_Test.Vectors.Chacha20Poly1305.aad2"
       ],
       0,
-      "af421738f81380055ca42313b97d7aaa"
+      "b0b565ca27f7c4ac69d7f2ddff855d91"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input2",
@@ -612,7 +610,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -626,17 +623,17 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
-        "refinement_interpretation_Tm_refine_2f657d06ee5fc775edea771370ee385a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_a72e4f0f5620bd118d5609c286d5f4b8",
+        "refinement_interpretation_Tm_refine_a4ec12512fabef911c6c75ffd253a87b",
+        "refinement_interpretation_Tm_refine_be39cf5f5def3d988cb238fa7560426b",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -645,7 +642,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad2"
       ],
       0,
-      "0406eba7b29c980247010446fc5448b5"
+      "10b18bc703cf6587cea8077d1ed57750"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input2_len",
@@ -654,11 +651,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_af30b58a8dea5dcae248698ebc4240ec",
+        "refinement_interpretation_Tm_refine_969352463670e36af4268c2723497e70",
         "typing_Test.Vectors.Chacha20Poly1305.input2"
       ],
       0,
-      "25b6b16f2e76bb51514974fcfafde627"
+      "0b3e24c6a2452fb02c5bc38c25638139"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output2",
@@ -679,7 +676,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_da79c9363cdb5abcffa152eada6a861f",
+        "refinement_interpretation_Tm_refine_5361ddac5a39d39800941d80f898fc83",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -687,7 +684,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "40ee7f9ff730da5b10b3a62f8db2fe7c"
+      "f32f512971cc8606c2bfbea5847aa7d7"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output2_len",
@@ -696,11 +693,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_7e594ad2af0f3614996ce396263cb36e",
+        "refinement_interpretation_Tm_refine_16cc6a6b0029ec3a75e511ab54cc0631",
         "typing_Test.Vectors.Chacha20Poly1305.output2"
       ],
       0,
-      "c48772be1e8a0b81ff50209f22030140"
+      "f4f86882791c7f311be92e5532f56e1d"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key3",
@@ -721,7 +718,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -729,7 +726,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "a974c9400ad872d27a8e747a3c08b4d3"
+      "813f8ba53ef77503f683c2d27292f8dc"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key3_len",
@@ -738,11 +735,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key3"
       ],
       0,
-      "42d0331ff86022a90ae31db260f5e758"
+      "53421b63887e8dc93059fe211ec08a3b"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce3",
@@ -763,7 +760,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -771,7 +768,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "52f168de27a6073da88f364525fd5d60"
+      "e622f4b1a35c71b6935eee3f0dbfba20"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce3_len",
@@ -780,11 +777,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce3"
       ],
       0,
-      "2bb836ef9672c9bbe36cae0e6c4c5546"
+      "1744a4de5154c34a1291172654a64112"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad3",
@@ -804,8 +801,8 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
+        "refinement_interpretation_Tm_refine_31db687240398c6877bc341a1850cf99",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_f6bacda43435b7375ee04d185a218f51",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -813,7 +810,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "70ad7f00ee4267c7bb8546c3d5578daf"
+      "3862fd997c2a7006e8a8aa6504f85264"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad3_len",
@@ -822,11 +819,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_2f657d06ee5fc775edea771370ee385a",
+        "refinement_interpretation_Tm_refine_be39cf5f5def3d988cb238fa7560426b",
         "typing_Test.Vectors.Chacha20Poly1305.aad3"
       ],
       0,
-      "50bb3bf2480976a276b6eb992916fc26"
+      "ce028b1406753ff4b2c4858694a48511"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input3",
@@ -846,7 +843,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -860,17 +856,17 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
-        "refinement_interpretation_Tm_refine_2f657d06ee5fc775edea771370ee385a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_7af298bc946646906a101fd94bc26c59",
+        "refinement_interpretation_Tm_refine_be39cf5f5def3d988cb238fa7560426b",
+        "refinement_interpretation_Tm_refine_f0e8fa931fb52c422a0a77548342f6c3",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -879,7 +875,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad3"
       ],
       0,
-      "9b7574309bbbb246053c7023f5dd1ee5"
+      "1e37decdf03ae3886e9cca914d745789"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input3_len",
@@ -888,11 +884,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_44c02d445d3883cafead5466f5657550",
+        "refinement_interpretation_Tm_refine_0a81b0195ed43d2ad9d8198fba8302c1",
         "typing_Test.Vectors.Chacha20Poly1305.input3"
       ],
       0,
-      "545721e561b81f4f4a595cab0ce51291"
+      "38634e635a6297c5b2bf114e4fe1f12c"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output3",
@@ -913,7 +909,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_39f16ed6a1b2254a498382dffa2b7638",
+        "refinement_interpretation_Tm_refine_6b8c2769f234007fcf437ec383d17078",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -921,7 +917,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "c584fbe746411dc8d26f725190db6b6e"
+      "feb5cd90cd55be9e23d3b78455705e27"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output3_len",
@@ -930,11 +926,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_c03fa248d8de3e4e83181bd5b7187e39",
+        "refinement_interpretation_Tm_refine_627abf2f3e02525671fcf51506099c0d",
         "typing_Test.Vectors.Chacha20Poly1305.output3"
       ],
       0,
-      "4f350b4b10325c0712152c912d1c3172"
+      "273b95259d532caec7ae2ebb55e0f2d9"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key4",
@@ -955,7 +951,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -963,7 +959,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "8bf78984788e3dd612c75102c5d24c69"
+      "3295dccedd33ae8e8a6d971b9f52c9b9"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key4_len",
@@ -972,11 +968,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key4"
       ],
       0,
-      "72bbfafec1ec6949d57526f1f54cf8ec"
+      "9e805fe7137b9d04eddeba756ee48014"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce4",
@@ -997,7 +993,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1005,7 +1001,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "d95661bb2206ee12c2e2952800ff16f9"
+      "36edcb9d8e683858f174e44b31f506ec"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce4_len",
@@ -1014,11 +1010,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce4"
       ],
       0,
-      "962496bcdf171cfa998a85740ed3204b"
+      "00cd8eeacdf7e39802d4f272c3eaac2f"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad4",
@@ -1046,7 +1042,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "cf70eb533840822224d61f6d53756313"
+      "6d8324ab66fa0d0c15fdf1fc311ec86c"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad4_len",
@@ -1055,11 +1051,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
         "typing_Test.Vectors.Chacha20Poly1305.aad4"
       ],
       0,
-      "1874080ada2227da08633146dc1c5b0d"
+      "936b6cf317cbbe9eaa538dfc9ee07df6"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input4",
@@ -1079,7 +1075,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -1095,15 +1090,15 @@
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_7af298bc946646906a101fd94bc26c59",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
+        "refinement_interpretation_Tm_refine_f0e8fa931fb52c422a0a77548342f6c3",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -1112,7 +1107,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad4"
       ],
       0,
-      "468867620e4b8a21c7ab9b23d8a91a0a"
+      "e9b5066da083cc3de5d5e3386d09e80a"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input4_len",
@@ -1121,11 +1116,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_b7a3a0c14dc43f8108ca42dbc9a481a4",
+        "refinement_interpretation_Tm_refine_add14fc8176b43c9f1c7df28e5a6f026",
         "typing_Test.Vectors.Chacha20Poly1305.input4"
       ],
       0,
-      "70e55be19b95e5cef4649f99c147d7c0"
+      "59deddc016ea417e3b0c3e49433348b5"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output4",
@@ -1146,7 +1141,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_39f16ed6a1b2254a498382dffa2b7638",
+        "refinement_interpretation_Tm_refine_6b8c2769f234007fcf437ec383d17078",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1154,7 +1149,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "6142e830cded3a23e3a5857fd393be29"
+      "acd3cbb397bdb1996a660190a7afe7f4"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output4_len",
@@ -1163,11 +1158,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_c03fa248d8de3e4e83181bd5b7187e39",
+        "refinement_interpretation_Tm_refine_627abf2f3e02525671fcf51506099c0d",
         "typing_Test.Vectors.Chacha20Poly1305.output4"
       ],
       0,
-      "cdc6737d4c2dee1431d7c661ccdb43b2"
+      "07e934dcaad3c82969d88db6cfb05128"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key5",
@@ -1188,7 +1183,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1196,7 +1191,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "5aba6d205b6072dd739a177e2d1d12ed"
+      "2c0cae82e060e298888d9ef7a3e9cf22"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key5_len",
@@ -1205,11 +1200,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key5"
       ],
       0,
-      "db4c6e3c256045414a0bc490d66088be"
+      "719627fc265babcc493fa0f6af884baa"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce5",
@@ -1230,7 +1225,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1238,7 +1233,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "209ee4d63625b40642721914b3b519bc"
+      "fb78ceadb4cd0711997bb7ba97b0777c"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce5_len",
@@ -1247,11 +1242,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce5"
       ],
       0,
-      "f4e273ac9dba403e07176f71026e97f3"
+      "fa4727a41454798853502b0fe16aee78"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad5",
@@ -1271,8 +1266,8 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
-        "refinement_interpretation_Tm_refine_0fbe1e2f7d75a442307207311c7c13ec",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
+        "refinement_interpretation_Tm_refine_7a7741e83439139fa9b6a426f5227530",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1280,7 +1275,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "a06642edc863a2f0479500978d8e88c8"
+      "e59b69557ec6da00a23bb45330e9ebd9"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad5_len",
@@ -1289,11 +1284,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_c265d867a414db82abf15b736ac25f34",
+        "refinement_interpretation_Tm_refine_c167f790398a0ce720220e01f8ee0b52",
         "typing_Test.Vectors.Chacha20Poly1305.aad5"
       ],
       0,
-      "7bb8545c19ea423e6826664915a30f00"
+      "b62211c17116a4eae5cdc1d0b091662d"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input5",
@@ -1313,7 +1308,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -1329,15 +1323,15 @@
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_ba55194577e04001c6fd95f84b5c2606",
-        "refinement_interpretation_Tm_refine_c265d867a414db82abf15b736ac25f34",
+        "refinement_interpretation_Tm_refine_862da3d7f946597930014ec6a5a9e51b",
+        "refinement_interpretation_Tm_refine_c167f790398a0ce720220e01f8ee0b52",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -1346,7 +1340,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad5"
       ],
       0,
-      "85559cf012b53f4419e24e9d396cf2f1"
+      "b600de2d33b385e5ea608da508986748"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input5_len",
@@ -1355,11 +1349,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_feb03304597ba2bb79e5227207b8b187",
+        "refinement_interpretation_Tm_refine_05f54e590eda62f540a94ea23d8afdb8",
         "typing_Test.Vectors.Chacha20Poly1305.input5"
       ],
       0,
-      "951693ea4299a39c3ef8c20ce1b3f981"
+      "d4d00145eb2fdec17b7b9a48c5c12148"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output5",
@@ -1380,7 +1374,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_dbdb4efccd7be7a97f367ece379076a5",
+        "refinement_interpretation_Tm_refine_4fce3b318cf668835d2363de80eeca15",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1388,7 +1382,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "04e2935b67954f729ee40788722600b8"
+      "4fce2d1cf4837b17bb5cec64726a9742"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output5_len",
@@ -1397,11 +1391,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_7e3c2f16e8961f92ddefbd0917f8349e",
+        "refinement_interpretation_Tm_refine_6889f3820c679707a73ee2338ee52631",
         "typing_Test.Vectors.Chacha20Poly1305.output5"
       ],
       0,
-      "c8626ca5f70515454ba3bd8cf7c86a1c"
+      "719c5afb8ecb8d19046ab832911fee17"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key6",
@@ -1422,7 +1416,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1430,7 +1424,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "43d71ab5636cc08c07d195b6344beb0f"
+      "fda957f831fe58e3b31e87efcdc1f30d"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key6_len",
@@ -1439,11 +1433,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key6"
       ],
       0,
-      "8ed2616ce55f90a9a0f31286fba1865c"
+      "069702004c54aa28f62b19a34fd05f90"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce6",
@@ -1464,7 +1458,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1472,7 +1466,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "75b36cf17cf02426b24691def3873ff2"
+      "e3551434ec70673d44d7e01318584b8d"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce6_len",
@@ -1481,11 +1475,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce6"
       ],
       0,
-      "89ae3565c21e94df712e7662560461ea"
+      "43f9c33a6978fec74332f937769a337e"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad6",
@@ -1513,7 +1507,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "0325fb761dbe7ef4410becab2be5ee9f"
+      "67103cd77b5b9c0b64fab36eb5687c6b"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad6_len",
@@ -1522,11 +1516,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
         "typing_Test.Vectors.Chacha20Poly1305.aad6"
       ],
       0,
-      "d0f15208ae7c9f802f946c6ead1d47c5"
+      "4de62d0844e78e7cf90b0607a84f8cdd"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input6",
@@ -1546,7 +1540,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -1562,15 +1555,15 @@
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
-        "refinement_interpretation_Tm_refine_b71af98d521376d5fe725a9fb2c3fd68",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
+        "refinement_interpretation_Tm_refine_c7fd79e00ad2429fcf25fc3557f957da",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -1579,7 +1572,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad6"
       ],
       0,
-      "b31c0480a4244e09477fc09db4d32e4c"
+      "c6290006cf5e0e6f8993b6fa7b2a9307"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input6_len",
@@ -1588,11 +1581,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_86d461ecef07c655b0fe966af5ee79dc",
+        "refinement_interpretation_Tm_refine_1b683305a526d9662cc877d30fb1d582",
         "typing_Test.Vectors.Chacha20Poly1305.input6"
       ],
       0,
-      "2905c0af5e5eaa308b2c6faffe9c25c8"
+      "34eef80bd0d886968da2d49496e0c592"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output6",
@@ -1613,7 +1606,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_eb116fafefeb9d7fdeae492adea7b5e0",
+        "refinement_interpretation_Tm_refine_66da3b78d177de36e9e207b39e04bfd2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1621,7 +1614,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "412e94c16b5094af5b9523535980ebb4"
+      "fb9ce344ae8cc077dd956c02050580a5"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output6_len",
@@ -1630,11 +1623,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a111bdcf4ef8c17732bcf9912566f700",
+        "refinement_interpretation_Tm_refine_245e0ed29a390d5b0844225eb04979a5",
         "typing_Test.Vectors.Chacha20Poly1305.output6"
       ],
       0,
-      "684ea35a095c67e9c22d1c548658911e"
+      "08c37af22d2385e9295d52c29e5e5f16"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key7",
@@ -1655,7 +1648,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1663,7 +1656,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "cb1fa92c88ba65937ff1df22f5911bcf"
+      "a94e8bdd8aac3af9ba010972b168b4b3"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key7_len",
@@ -1672,11 +1665,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key7"
       ],
       0,
-      "30bab03ba32a021efea99a02138ea4c5"
+      "5e0110ab798b3b2e76f510bc6a751a94"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce7",
@@ -1697,7 +1690,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1705,7 +1698,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "e888857ff6cf2bda0779499c94f0ee0e"
+      "661437e371628d30e9caeffec0ee7832"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce7_len",
@@ -1714,11 +1707,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce7"
       ],
       0,
-      "5bd6faca94f8d159a2a016f5b0c12885"
+      "e343fe53fa1dd2ff33abd973c80cffe2"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad7",
@@ -1746,7 +1739,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "a11a06352ed34b9c013cffb9cc83dafc"
+      "a0743f50975e95f342a954dd95b6d7a9"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad7_len",
@@ -1755,11 +1748,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
         "typing_Test.Vectors.Chacha20Poly1305.aad7"
       ],
       0,
-      "39ab282c84c9fe75ca7704aeb87914ca"
+      "d060893e6d9a5a1aabc12b5778929d79"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input7",
@@ -1779,7 +1772,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -1794,16 +1786,16 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_3ccef3d291cbd910ed6114da27fe0463",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
+        "refinement_interpretation_Tm_refine_698eec50cf6dd8112bcd2605bf1a44ee",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -1812,7 +1804,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad7"
       ],
       0,
-      "65cd89589dbb7a877448f5f49661ca94"
+      "49dc2a7de6dca53194ff1b73560cd016"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input7_len",
@@ -1821,11 +1813,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_73a80f1fa34f49e8785893bce6bde8b6",
+        "refinement_interpretation_Tm_refine_185f596162bdd92339fc6a898c52a0b0",
         "typing_Test.Vectors.Chacha20Poly1305.input7"
       ],
       0,
-      "29d24a584ac1ad50dddf7dafa270bf72"
+      "9ad6f06873a9ab7b55bbbc9a9c46b8af"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output7",
@@ -1845,8 +1837,8 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
-        "refinement_interpretation_Tm_refine_1470fcd31ff7e6344757fdd905d35edb",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
+        "refinement_interpretation_Tm_refine_84afd87e5389c9921d85c05cc54a7fc9",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1854,7 +1846,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "02c970c970584ded9507df5a8a3eeeaa"
+      "ceab9282f30dd0e94135509eff4a2489"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output7_len",
@@ -1863,11 +1855,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_cd2768b248316ace6d340a652ad860de",
+        "refinement_interpretation_Tm_refine_501be3fb1515c79f868f5e8df9b4b955",
         "typing_Test.Vectors.Chacha20Poly1305.output7"
       ],
       0,
-      "f431cdef1fd4a01037866946f18992c1"
+      "8cddd27882a49352f3678e0c366b97b8"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key8",
@@ -1888,7 +1880,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1896,7 +1888,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "2f2391cb47d5f41b9f4e220578c61f78"
+      "85b34d35f19960837fd48565529fdf15"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key8_len",
@@ -1905,11 +1897,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key8"
       ],
       0,
-      "dc28d4853c74ee4e12c9aef46088a7e8"
+      "398db7750d6bb0c1946bbe624c59fe25"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce8",
@@ -1930,7 +1922,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1938,7 +1930,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "282fb60d5fce454404bfb9d57e426b17"
+      "b51c6a4327de3b272af8dc8c90fb7047"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce8_len",
@@ -1947,11 +1939,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce8"
       ],
       0,
-      "4c44f2e2f171debf1c8d41190ca01fd4"
+      "fe981890fec4f89d76b3a80487192cd1"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad8",
@@ -1971,8 +1963,8 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
+        "refinement_interpretation_Tm_refine_22db6979369390f568757bdf342e5880",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_bcf8725320ef34be9f0baa2ecd9a9f5f",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -1980,7 +1972,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "b92ac834d350c8a5d44db96445930c55"
+      "22aa9a61c723a47514ae94fb38112399"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad8_len",
@@ -1989,11 +1981,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_5693c27947d2ad280810e4f45e4e8ee2",
+        "refinement_interpretation_Tm_refine_251193c7866f28bbf1eec9552c418786",
         "typing_Test.Vectors.Chacha20Poly1305.aad8"
       ],
       0,
-      "10122f3af61487e623369005fe3fb44c"
+      "5a7cbdeee24f8e17a326033006063c9e"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input8",
@@ -2013,7 +2005,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -2027,17 +2018,17 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
+        "refinement_interpretation_Tm_refine_251193c7866f28bbf1eec9552c418786",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_5693c27947d2ad280810e4f45e4e8ee2",
-        "refinement_interpretation_Tm_refine_6c73eb781f420b9c204375d28532c74c",
+        "refinement_interpretation_Tm_refine_ce16d5215552a64f0a7eeb0850749321",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -2046,7 +2037,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad8"
       ],
       0,
-      "c8433800e3a1eabce748948e10cb1ea8"
+      "c5bc8aa2b297ef892c55e6c459822bb8"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input8_len",
@@ -2055,11 +2046,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_809622c2ba95f10b7b3e4c31d897b1ce",
+        "refinement_interpretation_Tm_refine_b2634d5e2ba1f9c37ba0645538e2bb91",
         "typing_Test.Vectors.Chacha20Poly1305.input8"
       ],
       0,
-      "ce99b3a6a015e4cda3f7ba29bd1b33f2"
+      "578b2828986cc92c44d96944ee481287"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output8",
@@ -2080,7 +2071,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_bf56715d370f214ad5d71a2ad53c06a7",
+        "refinement_interpretation_Tm_refine_c75b79dca7e93ff91bc1ec8a35749391",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2088,7 +2079,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "e88c10a0692bf9adcebe3eb7613ac5f2"
+      "b14df179f2687d8a3bdc93f332c2b429"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output8_len",
@@ -2097,11 +2088,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_876a096a79dd53b5b1b64d245cc9cb02",
+        "refinement_interpretation_Tm_refine_3696fdb1f7e74674e961b0afcf0fedc5",
         "typing_Test.Vectors.Chacha20Poly1305.output8"
       ],
       0,
-      "d8815ae175e1bc0e1f2106d79b953081"
+      "ee03cf9375a121aca480db6a3c2bb2c2"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key9",
@@ -2122,7 +2113,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2130,7 +2121,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "21862a66e760093d444ffcf6ba59a54e"
+      "e457742a40b4f9261a2e45f660fd35ce"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key9_len",
@@ -2139,11 +2130,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key9"
       ],
       0,
-      "8c1447dfe852a7c4b7d608a2008b23ee"
+      "a4586932eb4cee9354bffc37bb190ed5"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce9",
@@ -2164,7 +2155,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2172,7 +2163,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "554ac9bed92a1f1ae6d3238d12132537"
+      "6d02b686a073cc8e8044fe4ddeb06427"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce9_len",
@@ -2181,11 +2172,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce9"
       ],
       0,
-      "cf2b0689d32be9e57be2ae9c78b88be1"
+      "8bd568d4f4636c4125cbdda8c461575f"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad9",
@@ -2206,7 +2197,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_da79c9363cdb5abcffa152eada6a861f",
+        "refinement_interpretation_Tm_refine_5361ddac5a39d39800941d80f898fc83",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2214,7 +2205,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "a89f5277b824248fad33f635477eda1a"
+      "7e4c51947307721e38cced38ea6d5c53"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad9_len",
@@ -2223,11 +2214,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_7e594ad2af0f3614996ce396263cb36e",
+        "refinement_interpretation_Tm_refine_16cc6a6b0029ec3a75e511ab54cc0631",
         "typing_Test.Vectors.Chacha20Poly1305.aad9"
       ],
       0,
-      "321a5458bc386367f40e90bbc31becab"
+      "8eb5e97bd17210bb4215e95f9fb3233c"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input9",
@@ -2247,7 +2238,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -2261,17 +2251,17 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
+        "refinement_interpretation_Tm_refine_16cc6a6b0029ec3a75e511ab54cc0631",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_7e594ad2af0f3614996ce396263cb36e",
-        "refinement_interpretation_Tm_refine_988416e14d16bc09b19f669a20ea8a7c",
+        "refinement_interpretation_Tm_refine_83b6ab93d11a0796adc3b8f429909515",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -2280,7 +2270,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad9"
       ],
       0,
-      "9a0c566ed6ff602292b8e58951b951bd"
+      "57aad7e34a746f269b9b5d8550dcfaeb"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input9_len",
@@ -2289,11 +2279,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_0792628c176737fac9c14809ad43b441",
+        "refinement_interpretation_Tm_refine_b022350e0916328d5da8a67c7834c5ba",
         "typing_Test.Vectors.Chacha20Poly1305.input9"
       ],
       0,
-      "f3714522fa76ed3197be893974e1c124"
+      "ec765fb6f247e01ea12c0a7ce7d2a1a4"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output9",
@@ -2314,7 +2304,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9b5eebac15582c9ad660be2dd67abde4",
+        "refinement_interpretation_Tm_refine_3f3900c653f4b98b320ad55e7270b5f7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2322,7 +2312,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "3f85b36da4e75ec1d67c9b5568d5e445"
+      "b808e1f2a24a2aafdb471fb7ca7325ce"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output9_len",
@@ -2331,11 +2321,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_3822cae8ab38234e73c43e0b3384925b",
+        "refinement_interpretation_Tm_refine_4390b28b6bdee73cbef1e05c78a66203",
         "typing_Test.Vectors.Chacha20Poly1305.output9"
       ],
       0,
-      "fa7311e34ed032942de87b2d8c8bedcc"
+      "2d41c156254dca0551c6f0bf4047c61b"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key10",
@@ -2356,7 +2346,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2364,7 +2354,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "e682c50201a3985ef618d4a093b688cf"
+      "7cd02728008d050d3ab83fc86416fac0"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key10_len",
@@ -2373,11 +2363,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key10"
       ],
       0,
-      "5ef469be765d06e25fb33232763a286a"
+      "69045ebaa4cfb442d8ea8ba32c38d341"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce10",
@@ -2398,7 +2388,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2406,7 +2396,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "8cd54b3363784ab711cb17595c11312a"
+      "2de474f6588b491ba07488a78db1138c"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce10_len",
@@ -2415,11 +2405,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce10"
       ],
       0,
-      "dfc98153c973b006a5230f97fa96f992"
+      "25c70c13b67c0ea11e46e90a4133a366"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad10",
@@ -2439,8 +2429,8 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
-        "refinement_interpretation_Tm_refine_0fbe1e2f7d75a442307207311c7c13ec",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
+        "refinement_interpretation_Tm_refine_7a7741e83439139fa9b6a426f5227530",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2448,7 +2438,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "4c7807f09e7c1a2251b5315620b3bfc9"
+      "91fbafd9c891c6841eb8436ec9ec41f6"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad10_len",
@@ -2457,11 +2447,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_c265d867a414db82abf15b736ac25f34",
+        "refinement_interpretation_Tm_refine_c167f790398a0ce720220e01f8ee0b52",
         "typing_Test.Vectors.Chacha20Poly1305.aad10"
       ],
       0,
-      "dac4e2cf872de9b474a7287baac9033f"
+      "f40782505fb143d9043272c43f82ba38"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input10",
@@ -2481,7 +2471,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -2497,15 +2486,15 @@
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_8da32f2145335508fb01dda5280e11f5",
-        "refinement_interpretation_Tm_refine_c265d867a414db82abf15b736ac25f34",
+        "refinement_interpretation_Tm_refine_c167f790398a0ce720220e01f8ee0b52",
+        "refinement_interpretation_Tm_refine_ff01aaff42ec55c65796a951c4ce4844",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -2514,7 +2503,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad10"
       ],
       0,
-      "89958349f63bfb4c082e698900a58f1f"
+      "399fc272efab8d64c2bbde6297c514f5"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input10_len",
@@ -2523,11 +2512,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_f8b26f30858c263543c8c79684cbf5da",
+        "refinement_interpretation_Tm_refine_4fabbb2e3bfe9bdbae07a0e4f4533a18",
         "typing_Test.Vectors.Chacha20Poly1305.input10"
       ],
       0,
-      "93a5aac807f15503139a982c6639a4ab"
+      "b7389bf271d01ad8ab632c3608d442b0"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output10",
@@ -2546,9 +2535,9 @@
         "lemma_FStar.Map.lemma_ContainsDom",
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_Tm_refine_0193826d6e668b4636e7b68a185f38d4",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
+        "refinement_interpretation_Tm_refine_a05fd5f1f67954b8789d5372f41ebb0d",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2556,7 +2545,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "328cfa732846b2ab1e198a0ed18cf4fa"
+      "1f7de66f6b5059183c88d333b0b1ac09"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output10_len",
@@ -2565,11 +2554,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_9004d662a1ec2bb346e66a405ab28355",
+        "refinement_interpretation_Tm_refine_2444ab613e230bba35f118b83c9ce25d",
         "typing_Test.Vectors.Chacha20Poly1305.output10"
       ],
       0,
-      "c71005d84375da230f6b9cfab14f7684"
+      "bd2f95282717dc25e7da1acbf09f714a"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key11",
@@ -2590,7 +2579,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_9e8ec64c75a490b6c2a46881aede1dd4",
+        "refinement_interpretation_Tm_refine_fcb5b58d5cac0cfc8b29731cac15492e",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2598,7 +2587,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "e07ab1da2f4af30038faa63a453b95fd"
+      "3faef1a0f4c7e15f84da572659d10494"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.key11_len",
@@ -2607,11 +2596,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a599d79344249c234cb59f5a6c89fc31",
+        "refinement_interpretation_Tm_refine_5cc198752d76ccc0d60d576ac8a3a904",
         "typing_Test.Vectors.Chacha20Poly1305.key11"
       ],
       0,
-      "e3a2778e807a6db0ba0a540d54c13126"
+      "0b309bb874fcbef3693158a64736463a"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce11",
@@ -2632,7 +2621,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_436da53bab56db28cbea6920a78dd432",
+        "refinement_interpretation_Tm_refine_42d6f44ab808208ddb9fd3f80dc034e7",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2640,7 +2629,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "bdf7c4131f902ef83da739ecadc79b5f"
+      "cc878e85680b09dc3a92fd338b6575e7"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.nonce11_len",
@@ -2649,11 +2638,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "typing_Test.Vectors.Chacha20Poly1305.nonce11"
       ],
       0,
-      "549940f1e48c18b831cd77a9f4d04e87"
+      "76d1a0b631bb4125ce0221ae9d75ba7a"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad11",
@@ -2674,7 +2663,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_4812bcc40409120184d8fd2949599f38",
+        "refinement_interpretation_Tm_refine_b96bd415266da63ce502520b4b29c842",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2682,7 +2671,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "5352eb702981e9c7371168e6c6324849"
+      "4a4f700bbdf99d8b9b50e4ceefc1d616"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.aad11_len",
@@ -2691,11 +2680,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_aa69b94dee22dabea75977056b8a8275",
+        "refinement_interpretation_Tm_refine_1e1ae3aabc94f4eaea04513c59ee4676",
         "typing_Test.Vectors.Chacha20Poly1305.aad11"
       ],
       0,
-      "ef99f19a0c6b64deee10f0246d9f8a03"
+      "dbc595a73061b082810bb32a0b701336"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input11",
@@ -2715,7 +2704,6 @@
         "equation_LowStar.Monotonic.Buffer.disjoint",
         "equation_Prims.eqtype", "equation_Prims.nat",
         "function_token_typing_FStar.Monotonic.Heap.heap",
-        "function_token_typing_FStar.UInt8.t",
         "function_token_typing_Prims.int",
         "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "lemma_FStar.Map.lemma_ContainsDom",
@@ -2729,17 +2717,17 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
+        "refinement_interpretation_Tm_refine_1e1ae3aabc94f4eaea04513c59ee4676",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
+        "refinement_interpretation_Tm_refine_3f179519ac2af765670e427603bbf438",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
-        "refinement_interpretation_Tm_refine_46c77ecc2445dbb5b4bad95adfc32a5d",
-        "refinement_interpretation_Tm_refine_aa69b94dee22dabea75977056b8a8275",
         "refinement_kinding_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
         "typing_FStar.Monotonic.HyperStack.get_tip",
-        "typing_FStar.Set.singleton",
+        "typing_FStar.Set.singleton", "typing_FStar.UInt8.t",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.as_addr",
         "typing_LowStar.Monotonic.Buffer.frameOf",
@@ -2748,7 +2736,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad11"
       ],
       0,
-      "858c60751a1ed9a7a7bc9bb508525871"
+      "b605128fd4d7648d7ef0f6e45a7cc94e"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.input11_len",
@@ -2757,11 +2745,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_5e15b75f292f9bd8498b31d75d7d13a2",
+        "refinement_interpretation_Tm_refine_81e58bc3b307bf5555ecf69d63b49d7b",
         "typing_Test.Vectors.Chacha20Poly1305.input11"
       ],
       0,
-      "4732d59d759a572b1cff73ff35eae05c"
+      "2aaeb666726e7d419670e82b80a42ee7"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output11",
@@ -2782,7 +2770,7 @@
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
-        "refinement_interpretation_Tm_refine_7d3f5df5ba5e1761febeae31a8aadb93",
+        "refinement_interpretation_Tm_refine_afb7da85521b6c1b0e2d485db2c81c87",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2790,7 +2778,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "a3c408ac60b44872b5ea3be9db9d7e96"
+      "6f527c8ee8ff6271e507df007e65891c"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.output11_len",
@@ -2799,11 +2787,11 @@
       0,
       [
         "@MaxIFuel_assumption", "@query",
-        "refinement_interpretation_Tm_refine_b488c3cc481b648f622f6e36cb1f23a7",
+        "refinement_interpretation_Tm_refine_c514d0b45ad1da484d8b9f3ab1e5b880",
         "typing_Test.Vectors.Chacha20Poly1305.output11"
       ],
       0,
-      "0daac4aba1f089fa2e57306796436f95"
+      "8a62cea19549a3e1b607872442889dc4"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.vector",
@@ -2812,7 +2800,7 @@
       0,
       [ "@query" ],
       0,
-      "178a5eacd00a3491205dbfc5acb4a901"
+      "3a2d165e312b864cd7fcf1f51c9429da"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__output_len",
@@ -2821,7 +2809,7 @@
       0,
       [ "@query" ],
       0,
-      "5985b74f55192bea6d7ddf542aabecd3"
+      "b21f2759701ff1a81732175252409b7c"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__output_len",
@@ -2834,7 +2822,7 @@
         "projection_inverse_Test.Vectors.Chacha20Poly1305.Vector_output"
       ],
       0,
-      "bb81462f1832a4035c267c0221177767"
+      "16a28099921424618cc2a4ac90cdb4b1"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__input_len",
@@ -2843,7 +2831,7 @@
       0,
       [ "@query" ],
       0,
-      "7bad1dbfaaeec5f1207b428f82c106ca"
+      "9ed1fd07ad3fa32a9a076c1169ffa87a"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__input_len",
@@ -2855,7 +2843,7 @@
         "projection_inverse_Test.Vectors.Chacha20Poly1305.Vector_input"
       ],
       0,
-      "cc6e2a12c3ca8dc3642e74cb7791c100"
+      "1c8a4edbd012355ef4b3e2d6916ae1ed"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__aad",
@@ -2867,7 +2855,7 @@
         "projection_inverse_Test.Vectors.Chacha20Poly1305.Vector_input"
       ],
       0,
-      "3bacbe4ffa5420b45674e5e66cf2cbe4"
+      "3dd5dee33ceab0bcef3d4918546b1052"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__aad_len",
@@ -2876,7 +2864,7 @@
       0,
       [ "@query" ],
       0,
-      "7b15e8f1ae62512c3d37a21e47b8f775"
+      "ab8b2cda75ec64969e034efe6ef270e3"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__aad_len",
@@ -2888,7 +2876,7 @@
         "projection_inverse_Test.Vectors.Chacha20Poly1305.Vector_aad"
       ],
       0,
-      "9cc1af31e7270ab4efe79967e65f3dee"
+      "d4ea217a6011645f47a08a7ab764a31c"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__nonce_len",
@@ -2897,7 +2885,7 @@
       0,
       [ "@query" ],
       0,
-      "18325d28860ef58c348fd9010dca6dfa"
+      "5395b282289ff13bea2fd875eeb68251"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__nonce_len",
@@ -2909,7 +2897,7 @@
         "projection_inverse_Test.Vectors.Chacha20Poly1305.Vector_nonce"
       ],
       0,
-      "bb9d13693ff7573d8f4ccd170d4e8de1"
+      "0b412622746b0e97ceacaad96c3160a8"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__key_len",
@@ -2918,7 +2906,7 @@
       0,
       [ "@query" ],
       0,
-      "6f822f50592fc9a93f3c73d26ab33966"
+      "ea8ad26961b34793cd1b7dc11a4faa26"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.__proj__Vector__item__key_len",
@@ -2930,7 +2918,7 @@
         "projection_inverse_Test.Vectors.Chacha20Poly1305.Vector_key"
       ],
       0,
-      "9dad54b342dd3e9de02966f12cdedc09"
+      "eab7339daa0f78eb01f13fae349e9e7b"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.vectors",
@@ -2950,27 +2938,27 @@
         "primitive_Prims.op_LessThanOrEqual", "primitive_Prims.op_Negation",
         "projection_inverse_BoxBool_proj_0",
         "refinement_interpretation_Tm_refine_05e15190c946858f68c69156f585f95a",
-        "refinement_interpretation_Tm_refine_0792628c176737fac9c14809ad43b441",
-        "refinement_interpretation_Tm_refine_1851140a5a9d6bf151cff94e730d2ede",
-        "refinement_interpretation_Tm_refine_2f657d06ee5fc775edea771370ee385a",
+        "refinement_interpretation_Tm_refine_05f54e590eda62f540a94ea23d8afdb8",
+        "refinement_interpretation_Tm_refine_0a81b0195ed43d2ad9d8198fba8302c1",
+        "refinement_interpretation_Tm_refine_0aa5f24116ae34d7ed7665d0478f3b4d",
+        "refinement_interpretation_Tm_refine_16cc6a6b0029ec3a75e511ab54cc0631",
+        "refinement_interpretation_Tm_refine_185f596162bdd92339fc6a898c52a0b0",
+        "refinement_interpretation_Tm_refine_1b683305a526d9662cc877d30fb1d582",
+        "refinement_interpretation_Tm_refine_1e1ae3aabc94f4eaea04513c59ee4676",
+        "refinement_interpretation_Tm_refine_251193c7866f28bbf1eec9552c418786",
         "refinement_interpretation_Tm_refine_365abba901205a01d0ef28ebf2198c47",
+        "refinement_interpretation_Tm_refine_3c29cc777f854a72fc412ed90fb78dd3",
         "refinement_interpretation_Tm_refine_42c3cc663ffc986561be9d8b5551c79d",
-        "refinement_interpretation_Tm_refine_44c02d445d3883cafead5466f5657550",
-        "refinement_interpretation_Tm_refine_5693c27947d2ad280810e4f45e4e8ee2",
-        "refinement_interpretation_Tm_refine_5dccf04464b669d881c826e935365436",
-        "refinement_interpretation_Tm_refine_5e15b75f292f9bd8498b31d75d7d13a2",
-        "refinement_interpretation_Tm_refine_73a80f1fa34f49e8785893bce6bde8b6",
-        "refinement_interpretation_Tm_refine_7e594ad2af0f3614996ce396263cb36e",
-        "refinement_interpretation_Tm_refine_809622c2ba95f10b7b3e4c31d897b1ce",
-        "refinement_interpretation_Tm_refine_86d461ecef07c655b0fe966af5ee79dc",
-        "refinement_interpretation_Tm_refine_a669efdb48b7d781925cd184e7d8c119",
-        "refinement_interpretation_Tm_refine_aa69b94dee22dabea75977056b8a8275",
-        "refinement_interpretation_Tm_refine_af30b58a8dea5dcae248698ebc4240ec",
-        "refinement_interpretation_Tm_refine_b428c15c12720ecc1546a63b0448d3ef",
-        "refinement_interpretation_Tm_refine_b7a3a0c14dc43f8108ca42dbc9a481a4",
-        "refinement_interpretation_Tm_refine_c265d867a414db82abf15b736ac25f34",
-        "refinement_interpretation_Tm_refine_f8b26f30858c263543c8c79684cbf5da",
-        "refinement_interpretation_Tm_refine_feb03304597ba2bb79e5227207b8b187",
+        "refinement_interpretation_Tm_refine_4fabbb2e3bfe9bdbae07a0e4f4533a18",
+        "refinement_interpretation_Tm_refine_72a313438505af1568dcc65012fd9cfc",
+        "refinement_interpretation_Tm_refine_7bb6499ceeaa0d5f3be47f1c9ee130f0",
+        "refinement_interpretation_Tm_refine_81e58bc3b307bf5555ecf69d63b49d7b",
+        "refinement_interpretation_Tm_refine_969352463670e36af4268c2723497e70",
+        "refinement_interpretation_Tm_refine_add14fc8176b43c9f1c7df28e5a6f026",
+        "refinement_interpretation_Tm_refine_b022350e0916328d5da8a67c7834c5ba",
+        "refinement_interpretation_Tm_refine_b2634d5e2ba1f9c37ba0645538e2bb91",
+        "refinement_interpretation_Tm_refine_be39cf5f5def3d988cb238fa7560426b",
+        "refinement_interpretation_Tm_refine_c167f790398a0ce720220e01f8ee0b52",
         "typing_FStar.Map.contains", "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperHeap.root",
@@ -2990,7 +2978,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.aad9"
       ],
       0,
-      "7e9d65dd55ff2a9fa5d4e70b02b1a3f0"
+      "a51ae1f6d7a8337104dacdf74da4d09e"
     ],
     [
       "Test.Vectors.Chacha20Poly1305.vectors_len",
@@ -3003,7 +2991,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.vectors"
       ],
       0,
-      "7612ecfd393dbe349b237391c7217ca2"
+      "310af048e7f3b99f826c14f61b0be4b7"
     ]
   ]
 ]

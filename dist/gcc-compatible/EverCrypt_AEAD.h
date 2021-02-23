@@ -21,6 +21,14 @@
  * SOFTWARE.
  */
 
+
+#ifndef __EverCrypt_AEAD_H
+#define __EverCrypt_AEAD_H
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include "evercrypt_targetconfig.h"
 #include "libintvector.h"
 #include "kremlin/internal/types.h"
@@ -28,8 +36,6 @@
 #include <string.h>
 #include "kremlin/internal/target.h"
 
-#ifndef __EverCrypt_AEAD_H
-#define __EverCrypt_AEAD_H
 
 #include "Hacl_Kremlib.h"
 #include "EverCrypt_Chacha20Poly1305.h"
@@ -37,7 +43,6 @@
 #include "EverCrypt_AutoConfig2.h"
 #include "EverCrypt_Error.h"
 #include "Hacl_Spec.h"
-
 
 typedef struct EverCrypt_AEAD_state_s_s EverCrypt_AEAD_state_s;
 
@@ -52,11 +57,64 @@ uint8_t
 Spec_Agile_AEAD_alg EverCrypt_AEAD_alg_of_state(EverCrypt_AEAD_state_s *s);
 
 EverCrypt_Error_error_code
-EverCrypt_AEAD_create_in(Spec_Agile_AEAD_alg a, EverCrypt_AEAD_state_s **dst, uint8_t *k1);
+EverCrypt_AEAD_create_in(Spec_Agile_AEAD_alg a, EverCrypt_AEAD_state_s **dst, uint8_t *k);
 
 EverCrypt_Error_error_code
 EverCrypt_AEAD_encrypt(
   EverCrypt_AEAD_state_s *s,
+  uint8_t *iv,
+  uint32_t iv_len,
+  uint8_t *ad,
+  uint32_t ad_len,
+  uint8_t *plain,
+  uint32_t plain_len,
+  uint8_t *cipher,
+  uint8_t *tag
+);
+
+EverCrypt_Error_error_code
+EverCrypt_AEAD_encrypt_expand_aes128_gcm(
+  uint8_t *k,
+  uint8_t *iv,
+  uint32_t iv_len,
+  uint8_t *ad,
+  uint32_t ad_len,
+  uint8_t *plain,
+  uint32_t plain_len,
+  uint8_t *cipher,
+  uint8_t *tag
+);
+
+EverCrypt_Error_error_code
+EverCrypt_AEAD_encrypt_expand_aes256_gcm(
+  uint8_t *k,
+  uint8_t *iv,
+  uint32_t iv_len,
+  uint8_t *ad,
+  uint32_t ad_len,
+  uint8_t *plain,
+  uint32_t plain_len,
+  uint8_t *cipher,
+  uint8_t *tag
+);
+
+EverCrypt_Error_error_code
+EverCrypt_AEAD_encrypt_expand_chacha20_poly1305(
+  uint8_t *k,
+  uint8_t *iv,
+  uint32_t iv_len,
+  uint8_t *ad,
+  uint32_t ad_len,
+  uint8_t *plain,
+  uint32_t plain_len,
+  uint8_t *cipher,
+  uint8_t *tag
+);
+
+EverCrypt_Error_error_code
+EverCrypt_AEAD_encrypt_expand(
+  Spec_Agile_AEAD_alg a,
+  uint8_t *k,
   uint8_t *iv,
   uint32_t iv_len,
   uint8_t *ad,
@@ -80,7 +138,64 @@ EverCrypt_AEAD_decrypt(
   uint8_t *dst
 );
 
+EverCrypt_Error_error_code
+EverCrypt_AEAD_decrypt_expand_aes128_gcm(
+  uint8_t *k,
+  uint8_t *iv,
+  uint32_t iv_len,
+  uint8_t *ad,
+  uint32_t ad_len,
+  uint8_t *cipher,
+  uint32_t cipher_len,
+  uint8_t *tag,
+  uint8_t *dst
+);
+
+EverCrypt_Error_error_code
+EverCrypt_AEAD_decrypt_expand_aes256_gcm(
+  uint8_t *k,
+  uint8_t *iv,
+  uint32_t iv_len,
+  uint8_t *ad,
+  uint32_t ad_len,
+  uint8_t *cipher,
+  uint32_t cipher_len,
+  uint8_t *tag,
+  uint8_t *dst
+);
+
+EverCrypt_Error_error_code
+EverCrypt_AEAD_decrypt_expand_chacha20_poly1305(
+  uint8_t *k,
+  uint8_t *iv,
+  uint32_t iv_len,
+  uint8_t *ad,
+  uint32_t ad_len,
+  uint8_t *cipher,
+  uint32_t cipher_len,
+  uint8_t *tag,
+  uint8_t *dst
+);
+
+EverCrypt_Error_error_code
+EverCrypt_AEAD_decrypt_expand(
+  Spec_Agile_AEAD_alg a,
+  uint8_t *k,
+  uint8_t *iv,
+  uint32_t iv_len,
+  uint8_t *ad,
+  uint32_t ad_len,
+  uint8_t *cipher,
+  uint32_t cipher_len,
+  uint8_t *tag,
+  uint8_t *dst
+);
+
 void EverCrypt_AEAD_free(EverCrypt_AEAD_state_s *s);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #define __EverCrypt_AEAD_H_DEFINED
 #endif

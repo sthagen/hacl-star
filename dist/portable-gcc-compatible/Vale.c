@@ -24,9 +24,9 @@
 
 #include "Vale.h"
 
-/* SNIPPET_START: K___uint64_t___ */
+/* SNIPPET_START: als_ret */
 
-typedef uint64_t K___uint64_t___;
+typedef uint64_t als_ret;
 
-/* SNIPPET_END: K___uint64_t___ */
+/* SNIPPET_END: als_ret */
 

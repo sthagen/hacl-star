@@ -1,6 +1,18 @@
 [
-  "lšrÃ\bÀ¥žÚj\u0004\\!¹Šÿ",
+  "s ©Ö8G‘ \b\u0016—´aADÇ",
   [
+    [
+      "Vale.X64.InsStack.va_quick_Stack_lemma",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
+      ],
+      0,
+      "e12935b4f1c614c21abd055997f5e233"
+    ],
     [
       "Vale.X64.InsStack.va_quick_Pop",
       1,
@@ -11,7 +23,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "f8f36585b9a3cfc3057a1f892f81005c"
+      "bd701fac4f5cc1d60b948b3e5f176843"
     ],
     [
       "Vale.X64.InsStack.va_quick_Push",
@@ -23,7 +35,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "6316c15a1801c8fcb4c808d0533c1c8e"
+      "50955b4832f4777657e131133d7d75a5"
     ],
     [
       "Vale.X64.InsStack.va_quick_Pop_Secret",
@@ -35,7 +47,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "607504cb2053d37163619aa2ff62055f"
+      "2175007af662607f23233b8d7cf538e8"
     ],
     [
       "Vale.X64.InsStack.va_quick_Push_Secret",
@@ -47,7 +59,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "a35c2877a226fc6550b98803f257271f"
+      "5dd3be934bbecced142e1cf21c7a8a4e"
     ],
     [
       "Vale.X64.InsStack.va_quick_Load64_stack",
@@ -59,7 +71,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "6ded5f994bf0dead9ca3b2f873e94d8a"
+      "3b632f9bcd451994f7454c71a075de17"
     ],
     [
       "Vale.X64.InsStack.va_quick_PushXmm",
@@ -71,7 +83,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "e3186eec6c436cb570d2ff48f923c277"
+      "eaa07b26bfb0513a130b5d0d23183e53"
     ],
     [
       "Vale.X64.InsStack.va_quick_PopXmm",
@@ -83,7 +95,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "024e9c54bed9ed58079058fe8353053b"
+      "bb1867dc1a236a212a982a2907053c11"
     ],
     [
       "Vale.X64.InsStack.va_quick_PushXmm_Secret",
@@ -95,7 +107,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "e83fdaeb2e2a3afa0477d4c80c0e008f"
+      "5f81cf59ebb8316f702806d3c6ed39a8"
     ],
     [
       "Vale.X64.InsStack.va_quick_PopXmm_Secret",
@@ -107,7 +119,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "0994f1566a5fcf06b1a909fa0dd0c7eb"
+      "6f455f1c9fe218f5c12f803fa31eebcf"
     ]
   ]
 ]

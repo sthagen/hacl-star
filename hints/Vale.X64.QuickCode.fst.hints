@@ -1,14 +1,23 @@
 [
-  "áµ\u007fu¥—\u001dXY4Q?ÂŽM¹",
+  "¡äªÉR\\ý¥H\u000efy\u0012<²",
   [
     [
       "Vale.X64.QuickCode.mod_t",
       1,
       1,
       0,
-      [ "@query", "assumption_Vale.X64.Machine_s.reg__uu___haseq" ],
+      [
+        "@MaxIFuel_assumption", "@query",
+        "assumption_Vale.X64.Machine_s.reg__uu___haseq",
+        "equation_Prims.eqtype", "equation_Prims.nat",
+        "equation_Vale.Arch.HeapImpl.heaplet_id",
+        "function_token_typing_Prims.int",
+        "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "haseqTm_refine_c365eb902b454950de62fba701d9049d",
+        "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
+      ],
       0,
-      "b3d5eaa3ccc2221b93d1abf925960d44"
+      "37ac9d1b403f05311c07a41276a77fbb"
     ],
     [
       "Vale.X64.QuickCode.__proj__Mod_reg__item___0",
@@ -22,7 +31,21 @@
         "refinement_interpretation_Tm_refine_c6bd9cf894204793a059b43e4dcbf9cc"
       ],
       0,
-      "0f1f509a5dbb4b25bf8e8fbd460a0110"
+      "4f8dd9e053853e0207df506acac04e14"
+    ],
+    [
+      "Vale.X64.QuickCode.__proj__Mod_mem_heaplet__item___0",
+      1,
+      1,
+      0,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "disc_equation_Vale.X64.QuickCode.Mod_mem_heaplet",
+        "projection_inverse_BoxBool_proj_0",
+        "refinement_interpretation_Tm_refine_dae911842b85add82dc5578c02955df1"
+      ],
+      0,
+      "c8cd8cf69a4897e6e00088ebe5b9c75d"
     ],
     [
       "Vale.X64.QuickCode.va_Mod_reg64",
@@ -38,7 +61,7 @@
         "refinement_interpretation_Tm_refine_c365eb902b454950de62fba701d9049d"
       ],
       0,
-      "af98b7c80322551b1cbe26bc5ea2d2e1"
+      "c331181eece366c0c27c24a9da97acf6"
     ],
     [
       "Vale.X64.QuickCode.va_Mod_xmm",
@@ -54,7 +77,7 @@
         "refinement_interpretation_Tm_refine_c365eb902b454950de62fba701d9049d"
       ],
       0,
-      "744717cdf94e32850cbf2cc87ba2b1ea"
+      "a3221a95b323be6b044b7b8316217a6b"
     ],
     [
       "Vale.X64.QuickCode.mod_eq",
@@ -68,23 +91,34 @@
         "Vale.X64.QuickCode_pretyping_7a2122c20d44fc80e093f4f4614be2e2",
         "assumption_Vale.X64.Machine_s.reg__uu___haseq",
         "assumption_Vale.X64.QuickCode.mod_t__uu___haseq", "bool_inversion",
-        "bool_typing", "constructor_distinct_Vale.X64.QuickCode.Mod_reg",
+        "bool_typing",
+        "constructor_distinct_Vale.X64.QuickCode.Mod_mem_heaplet",
+        "constructor_distinct_Vale.X64.QuickCode.Mod_reg",
         "data_typing_intro_Vale.X64.QuickCode.Mod_ok@tok",
         "disc_equation_Vale.X64.QuickCode.Mod_None",
         "disc_equation_Vale.X64.QuickCode.Mod_flags",
         "disc_equation_Vale.X64.QuickCode.Mod_mem",
-        "disc_equation_Vale.X64.QuickCode.Mod_memTaint",
+        "disc_equation_Vale.X64.QuickCode.Mod_mem_heaplet",
+        "disc_equation_Vale.X64.QuickCode.Mod_mem_layout",
         "disc_equation_Vale.X64.QuickCode.Mod_ok",
         "disc_equation_Vale.X64.QuickCode.Mod_reg",
         "disc_equation_Vale.X64.QuickCode.Mod_stack",
         "disc_equation_Vale.X64.QuickCode.Mod_stackTaint",
+        "equation_Prims.eqtype", "equation_Prims.nat",
+        "equation_Vale.Arch.HeapImpl.heaplet_id",
         "fuel_guarded_inversion_Vale.X64.QuickCode.mod_t",
+        "function_token_typing_Prims.int",
+        "haseqTm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "haseqTm_refine_c365eb902b454950de62fba701d9049d",
         "primitive_Prims.op_Equality", "projection_inverse_BoxBool_proj_0",
+        "projection_inverse_Vale.X64.QuickCode.Mod_mem_heaplet__0",
         "projection_inverse_Vale.X64.QuickCode.Mod_reg__0",
+        "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
+        "typing_Vale.X64.QuickCode.uu___is_Mod_mem_layout",
         "typing_Vale.X64.QuickCode.uu___is_Mod_ok"
       ],
       0,
-      "b19cc87a0ea494e711d978b5f2708633"
+      "7fd0efba05f00a12a3a10fca35234cce"
     ],
     [
       "Vale.X64.QuickCode.update_state_mod",
@@ -96,7 +130,8 @@
         "disc_equation_Vale.X64.QuickCode.Mod_None",
         "disc_equation_Vale.X64.QuickCode.Mod_flags",
         "disc_equation_Vale.X64.QuickCode.Mod_mem",
-        "disc_equation_Vale.X64.QuickCode.Mod_memTaint",
+        "disc_equation_Vale.X64.QuickCode.Mod_mem_heaplet",
+        "disc_equation_Vale.X64.QuickCode.Mod_mem_layout",
         "disc_equation_Vale.X64.QuickCode.Mod_ok",
         "disc_equation_Vale.X64.QuickCode.Mod_reg",
         "disc_equation_Vale.X64.QuickCode.Mod_stack",
@@ -104,7 +139,7 @@
         "fuel_guarded_inversion_Vale.X64.QuickCode.mod_t"
       ],
       0,
-      "4ca2e14bfd515efb443c72120f0bb9e3"
+      "acfe3db391e5b2b13e8655eb0c4d0517"
     ],
     [
       "Vale.X64.QuickCode.update_state_mods",
@@ -120,10 +155,10 @@
         "fuel_guarded_inversion_Prims.list", "subterm_ordering_Prims.Cons"
       ],
       0,
-      "dd6430988b764a521a9606f6a9d82d82"
+      "d77b163235ca1ed9b9cb6dc766666c5f"
     ],
     [
-      "Vale.X64.QuickCode.lemma_norm_mods",
+      "Vale.X64.QuickCode.va_lemma_norm_mods",
       1,
       1,
       0,
@@ -136,7 +171,7 @@
         "fuel_guarded_inversion_Vale.X64.State.vale_state"
       ],
       0,
-      "a5954faa9fc05bfdbc4c1acbc9d47fed"
+      "865a178b4d260a5b29632c311b987915"
     ],
     [
       "Vale.X64.QuickCode.va_mod_dst_opr64",
@@ -158,7 +193,7 @@
         "projection_inverse_BoxInt_proj_0"
       ],
       0,
-      "6dc97650c81b758e4dc0d6bebf8aaef8"
+      "3fdd13f3841c1099a766b6f65d3b6537"
     ],
     [
       "Vale.X64.QuickCode.va_mod_reg_opr64",
@@ -169,7 +204,7 @@
         "@MaxIFuel_assumption", "@query",
         "disc_equation_Vale.X64.Machine_s.OReg",
         "equation_Vale.Def.Words_s.nat64",
-        "equation_Vale.X64.Decls.va_reg_operand",
+        "equation_Vale.X64.Decls.reg_operand",
         "equation_Vale.X64.Machine_s.n_reg_files",
         "equation_Vale.X64.Machine_s.n_regs",
         "equation_Vale.X64.Machine_s.reg_64",
@@ -179,7 +214,7 @@
         "refinement_interpretation_Tm_refine_c55af5cefb01844d307de87b2d347802"
       ],
       0,
-      "4131122a9c33e710f493f4f5b4aaa26d"
+      "ca1c2c662c79913846bbcdb58b542ec9"
     ],
     [
       "Vale.X64.QuickCode.va_mod_xmm",
@@ -195,7 +230,7 @@
         "refinement_interpretation_Tm_refine_c365eb902b454950de62fba701d9049d"
       ],
       0,
-      "b40358b3fa0e232726b1719e1c323d6d"
+      "2bcb4d3435385e0c2c11bd8c2dfaee58"
     ],
     [
       "Vale.X64.QuickCode.__proj__QProc__item__proof",
@@ -214,214 +249,7 @@
         "token_correspondence_Vale.X64.QuickCode.__proj__QProc__item__wp"
       ],
       0,
-      "c318617f3927913c31bb09428af04458"
-    ],
-    [
-      "Vale.X64.QuickCode.mod_t",
-      1,
-      1,
-      0,
-      [ "@query", "assumption_Vale.X64.Machine_s.reg__uu___haseq" ],
-      0,
-      "bfa4f8f868c55c7d203f073d02e7e4a6"
-    ],
-    [
-      "Vale.X64.QuickCode.__proj__Mod_reg__item___0",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "disc_equation_Vale.X64.QuickCode.Mod_reg",
-        "projection_inverse_BoxBool_proj_0",
-        "refinement_interpretation_Tm_refine_c6bd9cf894204793a059b43e4dcbf9cc"
-      ],
-      0,
-      "f3979fc311f6a68af3df6b032eda4c45"
-    ],
-    [
-      "Vale.X64.QuickCode.va_Mod_reg64",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "equation_Vale.X64.Machine_s.n_reg_files",
-        "equation_Vale.X64.Machine_s.n_regs",
-        "equation_Vale.X64.Machine_s.reg_64",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_c365eb902b454950de62fba701d9049d"
-      ],
-      0,
-      "7eb6e5e8216ebe439d216818fff2acdc"
-    ],
-    [
-      "Vale.X64.QuickCode.va_Mod_xmm",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "equation_Vale.X64.Machine_s.n_reg_files",
-        "equation_Vale.X64.Machine_s.n_regs",
-        "equation_Vale.X64.Machine_s.reg_xmm",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_c365eb902b454950de62fba701d9049d"
-      ],
-      0,
-      "1a138ceb9dcfe59667709b2c86c9a9c2"
-    ],
-    [
-      "Vale.X64.QuickCode.mod_eq",
-      2,
-      1,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "Vale.X64.Machine_s_pretyping_518a4fb262eb27362824d01da01681c3",
-        "Vale.X64.QuickCode_pretyping_7a2122c20d44fc80e093f4f4614be2e2",
-        "assumption_Vale.X64.Machine_s.reg__uu___haseq",
-        "assumption_Vale.X64.QuickCode.mod_t__uu___haseq", "bool_inversion",
-        "bool_typing", "constructor_distinct_Vale.X64.QuickCode.Mod_reg",
-        "data_typing_intro_Vale.X64.QuickCode.Mod_ok@tok",
-        "disc_equation_Vale.X64.QuickCode.Mod_None",
-        "disc_equation_Vale.X64.QuickCode.Mod_flags",
-        "disc_equation_Vale.X64.QuickCode.Mod_mem",
-        "disc_equation_Vale.X64.QuickCode.Mod_memTaint",
-        "disc_equation_Vale.X64.QuickCode.Mod_ok",
-        "disc_equation_Vale.X64.QuickCode.Mod_reg",
-        "disc_equation_Vale.X64.QuickCode.Mod_stack",
-        "disc_equation_Vale.X64.QuickCode.Mod_stackTaint",
-        "fuel_guarded_inversion_Vale.X64.QuickCode.mod_t",
-        "primitive_Prims.op_Equality", "projection_inverse_BoxBool_proj_0",
-        "projection_inverse_Vale.X64.QuickCode.Mod_reg__0",
-        "typing_Vale.X64.QuickCode.uu___is_Mod_None"
-      ],
-      0,
-      "b60027ae9c8e11b484b97d2f0e704a5e"
-    ],
-    [
-      "Vale.X64.QuickCode.mod_eq",
-      3,
-      1,
-      0,
-      [ "@query", "assumption_Vale.X64.QuickCode.mod_t__uu___haseq" ],
-      0,
-      "e923ef573eb063f06b4d71f38be908e2"
-    ],
-    [
-      "Vale.X64.QuickCode.update_state_mod",
-      2,
-      1,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "disc_equation_Vale.X64.QuickCode.Mod_None",
-        "disc_equation_Vale.X64.QuickCode.Mod_flags",
-        "disc_equation_Vale.X64.QuickCode.Mod_mem",
-        "disc_equation_Vale.X64.QuickCode.Mod_memTaint",
-        "disc_equation_Vale.X64.QuickCode.Mod_ok",
-        "disc_equation_Vale.X64.QuickCode.Mod_reg",
-        "disc_equation_Vale.X64.QuickCode.Mod_stack",
-        "disc_equation_Vale.X64.QuickCode.Mod_stackTaint",
-        "fuel_guarded_inversion_Vale.X64.QuickCode.mod_t"
-      ],
-      0,
-      "fb33359ec028bb7256fd047643657bfa"
-    ],
-    [
-      "Vale.X64.QuickCode.update_state_mods",
-      2,
-      1,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "Vale.X64.QuickCode_pretyping_7a2122c20d44fc80e093f4f4614be2e2",
-        "binder_x_26920e03138cd27e3894dcce3ed826e9_0",
-        "data_typing_intro_Vale.X64.QuickCode.Mod_ok@tok",
-        "disc_equation_Prims.Cons", "disc_equation_Prims.Nil",
-        "fuel_guarded_inversion_Prims.list", "subterm_ordering_Prims.Cons"
-      ],
-      0,
-      "9cef938c6689ceb8ceac8b54f84f5315"
-    ],
-    [
-      "Vale.X64.QuickCode.va_mod_dst_opr64",
-      2,
-      1,
-      1,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "disc_equation_Vale.X64.Machine_s.OConst",
-        "disc_equation_Vale.X64.Machine_s.OMem",
-        "disc_equation_Vale.X64.Machine_s.OReg",
-        "disc_equation_Vale.X64.Machine_s.OStack",
-        "equation_Vale.Def.Words_s.nat64",
-        "equation_Vale.X64.Machine_s.n_reg_files",
-        "equation_Vale.X64.Machine_s.n_regs",
-        "equation_Vale.X64.Machine_s.operand64",
-        "equation_Vale.X64.Machine_s.reg_64",
-        "fuel_guarded_inversion_Vale.X64.Machine_s.operand",
-        "projection_inverse_BoxInt_proj_0"
-      ],
-      0,
-      "3e4ae51b46118e61ff258a554e49179f"
-    ],
-    [
-      "Vale.X64.QuickCode.va_mod_reg_opr64",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "disc_equation_Vale.X64.Machine_s.OReg",
-        "equation_Vale.Def.Words_s.nat64",
-        "equation_Vale.X64.Decls.va_reg_operand",
-        "equation_Vale.X64.Machine_s.n_reg_files",
-        "equation_Vale.X64.Machine_s.n_regs",
-        "equation_Vale.X64.Machine_s.reg_64",
-        "projection_inverse_BoxBool_proj_0",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_c365eb902b454950de62fba701d9049d",
-        "refinement_interpretation_Tm_refine_c55af5cefb01844d307de87b2d347802"
-      ],
-      0,
-      "2b7aa73300b5b122285ef8b3a28a6c6e"
-    ],
-    [
-      "Vale.X64.QuickCode.va_mod_xmm",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "equation_Vale.X64.Machine_s.n_reg_files",
-        "equation_Vale.X64.Machine_s.n_regs",
-        "equation_Vale.X64.Machine_s.reg_xmm",
-        "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_c365eb902b454950de62fba701d9049d"
-      ],
-      0,
-      "57a3654664f34586ea4494fb91c8969d"
-    ],
-    [
-      "Vale.X64.QuickCode.__proj__QProc__item__proof",
-      2,
-      1,
-      0,
-      [
-        "@MaxIFuel_assumption", "@query",
-        "fuel_guarded_inversion_Vale.X64.QuickCode.quickCode",
-        "proj_equation_Vale.X64.QuickCode.QProc_c",
-        "proj_equation_Vale.X64.QuickCode.QProc_mods",
-        "proj_equation_Vale.X64.QuickCode.QProc_wp",
-        "projection_inverse_Vale.X64.QuickCode.QProc_c",
-        "projection_inverse_Vale.X64.QuickCode.QProc_mods",
-        "projection_inverse_Vale.X64.QuickCode.QProc_wp",
-        "token_correspondence_Vale.X64.QuickCode.__proj__QProc__item__wp"
-      ],
-      0,
-      "9f1c32ce6fda65e6f233018b0253793d"
+      "1ad93d4c20c99925269eccffa231772f"
     ]
   ]
 ]

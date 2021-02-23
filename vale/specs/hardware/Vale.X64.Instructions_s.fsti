@@ -16,6 +16,9 @@ val ins_Mov64 : instr_dep [out op64] [op64] PreserveFlags eval_Mov64
 let eval_MovBe64 (src:nat64) : option nat64 = if movbe_enabled then Some (reverse_bytes_nat64 src) else None
 val ins_MovBe64 : instr_dep [out op64] [op64] PreserveFlags eval_MovBe64
 
+let eval_Bswap64 (dst:nat64) : option nat64 = Some (reverse_bytes_nat64 dst)
+val ins_Bswap64 : instr_dep [inOut op64] [] PreserveFlags eval_Bswap64
+
 let eval_Cmovc64 (dst src:nat64) (carry:bool) : option nat64 = Some (if carry then src else dst)
 val ins_Cmovc64 : instr_dep [inOut op64] [op64; opFlagsCf] PreserveFlags eval_Cmovc64
 
@@ -82,6 +85,16 @@ val ins_Cpuid :
     [inOut (one64Reg rRax); out (one64Reg rRbx); inOut (one64Reg rRcx); out (one64Reg rRdx)]
     [] PreserveFlags eval_Cpuid
 
+// The XGETBV instruction requires that OSXSAVE (in CPUID) is enabled.
+// We underspecify XGETBV here to only support fetching XCR0, which
+// is supported on any processor supporting the XGETBV instruction
+let eval_Xgetbv (rcx:nat64) : option (nat64 & nat64) =
+  if osxsave_enabled && rcx = 0 then Some (xgetbv rRax rcx, xgetbv rRdx rcx) else None
+val ins_Xgetbv :
+  instr_dep
+    [out (one64Reg rRax); out (one64Reg rRdx)]
+    [one64Reg rRcx] PreserveFlags eval_Xgetbv
+
 let check_avx (#a:Type0) (x:option a) : option a =
   if avx_enabled then x else None
 
@@ -144,7 +157,7 @@ let eval_Palignr_raw (amount:nat8) (src1 src2:quad32) : option quad32 =
     Some (Mkfour src2.hi2 src2.hi3 src1.lo0 src1.lo1)
   else None
 
-let eval_Palignr (amount:nat8) (src1 src2:quad32) : option quad32 = 
+let eval_Palignr (amount:nat8) (src1 src2:quad32) : option quad32 =
   check_ssse3 (eval_Palignr_raw amount src1 src2)
 val ins_Palignr (amount:nat8) :
   instr_dep [inOut opXmm] [opXmm] PreserveFlags (eval_Palignr amount)
@@ -354,5 +367,20 @@ let eval_SHA256_msg2 (src1 src2:quad32) : option quad32 =
   if sha_enabled then Some (sha256_msg2_spec src1 src2) else None
 val ins_SHA256_msg2 : instr_dep [inOut opXmm] [opXmm] PreserveFlags eval_SHA256_msg2
 
+let eval_Ghost : option unit = Some ()
+val ins_Ghost : instr_dep [] [] PreserveFlags eval_Ghost
+
 let eval_Comment : option unit = Some ()
-val ins_Comment : string -> instr_dep [] [] PreserveFlags eval_Comment
+val ins_Comment (_:string) : instr_dep [] [] PreserveFlags eval_Comment
+
+let eval_LargeComment : option unit = Some ()
+val ins_LargeComment (_:string) : instr_dep [] [] PreserveFlags eval_LargeComment
+
+let eval_Newline : option unit = Some ()
+val ins_Newline : instr_dep [] [] PreserveFlags eval_Newline
+
+let eval_Space : option unit = Some ()
+val ins_Space (_:nat) : instr_dep [] [] PreserveFlags eval_Space
+
+let eval_Prefetchnta (_:nat64) : option unit = Some ()
+val ins_Prefetchnta : instr_dep [] [op64] PreserveFlags eval_Prefetchnta

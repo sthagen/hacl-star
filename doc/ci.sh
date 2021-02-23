@@ -19,8 +19,13 @@ fi
 
 make html
 cp -R _build/html/* $1
+
+mkdir -p $1/javascript_doc
+cp -R ../dist/wasm/doc/out/* $1/javascript_doc
+
 cd $1
 rm -rf static && mv _static static
 rm -rf images && mv _images images
-$FIND . -type f | xargs $SED -i 's/_static/static/g'
-$FIND . -type f | xargs $SED -i 's/_images/images/g'
+$FIND . -type f | grep -v '\.git' | xargs $SED -i 's/_static/static/g'
+$FIND . -type f | grep -v '\.git' | xargs $SED -i 's/_images/images/g'
+$FIND . -type f | grep -v '\.git' | xargs $SED -i 's/_sources/sources/g'

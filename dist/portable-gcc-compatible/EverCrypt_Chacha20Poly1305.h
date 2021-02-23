@@ -21,6 +21,14 @@
  * SOFTWARE.
  */
 
+
+#ifndef __EverCrypt_Chacha20Poly1305_H
+#define __EverCrypt_Chacha20Poly1305_H
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #include "evercrypt_targetconfig.h"
 #include "libintvector.h"
 #include "kremlin/internal/types.h"
@@ -28,21 +36,18 @@
 #include <string.h>
 #include "kremlin/internal/target.h"
 
-#ifndef __EverCrypt_Chacha20Poly1305_H
-#define __EverCrypt_Chacha20Poly1305_H
 
 #include "EverCrypt_AutoConfig2.h"
 #include "Hacl_Chacha20Poly1305_128.h"
 #include "Hacl_Chacha20Poly1305_32.h"
 #include "Hacl_Chacha20Poly1305_256.h"
 
-
 /* SNIPPET_START: EverCrypt_Chacha20Poly1305_aead_encrypt */
 
 void
 EverCrypt_Chacha20Poly1305_aead_encrypt(
   uint8_t *k,
-  uint8_t *n1,
+  uint8_t *n,
   uint32_t aadlen,
   uint8_t *aad,
   uint32_t mlen,
@@ -58,7 +63,7 @@ EverCrypt_Chacha20Poly1305_aead_encrypt(
 uint32_t
 EverCrypt_Chacha20Poly1305_aead_decrypt(
   uint8_t *k,
-  uint8_t *n1,
+  uint8_t *n,
   uint32_t aadlen,
   uint8_t *aad,
   uint32_t mlen,
@@ -68,6 +73,10 @@ EverCrypt_Chacha20Poly1305_aead_decrypt(
 );
 
 /* SNIPPET_END: EverCrypt_Chacha20Poly1305_aead_decrypt */
+
+#if defined(__cplusplus)
+}
+#endif
 
 #define __EverCrypt_Chacha20Poly1305_H_DEFINED
 #endif

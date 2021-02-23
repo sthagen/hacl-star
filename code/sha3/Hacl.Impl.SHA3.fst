@@ -21,13 +21,13 @@ module LB = Lib.ByteSequence
 module Loop = Lib.LoopCombinators
 module S = Spec.SHA3
 
-let keccak_rotc :x:ilbuffer rotc_t 24ul{witnessed x keccak_rotc /\ recallable x}
+let keccak_rotc :x:glbuffer rotc_t 24ul{witnessed x keccak_rotc /\ recallable x}
   = createL_global rotc_list
 
-let keccak_piln :x:ilbuffer piln_t 24ul{witnessed x keccak_piln /\ recallable x}
+let keccak_piln :x:glbuffer piln_t 24ul{witnessed x keccak_piln /\ recallable x}
   = createL_global piln_list
 
-let keccak_rndc :x:ilbuffer pub_uint64 24ul{witnessed x keccak_rndc /\ recallable x}
+let keccak_rndc :x:glbuffer pub_uint64 24ul{witnessed x keccak_rndc /\ recallable x}
   = createL_global rndc_list
 
 #reset-options "--z3rlimit 50 --max_fuel 0 --max_ifuel 0 --using_facts_from '* -FStar.Seq'"
@@ -516,9 +516,7 @@ let squeeze s rateInBytes outputByteLen output =
   storeState remOut s last;
   let h1 = ST.get() in
   Seq.lemma_split (as_seq h1 output) (v outBlocks * v rateInBytes);
-  assert_norm (norm [delta]
-    S.squeeze (as_seq h0 s) (v rateInBytes) (v outputByteLen) ==
-    S.squeeze (as_seq h0 s) (v rateInBytes) (v outputByteLen))
+  norm_spec [delta_only [`%S.squeeze]] (S.squeeze (as_seq h0 s) (v rateInBytes) (v outputByteLen))
 
 val keccak:
     rate:size_t{v rate % 8 == 0 /\ v rate / 8 > 0 /\ v rate <= 1600}

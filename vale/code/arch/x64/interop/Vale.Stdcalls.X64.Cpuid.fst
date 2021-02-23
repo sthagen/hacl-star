@@ -72,3 +72,40 @@ let lowstar_rdrand : lowstar_rdrand_t  =
     (W.mk_prediction code_rdrand dom [] (rdrand_lemma code_rdrand IA.win))
 
 let check_rdrand = as_normal_t #lowstar_rdrand_t lowstar_rdrand
+
+(* And here's the check_avx512 wrapper itself *)
+let lowstar_avx512 : lowstar_avx512_t  =
+  IX64.wrap_weak_stdcall
+    code_avx512
+    dom
+    (W.mk_prediction code_avx512 dom [] (avx512_lemma code_avx512 IA.win))
+
+let check_avx512 = as_normal_t #lowstar_avx512_t lowstar_avx512
+
+(* And here's the check_osxsave wrapper itself *)
+let lowstar_osxsave : lowstar_osxsave_t  =
+  IX64.wrap_weak_stdcall
+    code_osxsave
+    dom
+    (W.mk_prediction code_osxsave dom [] (osxsave_lemma code_osxsave IA.win))
+
+let check_osxsave = as_normal_t #lowstar_osxsave_t lowstar_osxsave
+
+(* And here's the check_avx_xcr0 wrapper itself *)
+let lowstar_avx_xcr0 : lowstar_avx_xcr0_t  =
+  IX64.wrap_weak_stdcall
+    code_avx_xcr0
+    dom
+    (W.mk_prediction code_avx_xcr0 dom [] (avx_xcr0_lemma code_avx_xcr0 IA.win))
+
+let check_avx_xcr0 = as_normal_t #lowstar_avx_xcr0_t lowstar_avx_xcr0
+
+(* And here's the check_avx512_xcr0 wrapper itself *)
+let lowstar_avx512_xcr0 : lowstar_avx512_xcr0_t  =
+  IX64.wrap_weak_stdcall
+    code_avx512_xcr0
+    dom
+    (W.mk_prediction code_avx512_xcr0 dom [] (avx512_xcr0_lemma code_avx512_xcr0 IA.win))
+
+let check_avx512_xcr0 = as_normal_t #lowstar_avx512_xcr0_t lowstar_avx512_xcr0
+
