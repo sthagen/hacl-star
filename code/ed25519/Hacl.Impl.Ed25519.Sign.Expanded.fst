@@ -8,7 +8,6 @@ open Lib.IntTypes
 open Lib.ByteSequence
 open Lib.Buffer
 
-open Hacl.Impl.Ed25519.Sign
 open Hacl.Impl.Ed25519.Sign.Steps
 open Hacl.Impl.Ed25519.SecretExpand
 open Hacl.Impl.Ed25519.SecretToPublic
@@ -84,12 +83,12 @@ let sign_ signature ks len msg tmp_bytes tmp_ints =
   let s'   = sub tmp_bytes 192ul 32ul in
   let tmp_public = sub tmp_bytes 96ul 32ul in
   let tmp_xsecret = sub tmp_bytes 224ul 64ul in
-  (**) let h0 = get() in
+  (**) let h0 = ST.get() in
 
   copy tmp_public (pk ks);
   copy tmp_xsecret (xsk ks);
 
-  (**) let h1 = get() in
+  (**) let h1 = ST.get() in
   (**) assert (as_seq h1 (gsub tmp_bytes 96ul 32ul) `Seq.equal` as_seq h0 (gsub ks 0ul 32ul));
   (**) assert (Seq.slice (as_seq h0 (gsub ks 32ul 64ul)) 0 32 `Seq.equal` as_seq h0 (gsub ks 32ul 32ul));
   (**) assert (as_seq h1 (gsub tmp_bytes 224ul 32ul) `Seq.equal` as_seq h0 (gsub ks 32ul 32ul));
@@ -108,8 +107,8 @@ let sign_ signature ks len msg tmp_bytes tmp_ints =
 
   concat2 32ul rs' 32ul s' signature
 
-inline_for_extraction
-val sign:
+
+val sign_expanded:
     signature:lbuffer uint8 64ul
   -> ks:keys
   -> len:size_t{v len + 64 <= max_size_t}
@@ -123,7 +122,9 @@ val sign:
         (as_seq h0 (gsub ks 64ul 32ul))
         (as_seq h0 msg)
     )
-let sign signature ks msg len =
+
+[@CInline]
+let sign_expanded signature ks msg len =
   push_frame();
   let tmp_bytes = create 352ul (u8 0) in
   let tmp_ints  = create 65ul (u64 0) in

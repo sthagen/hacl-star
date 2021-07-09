@@ -50,6 +50,10 @@ else ifeq ($(OS),Windows_NT)
   VARIANT	= -mingw
   SO		= dll
   LDFLAGS	= -Wl,--out-implib,libevercrypt.dll.a
+else ifeq ($(UNAME),FreeBSD)
+  CFLAGS	+= -fPIC
+  VARIANT	= -freebsd
+  SO 		= so
 endif
 
 # 2. Parameters we want to compile with, for the generated Makefile
@@ -208,6 +212,10 @@ install-hacl-star-raw: dllocamlevercrypt.$(SO)
 	ocamlfind install hacl-star-raw META $(CTYPES_ML) $(CTYPES_CMX) $(CTYPES_CMO) $(CTYPES_CMI) \
          libevercrypt.a libevercrypt.$(SO) ocamlevercrypt.cma ocamlevercrypt.cmxa ocamlevercrypt.a \
          libocamlevercrypt.a dllocamlevercrypt.$(SO) config.h
+
+.PHONY: install-ocaml
+install-ocaml: install-hacl-star-raw
+	cd ../../bindings/ocaml && dune build && dune install
 
 endif
 endif

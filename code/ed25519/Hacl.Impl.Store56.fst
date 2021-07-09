@@ -9,11 +9,12 @@ open Lib.ByteSequence
 open Lib.Buffer
 open Lib.ByteBuffer
 
-module F56 = Hacl.Impl.Ed25519.Field56
-module S56 = Hacl.Spec.Ed25519.Field56.Definition
+module F56 = Hacl.Impl.BignumQ.Mul
+module S56 = Hacl.Spec.BignumQ.Definitions
 
 #reset-options "--z3rlimit 30 --max_fuel 0 --max_ifuel 0"
 
+inline_for_extraction noextract
 val hstore56_le:
     out:lbuffer uint8 32ul
   -> off:size_t{v off <= 21}
@@ -28,7 +29,7 @@ let hstore56_le out off x =
   let b8 = sub out off 8ul in
   lemma_uint_to_bytes_le_preserves_value x;
   uint_to_bytes_le b8 x;
-  let h1 = get() in
+  let h1 = ST.get() in
   calc (==) {
     v x <: nat;
     (==) { Math.Lemmas.small_mod (v x) (pow2 56) }
@@ -106,7 +107,7 @@ val store_56:
       nat_to_bytes_le 32 (F56.as_nat h0 b) == as_seq h1 out)
     )
 
-
+[@CInline]
 let store_56 out b =
   let b0 = b.(0ul) in
   let b1 = b.(1ul) in
@@ -120,7 +121,7 @@ let store_56 out b =
   hstore56_le out 14ul b2;
   hstore56_le out 21ul b3;
   uint_to_bytes_le (sub out 28ul 4ul) b4';
-  let h1 = get() in
+  let h1 = ST.get() in
   assert (Seq.equal (Seq.slice (as_seq h1 out) 0 7) (as_seq h1 (gsub out 0ul 7ul)));
   assert (Seq.equal (Seq.slice (as_seq h1 out) 7 14) (as_seq h1 (gsub out 7ul 7ul)));
   assert (Seq.equal (Seq.slice (as_seq h1 out) 14 21) (as_seq h1 (gsub out 14ul 7ul)));

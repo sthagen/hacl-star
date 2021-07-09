@@ -39,7 +39,7 @@
         "typing_tok_Lib.IntTypes.PUB@tok", "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "56b1a7f1e640e7fcc1f5f90d3260346f"
+      "e308e64afdbec6ea5fe91283b836eb2a"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.get_x",
@@ -93,7 +93,7 @@
         "typing_tok_Lib.IntTypes.PUB@tok", "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "f734ed4109f128b3db29c9e55d2e8ba1"
+      "133708a14b88f8b9be48c78167bd638e"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.get_z",
@@ -132,7 +132,7 @@
         "typing_tok_Lib.IntTypes.PUB@tok", "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "bee5fb12f990a6eaa09579d7abc6c582"
+      "99f8408250820d605b20ac6f170ed0cf"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.fget_x",
@@ -200,7 +200,7 @@
         "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "1ea164030e39e8cea0bb8e00b42d6f42"
+      "a39fc23c579fb12284fc758ba840c8a8"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.fget_z",
@@ -248,7 +248,7 @@
         "typing_tok_Lib.IntTypes.PUB@tok", "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "b223ec6d366c90dc2fbecfe975270637"
+      "1ddf0b7949166737eb99d9eeaff67c2a"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_post_sub_t",
@@ -268,7 +268,7 @@
         "refinement_interpretation_Tm_refine_9d89bf7b57667578cd0e1f4470daef3b"
       ],
       0,
-      "2db1318e17ae1786d486829149ec3acb"
+      "a8509df42d827b8cb6d9613a196e7b42"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_post_add_t",
@@ -288,7 +288,7 @@
         "refinement_interpretation_Tm_refine_9d89bf7b57667578cd0e1f4470daef3b"
       ],
       0,
-      "1b84f2650362ee896b1e93daebf007bf"
+      "edf3faf00be42c8b1412a800801a32fa"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double0",
@@ -353,7 +353,7 @@
         "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "5c1e9bf13df5b8f7add5aaa724db35dc"
+      "a0d34dcf0925b620eb0a0c517b897d34"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double0",
@@ -389,7 +389,7 @@
         "refinement_interpretation_Tm_refine_f13070840248fced9d9d60d77bdae3ec"
       ],
       0,
-      "839c8793d1a0741c6249d75699b0f386"
+      "9e17ac32f52d9b1b6a7de3b6281cd9be"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double0",
@@ -559,7 +559,7 @@
         "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "7fffb8f6f1a8337bceb3810519fc5cb3"
+      "0b9c00c6d690f52b53ab8f67bf9fc145"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double1",
@@ -627,7 +627,7 @@
         "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "3e543bdeadc73e5bbfd1576887d1ae2c"
+      "c2e0b3b9f08941d3cdaf141f4c5f6858"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double1",
@@ -663,7 +663,7 @@
         "typing_FStar.UInt.fits"
       ],
       0,
-      "fc5c188940c1a444624d88bdbad9cf40"
+      "322d4df9390dcc86bb0b32aabedb9896"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double1",
@@ -867,7 +867,7 @@
         "typing_tok_Lib.IntTypes.U32@tok", "typing_tok_Lib.IntTypes.U64@tok"
       ],
       0,
-      "5e1f81c03490e0784e88d648b960b4c7"
+      "70299aa083c09699ff1d70ef9e5db2fd"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double",
@@ -945,7 +945,7 @@
         "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "c65b8d5973a5b2d2ac3b7b8f3726c891"
+      "aa7f6c5cf2e8e0506cae89a663ef60f9"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double",
@@ -981,7 +981,7 @@
         "refinement_interpretation_Tm_refine_f13070840248fced9d9d60d77bdae3ec"
       ],
       0,
-      "1d268989e76d0dac7586145910de5594"
+      "16e13c6fe33892c3d551388c13afe470"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_add_and_double",
@@ -1163,7 +1163,7 @@
         "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "8c7ede3e4ec1cf9b538afba9bbec5ff3"
+      "147df34a827c9983c2f3297c22b01742"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_double",
@@ -1200,7 +1200,7 @@
         "typing_FStar.UInt.fits"
       ],
       0,
-      "f3a7a0fce886c2be173375acc142e94a"
+      "53e2c92ff324966c88bb23afbd9d55d6"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_double",
@@ -1236,7 +1236,7 @@
         "typing_FStar.UInt.fits"
       ],
       0,
-      "2fcd20c54acad7170e46ca9a0864c057"
+      "06e04ddba43a2949b45ee9e3015b98d7"
     ],
     [
       "Hacl.Impl.Curve25519.AddAndDouble.point_double",
@@ -1416,7 +1416,7 @@
         "typing_tok_Lib.IntTypes.U32@tok", "typing_tok_Lib.IntTypes.U64@tok"
       ],
       0,
-      "df5fb2d5b6659b75e34bcad42bd8c5c8"
+      "eb604fffcb5d96b5e537659dd1626f6d"
     ]
   ]
 ]

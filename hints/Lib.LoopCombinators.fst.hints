@@ -1,5 +1,5 @@
 [
-  "Ò$#∞#òÈh6WÜhq}hÜ",
+  "ê¸t?£‘ïÂ\u0005%dn≤‹'|",
   [
     [
       "Lib.LoopCombinators.repeat_left",
@@ -15,7 +15,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "600b5430f24d768f81e003ae5507056c"
+      "1853b8ccd8a4c1b78115f80615b772bc"
     ],
     [
       "Lib.LoopCombinators.repeat_left",
@@ -31,7 +31,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "5693392c9adbe2172af90fed61f66fbd"
+      "716bce07dfdff7d407b1564d0675fdc8"
     ],
     [
       "Lib.LoopCombinators.repeat_left",
@@ -58,7 +58,7 @@
         "well-founded-ordering-on-nat"
       ],
       0,
-      "76e41c2171439dc4fe4bc8170dc03575"
+      "44fe2b437a7f729739414303405791dd"
     ],
     [
       "Lib.LoopCombinators.repeat_left_all_ml",
@@ -74,7 +74,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "1e6a0dd9c86e638c06647394ed8524a2"
+      "a8a8da0c5a7f04850aad2c3745a08fd6"
     ],
     [
       "Lib.LoopCombinators.repeat_left_all_ml",
@@ -90,7 +90,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "76a562a78dba490769b8294a32b376bf"
+      "e1981f90255a71b3f32377f5817bd48f"
     ],
     [
       "Lib.LoopCombinators.repeat_left_all_ml",
@@ -111,7 +111,7 @@
         "refinement_interpretation_Tm_refine_571d9f74016be5357787170b42ecf913"
       ],
       0,
-      "6aa035ad744c6b48594ecc3e8dc3a3c9"
+      "420751429cf2637c92517644d8b262f7"
     ],
     [
       "Lib.LoopCombinators.repeat_right",
@@ -127,7 +127,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "62180b9dc27ed979be9b4950bd6d0ad4"
+      "ece472d6b212d398d11bad6bca3dfc96"
     ],
     [
       "Lib.LoopCombinators.repeat_right",
@@ -143,7 +143,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "41b77edc2d4d5a6381b6b521534ffbf1"
+      "1ef78070e4f9c90fdec7e87607a7b709"
     ],
     [
       "Lib.LoopCombinators.repeat_right",
@@ -171,7 +171,7 @@
         "well-founded-ordering-on-nat"
       ],
       0,
-      "251019af83231c390ad3a3f06cdfe012"
+      "8451acee416420c9042a8ad588a733a2"
     ],
     [
       "Lib.LoopCombinators.repeat_right_all_ml",
@@ -187,7 +187,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "b98b0f609bef048f03d3d14eb769cef4"
+      "054f55f663261a81f3342dbb352c5763"
     ],
     [
       "Lib.LoopCombinators.repeat_right_all_ml",
@@ -203,7 +203,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "086eb10bd556f22e5a9e1eacf4b0c3df"
+      "378fbe236cd490cc6c86677bda236615"
     ],
     [
       "Lib.LoopCombinators.repeat_right_all_ml",
@@ -225,7 +225,7 @@
         "refinement_interpretation_Tm_refine_571d9f74016be5357787170b42ecf913"
       ],
       0,
-      "a180349eb499d0f7afc794417940ecd4"
+      "3c36e64fc4421aad926dab354be4126c"
     ],
     [
       "Lib.LoopCombinators.repeat_right_plus",
@@ -241,7 +241,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "d99b151942dacb7ead43c22fd7ecd377"
+      "e23e7f093c135b9386727d7a76520bc0"
     ],
     [
       "Lib.LoopCombinators.repeat_right_plus",
@@ -257,7 +257,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "7830dfc40477105229625b2f42c3bcf6"
+      "013245aadb75c3cc793358886486da0b"
     ],
     [
       "Lib.LoopCombinators.repeat_right_plus",
@@ -301,7 +301,7 @@
         "well-founded-ordering-on-nat"
       ],
       0,
-      "94632cd0853cc7a2938b661e40b009b5"
+      "aad712bd8dcbba40babf0750fd3b6d53"
     ],
     [
       "Lib.LoopCombinators.unfold_repeat_right",
@@ -317,7 +317,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "60caa303fbd8c26d8705eeed175f5fa1"
+      "b65e9397bdccff36e9b212feaf468f5a"
     ],
     [
       "Lib.LoopCombinators.unfold_repeat_right",
@@ -333,7 +333,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "b8d2fbacd905af1a1e016d48accefc8d"
+      "96ff9726129ebdc4b2fb87db1d63fc5f"
     ],
     [
       "Lib.LoopCombinators.unfold_repeat_right",
@@ -359,7 +359,7 @@
         "refinement_interpretation_Tm_refine_edccc421660c61e3591d98071500d795"
       ],
       0,
-      "778f3e7edbca4663b677e68b6e796835"
+      "0502726b68db4497011609f1896e11da"
     ],
     [
       "Lib.LoopCombinators.eq_repeat_right",
@@ -375,7 +375,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "097a93ca7de3fcd26d66e058f0dc50b1"
+      "676da4f1b4078b820fc7efcfb89ba745"
     ],
     [
       "Lib.LoopCombinators.eq_repeat_right",
@@ -391,7 +391,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "bacad72eb12e3c0ce5a13fb92040a07e"
+      "f02d86f000b665e668c247bc418606ad"
     ],
     [
       "Lib.LoopCombinators.eq_repeat_right",
@@ -413,7 +413,7 @@
         "refinement_interpretation_Tm_refine_edccc421660c61e3591d98071500d795"
       ],
       0,
-      "cd8c86b984b0d3562ac8d7ba03e2e92c"
+      "c0ddebfcf0412c785f22f1b29066a92c"
     ],
     [
       "Lib.LoopCombinators.repeat_left_right",
@@ -429,7 +429,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "c86e60e93080cc0dc5f2b469d8fd2691"
+      "41db6ded0e5157653bf8f0c480b8aa4d"
     ],
     [
       "Lib.LoopCombinators.repeat_left_right",
@@ -445,7 +445,7 @@
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
       ],
       0,
-      "ed3554552b79108c37f4905aaf838ce0"
+      "008eba00533c78c164fda22135b12024"
     ],
     [
       "Lib.LoopCombinators.repeat_left_right",
@@ -490,7 +490,7 @@
         "well-founded-ordering-on-nat"
       ],
       0,
-      "36830c2a00261a40df2ab8eece118efc"
+      "5d499f8d9cbb1aaba1448ae8c96b9f8e"
     ],
     [
       "Lib.LoopCombinators.repeat_gen",
@@ -505,7 +505,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "f8f55dc844f1cd906f3418a5f33acfa8"
+      "2a4e1ebf3bfd8000ed9efdbcd8411661"
     ],
     [
       "Lib.LoopCombinators.repeat_gen",
@@ -520,7 +520,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "264490e28103756da6d33ed7e43786d2"
+      "e8e9fd27b8cd0491a83dd45a16c4127a"
     ],
     [
       "Lib.LoopCombinators.repeat_gen",
@@ -532,7 +532,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "ba59edd24b5809d999d1784abdb7b49c"
+      "d2c2133b878266bbd319c16b58dc2a79"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_all_ml",
@@ -547,7 +547,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "f86a2ae0058f8f6f24da5a6dbfff4c50"
+      "25e8afafb74e0d82edc06be9f39b724d"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_all_ml",
@@ -562,7 +562,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "5efee1268b75e3803338a08bab42e349"
+      "304bfba40b6f8553f02510152ab059f2"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_all_ml",
@@ -574,7 +574,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "755d39fcf04a4d93f9e0754327a4a34d"
+      "fd124247c33c7b7e663675e141c06efb"
     ],
     [
       "Lib.LoopCombinators.unfold_repeat_gen",
@@ -589,7 +589,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "63ddf25674fa942008d1e3d3a124c5f4"
+      "f8ecae4db258339cc955720aef8bdd16"
     ],
     [
       "Lib.LoopCombinators.unfold_repeat_gen",
@@ -604,7 +604,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "d6926bc8d296a2a4851d254fee8b98d5"
+      "45912c55c8b2b441b237c2ebcbc74695"
     ],
     [
       "Lib.LoopCombinators.unfold_repeat_gen",
@@ -634,7 +634,7 @@
         "refinement_interpretation_Tm_refine_edccc421660c61e3591d98071500d795"
       ],
       0,
-      "221050adfc8744ad1ecb7b6049d43b8c"
+      "5bdb1daf721da98fd2697e178c0d383b"
     ],
     [
       "Lib.LoopCombinators.eq_repeat_gen0",
@@ -649,7 +649,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "b153847a49c644b67828663ee9a76651"
+      "eabd2a1585843dc84de88502d4bf99d1"
     ],
     [
       "Lib.LoopCombinators.eq_repeat_gen0",
@@ -664,7 +664,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "6226080b1cd27f3d7bc2b355de4b0aa8"
+      "5435e0413c0e6b3ba395a5b130f9fc4e"
     ],
     [
       "Lib.LoopCombinators.eq_repeat_gen0",
@@ -689,7 +689,7 @@
         "refinement_interpretation_Tm_refine_edccc421660c61e3591d98071500d795"
       ],
       0,
-      "3738d1f6a88772b4336c95d613aa06ac"
+      "b582be19fc6055c2f645803658061c49"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_def",
@@ -704,7 +704,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "b5d314d96240e90a666bc1f95874e877"
+      "e8cd697f985f7fc754dd42421a04783e"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_def",
@@ -719,7 +719,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "17a7219b200b4b5d50fa784287fc7c6e"
+      "77c3f206897b90936196e70584807c4c"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_def",
@@ -728,7 +728,7 @@
       1,
       [ "@query", "equation_Lib.LoopCombinators.repeat_gen" ],
       0,
-      "5b2d81834b50519beca3ad8aab105c92"
+      "ccbb7def803d5f47c55de811500eec7e"
     ],
     [
       "Lib.LoopCombinators.eq_repeati0",
@@ -740,7 +740,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "c9cbf0eb4eb50b80bd48035edf585cde"
+      "8420c8a46388436f3f3f90fcd2e3b192"
     ],
     [
       "Lib.LoopCombinators.eq_repeati0",
@@ -751,9 +751,9 @@
         "@MaxFuel_assumption", "@MaxIFuel_assumption",
         "@fuel_correspondence_Lib.LoopCombinators.repeat_right.fuel_instrumented",
         "@query",
+        "FStar.List.Tot.Properties_interpretation_Tm_arrow_67c7b2626869cb316f118144000415b9",
         "Lib.LoopCombinators_interpretation_Tm_arrow_2bf7345966baadb5d8656724dcf7cee8",
         "Lib.LoopCombinators_interpretation_Tm_arrow_36dd113ffd3258af3d2f33c53ef8eea6",
-        "Lib.LoopCombinators_interpretation_Tm_arrow_67c7b2626869cb316f118144000415b9",
         "Lib.LoopCombinators_interpretation_Tm_arrow_c3cac0eaa5a8b41e6eb23c42c4532cc2",
         "equation_Lib.LoopCombinators.fixed_a",
         "equation_Lib.LoopCombinators.repeat_gen",
@@ -768,7 +768,7 @@
         "token_correspondence_Lib.LoopCombinators.fixed_a"
       ],
       0,
-      "6f591a077589f52549ce512450acf567"
+      "374d052ab32ea25492bedd3af98ab1dd"
     ],
     [
       "Lib.LoopCombinators.unfold_repeati",
@@ -783,7 +783,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "139e2c685445e861deb35c8d93c8b42c"
+      "7c8f4f52edca4588367c6962cc69530e"
     ],
     [
       "Lib.LoopCombinators.unfold_repeati",
@@ -795,7 +795,7 @@
         "primitive_Prims.op_Addition"
       ],
       0,
-      "2ac27181eecc88a477407c2db7127c2b"
+      "c0e7618720799f82ddd9a3791044cdb3"
     ],
     [
       "Lib.LoopCombinators.repeati_def",
@@ -807,7 +807,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "bde9c649c151f6f6394431e3839778ff"
+      "df843dcda0dc3d0b329665487393659c"
     ],
     [
       "Lib.LoopCombinators.repeati_def",
@@ -819,7 +819,7 @@
         "equation_Lib.LoopCombinators.repeati"
       ],
       0,
-      "13018d5825dbc3c449dddd116f5aae97"
+      "6c61d9352a60ab82e7d20f6e805a212f"
     ],
     [
       "Lib.LoopCombinators.eq_repeat0",
@@ -830,9 +830,9 @@
         "@MaxFuel_assumption", "@MaxIFuel_assumption",
         "@fuel_correspondence_Lib.LoopCombinators.repeat_right.fuel_instrumented",
         "@query",
+        "FStar.List.Tot.Properties_interpretation_Tm_arrow_67c7b2626869cb316f118144000415b9",
         "Lib.LoopCombinators_interpretation_Tm_arrow_2bf7345966baadb5d8656724dcf7cee8",
         "Lib.LoopCombinators_interpretation_Tm_arrow_36dd113ffd3258af3d2f33c53ef8eea6",
-        "Lib.LoopCombinators_interpretation_Tm_arrow_67c7b2626869cb316f118144000415b9",
         "Lib.LoopCombinators_interpretation_Tm_arrow_bfe22415bc48790397b6e21fcc88873f",
         "equation_Lib.LoopCombinators.fixed_a",
         "equation_Lib.LoopCombinators.repeat",
@@ -850,7 +850,7 @@
         "token_correspondence_Lib.LoopCombinators.fixed_a"
       ],
       0,
-      "61933199dc0ca4118436f0b8da7ec124"
+      "962828d974b53110fcc45c67110f5cf8"
     ],
     [
       "Lib.LoopCombinators.unfold_repeat",
@@ -864,7 +864,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "fc8d81f23f684da6201f38206529fb22"
+      "fec84ea9469eddc3b98320e27dbd309c"
     ],
     [
       "Lib.LoopCombinators.unfold_repeat",
@@ -877,7 +877,7 @@
         "token_correspondence_Lib.LoopCombinators.fixed_i"
       ],
       0,
-      "f04c3e27cc0f05d44064e796b266cfe7"
+      "56bc3e63952124ea67cba44b9f983182"
     ],
     [
       "Lib.LoopCombinators.repeat_range",
@@ -886,7 +886,7 @@
       1,
       [ "@query" ],
       0,
-      "852acfb45eaaec73a0bceba345a09d42"
+      "f8c5619826fb4ed152526b783d0e3914"
     ],
     [
       "Lib.LoopCombinators.repeat_range_all_ml",
@@ -895,7 +895,7 @@
       1,
       [ "@query" ],
       0,
-      "540bfda1b596fd7afeca95ff2fc211ac"
+      "95fec8e85e16791988816cca51b57c2e"
     ],
     [
       "Lib.LoopCombinators.repeatable",
@@ -910,7 +910,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "fbf8b3ffea59d3e3400ae0ea5d4531fb"
+      "9002f25e79418871153fbabe1f0751d6"
     ],
     [
       "Lib.LoopCombinators.repeat_range_inductive",
@@ -922,7 +922,7 @@
         "refinement_interpretation_Tm_refine_571d9f74016be5357787170b42ecf913"
       ],
       0,
-      "fbb27dd455a0b2f52df5b7a96c557250"
+      "17e894ece3cffb2220af70ed9e4fea32"
     ],
     [
       "Lib.LoopCombinators.repeat_range_inductive",
@@ -934,7 +934,7 @@
         "refinement_interpretation_Tm_refine_571d9f74016be5357787170b42ecf913"
       ],
       0,
-      "b73c5d3d9e25d864fb4a2d1783492ed6"
+      "c0d32dab0543795db8cf77d769e6d79a"
     ],
     [
       "Lib.LoopCombinators.repeat_range_inductive",
@@ -943,7 +943,7 @@
       1,
       [ "@query" ],
       0,
-      "a25517c79b0b8e90df63b989c134bc3c"
+      "e7a9acb022230fe9ae3a5cd61505bf00"
     ],
     [
       "Lib.LoopCombinators.repeati_inductive",
@@ -955,7 +955,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "99a59c004418534f8cab735f8c0513e8"
+      "6440e49f62e847792000b013fe080ffa"
     ],
     [
       "Lib.LoopCombinators.repeati_inductive",
@@ -967,7 +967,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "cff220090082bbdb4346f1b6ed07ba17"
+      "8717c8bdefcb8994334d32fbe6c80db8"
     ],
     [
       "Lib.LoopCombinators.repeati_inductive",
@@ -979,7 +979,101 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "3053293cc5065ba941a1e6152b420403"
+      "820a6beb0c624b8ceb3e002a384395a3"
+    ],
+    [
+      "Lib.LoopCombinators.unfold_repeat_right_once",
+      1,
+      2,
+      1,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
+        "int_inversion", "primitive_Prims.op_Addition",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_8233d76b57e95451540fc312b717fa79",
+        "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc"
+      ],
+      0,
+      "c1455cf0c08955b1e2d93817c34e9647"
+    ],
+    [
+      "Lib.LoopCombinators.unfold_repeat_right_once",
+      2,
+      2,
+      1,
+      [
+        "@MaxFuel_assumption", "@MaxIFuel_assumption",
+        "@fuel_correspondence_Lib.LoopCombinators.repeat_right.fuel_instrumented",
+        "@fuel_irrelevance_Lib.LoopCombinators.repeat_right.fuel_instrumented",
+        "@query", "equation_Prims.nat",
+        "equation_with_fuel_Lib.LoopCombinators.repeat_right.fuel_instrumented",
+        "int_inversion", "primitive_Prims.op_Addition",
+        "primitive_Prims.op_Equality", "primitive_Prims.op_Subtraction",
+        "projection_inverse_BoxBool_proj_0",
+        "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "refinement_interpretation_Tm_refine_571d9f74016be5357787170b42ecf913",
+        "refinement_interpretation_Tm_refine_8233d76b57e95451540fc312b717fa79"
+      ],
+      0,
+      "ef4820a785518e83cc52649d266cdcc4"
+    ],
+    [
+      "Lib.LoopCombinators.refine_eq",
+      1,
+      2,
+      1,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_Forall",
+        "equation_Prims.squash",
+        "l_quant_interp_346b11b0ff1d786df37d2489bb1e1e9a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c",
+        "true_interp"
+      ],
+      0,
+      "d373d211de5c222e907a292638261965"
+    ],
+    [
+      "Lib.LoopCombinators.nat_refine_equiv",
+      1,
+      2,
+      1,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.l_and",
+        "equation_Prims.nat", "equation_Prims.squash",
+        "equation_Prims.subtype_of",
+        "l_quant_interp_5b2993f9f2c0eba3627049a3b4167c7a",
+        "refinement_interpretation_Tm_refine_2de20c066034c13bf76e9c0b94f4806c",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "7578f38abbd67e5bf331c75e53d47d02"
+    ],
+    [
+      "Lib.LoopCombinators.repeati_repeat_left_rewrite_type",
+      1,
+      2,
+      1,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
+      ],
+      0,
+      "f3a13cf667413c779b8b3dac5f7a4946"
+    ],
+    [
+      "Lib.LoopCombinators.repeati_repeat_left_rewrite_type",
+      2,
+      2,
+      1,
+      [
+        "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
+        "true_interp"
+      ],
+      0,
+      "ae299efe6fd91404dac531d4b74426f7"
     ],
     [
       "Lib.LoopCombinators.repeati_inductive_repeat_gen",
@@ -991,7 +1085,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "a4d219541efe377dcb613c000da18de2"
+      "0a0154964d1c561f5927e292127be8f5"
     ],
     [
       "Lib.LoopCombinators.repeati_inductive_repeat_gen",
@@ -1003,7 +1097,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "4e590685097e8ae20cdbbc3f27f79de5"
+      "9a28767e1edb0fbae1d2bd09a8e1d5b6"
     ],
     [
       "Lib.LoopCombinators.repeati_inductive_repeat_gen",
@@ -1012,39 +1106,48 @@
       1,
       [
         "@MaxFuel_assumption", "@MaxIFuel_assumption",
-        "@fuel_correspondence_Lib.LoopCombinators.repeat_left.fuel_instrumented",
         "@fuel_correspondence_Lib.LoopCombinators.repeat_right.fuel_instrumented",
-        "@fuel_irrelevance_Lib.LoopCombinators.repeat_left.fuel_instrumented",
         "@fuel_irrelevance_Lib.LoopCombinators.repeat_right.fuel_instrumented",
         "@query",
         "Lib.LoopCombinators_interpretation_Tm_arrow_2bf7345966baadb5d8656724dcf7cee8",
         "Lib.LoopCombinators_interpretation_Tm_arrow_36dd113ffd3258af3d2f33c53ef8eea6",
+        "Lib.LoopCombinators_interpretation_Tm_arrow_3b60d90eb1b4e399c18b4b5c4092aefc",
+        "Lib.LoopCombinators_interpretation_Tm_arrow_42cbb8cae27472bfb50ad5eaa9ec2207",
+        "Lib.LoopCombinators_interpretation_Tm_arrow_8ccff8122f730b53066e07670f458695",
         "Lib.LoopCombinators_interpretation_Tm_arrow_9228bb88100b5a0762d39b5c83174ad9",
         "Lib.LoopCombinators_interpretation_Tm_arrow_a5015036cf1762e788e4ccbba6a8d538",
-        "Lib.LoopCombinators_interpretation_Tm_arrow_f77e174321f3ceca78193a141927037b",
-        "equation_Lib.LoopCombinators.repeat_gen", "equation_Prims.nat",
-        "equation_with_fuel_Lib.LoopCombinators.repeat_left.fuel_instrumented",
+        "Prims_pretyping_ae567c2fb75be05905677af440075565",
+        "equation_Prims.nat",
         "equation_with_fuel_Lib.LoopCombinators.repeat_right.fuel_instrumented",
+        "function_token_typing_Lib.LoopCombinators.a_",
+        "function_token_typing_Prims.__cache_version_number__",
         "int_inversion", "int_typing",
         "interpretation_Tm_abs_0e3034507692d95678dac3878d3c5d27",
-        "interpretation_Tm_abs_cf403a3c460d958924174d2b00a62cb3",
+        "interpretation_Tm_abs_0ec465d1eb90963fef662a39d2cdb931",
+        "interpretation_Tm_abs_b095b3f008ad7213e01e88a9397b957d",
+        "interpretation_Tm_abs_d0296986d3220e0e72a50647421bdfbe",
         "primitive_Prims.op_Addition", "primitive_Prims.op_Equality",
+        "primitive_Prims.op_Subtraction",
+        "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_08698b4b6e166624b5bf789ac071b4cf",
         "refinement_interpretation_Tm_refine_0f5d287096bf7dd24d582019e4d18f0c",
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "refinement_interpretation_Tm_refine_571d9f74016be5357787170b42ecf913",
-        "refinement_interpretation_Tm_refine_574e14f4b9c774d5e61146c6d94cf593",
+        "refinement_interpretation_Tm_refine_7e0b9b2dbca36eab00de093c1b701c6d",
+        "refinement_interpretation_Tm_refine_8e406b9001aa026d9dfe40a212049ab7",
         "refinement_interpretation_Tm_refine_909c0555fed853bc5dc1098d3dd63f21",
         "refinement_interpretation_Tm_refine_96e65b2359ce32ff1f5ca9648c355aa6",
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c",
         "refinement_interpretation_Tm_refine_c7f248c50d182c40aac9022fc9a66edc",
         "refinement_interpretation_Tm_refine_edccc421660c61e3591d98071500d795",
-        "typing_Lib.LoopCombinators.repeat_gen",
-        "typing_Tm_abs_0e3034507692d95678dac3878d3c5d27"
+        "refinement_kinding_Tm_refine_08698b4b6e166624b5bf789ac071b4cf",
+        "token_correspondence_Lib.LoopCombinators.a_", "true_interp",
+        "typing_Tm_abs_0ec465d1eb90963fef662a39d2cdb931",
+        "well-founded-ordering-on-nat"
       ],
       0,
-      "a16ed5630bd8e30387a271310a2b3605"
+      "e995ef6cc1c74d37175cba771069cbfc"
     ],
     [
       "Lib.LoopCombinators.preserves_predicate",
@@ -1059,7 +1162,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "01107d194928e6c74d27dbfeee962c7f"
+      "7a03e59e9997e996f7d7b492d93958a1"
     ],
     [
       "Lib.LoopCombinators.preserves_predicate",
@@ -1073,7 +1176,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "f51a649f9b02ffde9e093fb6d65ee508"
+      "f9bf3f7e6ed61d770546cca088c3b1c9"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_inductive",
@@ -1088,7 +1191,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "ec1c3b7a64267b1ea208add059d31d18"
+      "9c18536066f8bdbb49c9ba6fd51edbd6"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_inductive",
@@ -1103,7 +1206,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "e548428604de04b897cf32627911972c"
+      "04428e3cd53be9483e0f04381381237c"
     ],
     [
       "Lib.LoopCombinators.repeat_gen_inductive",
@@ -1135,7 +1238,7 @@
         "refinement_interpretation_Tm_refine_edccc421660c61e3591d98071500d795"
       ],
       0,
-      "97d96a097ac4355ac688f533ce52296e"
+      "bc775070d82a5adfe3701e0013575732"
     ],
     [
       "Lib.LoopCombinators.preserves",
@@ -1150,7 +1253,7 @@
         "refinement_interpretation_Tm_refine_c1424615841f28cac7fc34e92b7ff33c"
       ],
       0,
-      "7d4290f0d944bf12e71bbe504cb6b5db"
+      "fb5c2208093dae24687874462568ec36"
     ],
     [
       "Lib.LoopCombinators.repeati_inductive'",
@@ -1162,7 +1265,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "88b4690c8ed659a1d89adfe703ad642b"
+      "dd07461671e4b170adb8d985147711fc"
     ],
     [
       "Lib.LoopCombinators.repeati_inductive'",
@@ -1174,9 +1277,9 @@
         "@fuel_correspondence_Lib.LoopCombinators.repeat_right.fuel_instrumented",
         "@fuel_irrelevance_Lib.LoopCombinators.repeat_right.fuel_instrumented",
         "@query",
+        "FStar.List.Tot.Properties_interpretation_Tm_arrow_67c7b2626869cb316f118144000415b9",
         "Lib.LoopCombinators_interpretation_Tm_arrow_2bf7345966baadb5d8656724dcf7cee8",
         "Lib.LoopCombinators_interpretation_Tm_arrow_36dd113ffd3258af3d2f33c53ef8eea6",
-        "Lib.LoopCombinators_interpretation_Tm_arrow_67c7b2626869cb316f118144000415b9",
         "Lib.LoopCombinators_interpretation_Tm_arrow_c3cac0eaa5a8b41e6eb23c42c4532cc2",
         "Lib.LoopCombinators_interpretation_Tm_arrow_f77e174321f3ceca78193a141927037b",
         "equation_Lib.LoopCombinators.fixed_a",
@@ -1199,7 +1302,7 @@
         "token_correspondence_Lib.LoopCombinators.fixed_a"
       ],
       0,
-      "0a9fe328d4e4797cf768f525d3bb40aa"
+      "d341263c62136b7357b9e4c9d0b4e102"
     ]
   ]
 ]

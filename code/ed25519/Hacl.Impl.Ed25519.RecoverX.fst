@@ -54,6 +54,7 @@ let recover_x_step_1 x2 y =
   reduce x2;
   pop_frame()
 
+
 val is_0:
   x:elemB ->
   Stack bool
@@ -61,6 +62,8 @@ val is_0:
     (ensures  fun h0 b h1 -> h0 == h1 /\
       (b <==> (F51.fevalh h0 x == SC.zero))
     )
+
+[@CInline]
 let is_0 x =
   let open Lib.RawIntTypes in
   let open FStar.UInt64 in
@@ -75,6 +78,7 @@ let is_0 x =
    u64_to_UInt64 x3 =^ 0uL &&
    u64_to_UInt64 x4 =^ 0uL)
 
+
 val mul_modp_sqrt_m1:
   x:elemB ->
   Stack unit
@@ -83,6 +87,8 @@ val mul_modp_sqrt_m1:
       F51.mul_inv_t h1 x /\
       F51.fevalh h1 x == F51.fevalh h0 x `SC.fmul` SE.modp_sqrt_m1
     )
+
+[@CInline]
 let mul_modp_sqrt_m1 x =
   push_frame();
   let sqrt_m1 = create 5ul (u64 0) in
@@ -92,6 +98,7 @@ let mul_modp_sqrt_m1 x =
   assert_norm (S51.as_nat5 (u64 0x00061b274a0ea0b0, u64 0x0000d5a5fc8f189d, u64 0x0007ef5e9cbd0c60, u64 0x00078595a6804c9e, u64 0x0002b8324804fc1d) == SE.modp_sqrt_m1);
   fmul x x sqrt_m1;
   pop_frame()
+
 
 inline_for_extraction noextract
 val gte_q:
@@ -127,12 +134,13 @@ val x_mod_2:
       v z == F51.as_nat h0 x % 2
     )
 let x_mod_2 x =
-  (**) let h0 = get() in
+  (**) let h0 = ST.get() in
   let x0 = x.(0ul) in
   let z  = x0 &. u64 1 in
   mod_mask_lemma x0 1ul;
   Lib.IntTypes.Compatibility.uintv_extensionality (u64 1) (mod_mask #U64 1ul);
   z
+
 
 inline_for_extraction noextract
 val recover_x_step_2:
@@ -155,9 +163,9 @@ val recover_x_step_2:
 let recover_x_step_2 x sign x2 =
   let open Lib.RawIntTypes in
   let open FStar.UInt64 in
-  let h0 = get() in
+  let h0 = ST.get() in
   let x2_is_0 = is_0 x2 in
-  let h1 = get() in
+  let h1 = ST.get() in
   if x2_is_0 then (
     assert (uint_v #U64 sign = Lib.IntTypes.v #U64 #SEC sign);
     if u64_to_UInt64 sign =^ 0uL then (
@@ -261,10 +269,10 @@ val recover_x_step_5:
 let recover_x_step_5 x y sign tmp =
   let x3  = sub tmp 5ul 5ul in
   let t0  = sub tmp 10ul 5ul in
-  let hi = get() in
+  let hi = ST.get() in
   reduce x3;
   let x0 = x_mod_2 x3 in
-  let h0 = get() in
+  let h0 = ST.get() in
   let open Lib.RawIntTypes in
   let open FStar.UInt64 in
   if not(u64_to_UInt64 x0 =^ u64_to_UInt64 sign) then (
@@ -303,7 +311,7 @@ let recover_x_ x y sign tmp =
   let x2 = sub tmp 0ul 5ul in
   let open Lib.RawIntTypes in
   let open FStar.UInt8 in
-  let h0 = get() in
+  let h0 = ST.get() in
 
   let b = gte_q y in
   let res =
@@ -317,7 +325,7 @@ let recover_x_ x y sign tmp =
     else (
       recover_x_step_3 tmp;
       let z = recover_x_step_4 tmp in
-      let h1 = get() in
+      let h1 = ST.get() in
       if z = false then false
       else (
         recover_x_step_5 x y sign tmp;
@@ -342,6 +350,8 @@ val recover_x:
       (Some? res <==> z) /\
       (Some? res ==> F51.fevalh h1 x == Some?.v res))
     )
+
+[@CInline]
 let recover_x x y sign =
   push_frame();
   let tmp = create 20ul (u64 0) in

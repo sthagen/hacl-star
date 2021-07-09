@@ -26,7 +26,7 @@
         "token_correspondence_Hacl.Streaming.Interface.__proj__Stateful__item__s"
       ],
       0,
-      "70beeda37eab8156abfe01f708fe8021"
+      "6ede7d36342836fe6f32b3b411bccbf7"
     ],
     [
       "Hacl.Streaming.Poly1305_256.alloca",
@@ -53,7 +53,7 @@
         "token_correspondence_Hacl.Streaming.Interface.__proj__Stateful__item__s"
       ],
       0,
-      "610a2c8c4ebcfbbb4b3c0438f16582b4"
+      "9e5f22da10773ad29dac3e3699896bbe"
     ],
     [
       "Hacl.Streaming.Poly1305_256.create_in",
@@ -80,7 +80,7 @@
         "token_correspondence_Hacl.Streaming.Interface.__proj__Stateful__item__s"
       ],
       0,
-      "7b3066f38a04e7219b0a1dfa7bc1bf83"
+      "d3372179fb9576eb99bdb75f53d4adc0"
     ],
     [
       "Hacl.Streaming.Poly1305_256.init",
@@ -111,7 +111,7 @@
         "unit_typing"
       ],
       0,
-      "7f48676cbe6a4f474f548410a8044a38"
+      "3eaba842128bb6e67b6b9903e78f8e37"
     ],
     [
       "Hacl.Streaming.Poly1305_256.update",
@@ -142,7 +142,7 @@
         "unit_typing"
       ],
       0,
-      "9c9664c4b04834f1e707e1e07d42e2ea"
+      "236394d4dc9aa6556fedb36c5df6a5c9"
     ],
     [
       "Hacl.Streaming.Poly1305_256.finish",
@@ -169,7 +169,7 @@
         "token_correspondence_Hacl.Streaming.Interface.__proj__Stateful__item__s"
       ],
       0,
-      "910aeda70ffbe390eb518651281901f3"
+      "4818bcd589b2065bcf0e20b5987fb12d"
     ],
     [
       "Hacl.Streaming.Poly1305_256.free",
@@ -200,7 +200,7 @@
         "unit_typing"
       ],
       0,
-      "95562224d92e37a31a5d489bcbb694f3"
+      "47432b765a4e9985a155dc5260498837"
     ]
   ]
 ]

@@ -22,7 +22,7 @@
         "typing_Spec.AES.gf8", "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "d19de28a45e867a441ef199cd61c8942"
+      "8ea590ac5785b5056ed47d6d6f171f4e"
     ],
     [
       "Hacl.Streaming.SHA1.state_t_sha1",
@@ -45,7 +45,7 @@
         "typing_Spec.AES.gf8", "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "8eeb04f52c825dadac1896e2e5cb68cd"
+      "f2c84bd21ae2042326ebdb36aa04b7e1"
     ],
     [
       "Hacl.Streaming.SHA1.state_sha1",
@@ -73,7 +73,7 @@
         "token_correspondence_Hacl.Streaming.Interface.__proj__Stateful__item__t"
       ],
       0,
-      "9c35400c1f56b6f4f1a153bb51339c5e"
+      "e0b30d975f0210d323cd2b38edf1d743"
     ],
     [
       "Hacl.Streaming.SHA1.legacy_alloca_sha1",
@@ -101,7 +101,7 @@
         "token_correspondence_Hacl.Streaming.Interface.__proj__Stateful__item__t"
       ],
       0,
-      "e3459b16e6f46616ed23565a8d7700aa"
+      "9e6fee420f10a78a7d6f1f0edcf456f1"
     ],
     [
       "Hacl.Streaming.SHA1.legacy_create_in_sha1",
@@ -129,7 +129,7 @@
         "token_correspondence_Hacl.Streaming.Interface.__proj__Stateful__item__t"
       ],
       0,
-      "7ec387819cae997f2d498ef30b39098c"
+      "9d02c3a7b6ecee99aeee5ae825fb1b31"
     ],
     [
       "Hacl.Streaming.SHA1.legacy_init_sha1",
@@ -161,7 +161,7 @@
         "unit_typing"
       ],
       0,
-      "993df5775421e51212e9f5c6605b91bc"
+      "335d3e4ee94be1a255ff6345aaafc934"
     ],
     [
       "Hacl.Streaming.SHA1.legacy_update_sha1",
@@ -193,7 +193,7 @@
         "unit_typing"
       ],
       0,
-      "a7175aeaaffebc6dee4d5c3f291a6a03"
+      "c6ccda1e6ad35a350543c494a825d46e"
     ],
     [
       "Hacl.Streaming.SHA1.legacy_finish_sha1",
@@ -221,7 +221,7 @@
         "token_correspondence_Hacl.Streaming.Interface.__proj__Stateful__item__t"
       ],
       0,
-      "0b005efbdde7aeca842b85f843df2747"
+      "1ca033b1a85f279976edb4a26a2c1286"
     ],
     [
       "Hacl.Streaming.SHA1.legacy_free_sha1",
@@ -253,7 +253,7 @@
         "unit_typing"
       ],
       0,
-      "fcf6cd487143e145d876a6454090e783"
+      "f0afee3781b150360b14c4aa57d858c0"
     ]
   ]
 ]

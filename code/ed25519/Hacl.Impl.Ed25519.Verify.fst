@@ -12,7 +12,6 @@ open Lib.Buffer
 open Hacl.Bignum25519
 
 module F51 = Hacl.Impl.Ed25519.Field51
-module F56 = Hacl.Impl.Ed25519.Field56
 
 #reset-options "--z3rlimit 20 --max_fuel 0 --max_ifuel 0"
 
@@ -130,7 +129,7 @@ let verify_inner_ public len msg signature tmp tmp' =
   let a' = sub tmp 0ul  20ul in
   let r' = sub tmp 20ul 20ul in
   let s  = sub tmp 40ul 5ul  in
-  (**) let h0 = get() in
+  (**) let h0 = ST.get() in
   Hacl.Impl.Load56.load_32_bytes s (sub signature 32ul 32ul);
   let b'' = Hacl.Impl.Ed25519.PointEqual.gte_q s in
   if b'' then false

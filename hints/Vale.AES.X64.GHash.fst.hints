@@ -21,7 +21,16 @@
         "refinement_interpretation_Tm_refine_81407705a0828c2c1b1976675443f647"
       ],
       0,
-      "fbf43b00128ed44af36dafab6018fd2b"
+      "dd43c59d8c3eca246e5e8cdcba66337b"
+    ],
+    [
+      "Vale.AES.X64.GHash.va_qcode_Compute_Y0",
+      1,
+      1,
+      0,
+      [ "@query" ],
+      0,
+      "4373241f2becbc82817297436ae8ec65"
     ],
     [
       "Vale.AES.X64.GHash.va_lemma_Compute_Y0",
@@ -92,7 +101,7 @@
         "unit_inversion", "unit_typing"
       ],
       0,
-      "f4aafb8666ccbd8563b71fe11d1f1fdb"
+      "150e3ba48e184f5d6268d72adb45bbd5"
     ],
     [
       "Vale.AES.X64.GHash.va_wpProof_Compute_Y0",
@@ -162,7 +171,7 @@
         "unit_typing"
       ],
       0,
-      "e1efd35f29d0b09dd264f8759351a1fd"
+      "7a8519284867cb4b3db5c15a3dd60f2c"
     ],
     [
       "Vale.AES.X64.GHash.va_quick_Compute_Y0",
@@ -174,7 +183,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "cb2c90b941c3c4207a0ddc17b87b61b5"
+      "5938f8bb07557a6716859210b2e75789"
     ],
     [
       "Vale.AES.X64.GHash.va_lemma_ReduceMul128_LE",
@@ -243,7 +252,7 @@
         "unit_typing"
       ],
       0,
-      "ced8a11173f3c42dcd21ad0aa5a8aafe"
+      "f6d5491d3eee7e0ca8306ee9c58de10d"
     ],
     [
       "Vale.AES.X64.GHash.va_wpProof_ReduceMul128_LE",
@@ -322,7 +331,7 @@
         "unit_typing"
       ],
       0,
-      "3149c6efc01e6994ebfc705650c5a06c"
+      "bd4d328fca30bccb6f9034dbf6b78a66"
     ],
     [
       "Vale.AES.X64.GHash.va_quick_ReduceMul128_LE",
@@ -334,7 +343,16 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "b32519d0ab17cb2827341c0b6ba53c88"
+      "972dfbf9452219a9b64880ddf0530856"
+    ],
+    [
+      "Vale.AES.X64.GHash.va_qcode_Compute_ghash_incremental_register",
+      1,
+      1,
+      0,
+      [ "@query" ],
+      0,
+      "17d6e85facae340a49ab30eca5f5abf0"
     ],
     [
       "Vale.AES.X64.GHash.va_lemma_Compute_ghash_incremental_register",
@@ -440,7 +458,7 @@
         "unit_inversion", "unit_typing"
       ],
       0,
-      "de5d89f486f1a2128c8b07ed3eec95dc"
+      "453a35d905904d7e6f34c151765d82b0"
     ],
     [
       "Vale.AES.X64.GHash.va_wpProof_Compute_ghash_incremental_register",
@@ -519,7 +537,7 @@
         "typing_Vale.X64.State.update_reg", "unit_typing"
       ],
       0,
-      "55e594253e96e93c3871828f4b4d2dcf"
+      "de2930813d3390cb526470a16a800f13"
     ],
     [
       "Vale.AES.X64.GHash.va_quick_Compute_ghash_incremental_register",
@@ -531,7 +549,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "a416d1304b7fdcfcefddc18d99846a05"
+      "93ffc776d181e363b03fee43dcf43f74"
     ]
   ]
 ]

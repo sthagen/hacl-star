@@ -11,7 +11,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "8323c147a17f770eb6ddd110ce78bed0"
+      "798d1c111dad89e6d48cfd2f0826c43a"
     ],
     [
       "Vale.Bignum.X64.va_quick_Adox_64",
@@ -23,7 +23,7 @@
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple3"
       ],
       0,
-      "2d0ec19d38d7a27161673adbe9e8cc7d"
+      "4c0b863aa04a17b419f9bb376b23f3d6"
     ]
   ]
 ]

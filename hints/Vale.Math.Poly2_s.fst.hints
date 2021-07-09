@@ -15,7 +15,7 @@
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f"
       ],
       0,
-      "c4d3f7da200f2231167d7ce799bf201c"
+      "719cdb152d72111bb336e98308fcf604"
     ],
     [
       "Vale.Math.Poly2_s.zero",
@@ -34,7 +34,7 @@
         "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2"
       ],
       0,
-      "73e554892dddbd3f32ccbcf629b3f68b"
+      "704f6e7dd2a8af38497bb74b63fed495"
     ],
     [
       "Vale.Math.Poly2_s.one",
@@ -60,7 +60,7 @@
         "typing_Vale.Math.Poly2.Defs_s.valid"
       ],
       0,
-      "ff43f29dcf3fd980ff1eea65fec55bba"
+      "8405af30f645c998ed512e500e855e3c"
     ],
     [
       "Vale.Math.Poly2_s.to_seq",
@@ -69,7 +69,7 @@
       0,
       [ "@query", "equation_Vale.Math.Poly2_s.poly_index" ],
       0,
-      "bb12965cc2cc086712084ac60087dcdf"
+      "9903e79757eac24fa4d2f6cc595b3230"
     ],
     [
       "Vale.Math.Poly2_s.of_seq",
@@ -86,7 +86,7 @@
         "typing_Vale.Math.Poly2.Defs_s.of_seq"
       ],
       0,
-      "683a1bd0e199364b3c3f8c6e6b3d0de6"
+      "6044ec87c420cb1d06082ffe069b4121"
     ],
     [
       "Vale.Math.Poly2_s.of_fun",
@@ -103,7 +103,7 @@
         "typing_Vale.Math.Poly2.Defs_s.of_fun"
       ],
       0,
-      "e72cce952720594b03619775e29d4e71"
+      "3d477fd8b5e2c5a7352f6ded842637d4"
     ],
     [
       "Vale.Math.Poly2_s.div",
@@ -118,7 +118,7 @@
         "projection_inverse_BoxInt_proj_0"
       ],
       0,
-      "eb45765df0b6c08c0389240c83b3b58f"
+      "bea3b3a58ffd6e775b827df6c16c2aaf"
     ],
     [
       "Vale.Math.Poly2_s.mod",
@@ -133,7 +133,7 @@
         "projection_inverse_BoxInt_proj_0"
       ],
       0,
-      "baa89d68ea32e0f659f79d58ce843db7"
+      "4c2b31cd21a94da722f7ab09422063b6"
     ],
     [
       "Vale.Math.Poly2_s.coerce",
@@ -145,7 +145,7 @@
         "refinement_interpretation_Tm_refine_754b00004f4a881ff74d076ab276dfe1"
       ],
       0,
-      "55d7f1caa3b5230787be7de459bcef58"
+      "e02a5b250397af008dd2b8be36aad4fb"
     ],
     [
       "Vale.Math.Poly2_s.of_poly",
@@ -154,7 +154,7 @@
       0,
       [ "@query" ],
       0,
-      "1ed1b8a1d7725ac6d1154e9feb1fc2fe"
+      "c55d7b272d06a32e6a32890dae4ec400"
     ],
     [
       "Vale.Math.Poly2_s.reveal_defs",
@@ -188,7 +188,7 @@
         "typing_Vale.Math.Poly2.Defs_s.zero"
       ],
       0,
-      "814637eb4ba9ecb00eb00543d64daba4"
+      "440568e6fce09ebeb5549af9d0e60f7d"
     ],
     [
       "Vale.Math.Poly2_s.reveal_defs",
@@ -223,7 +223,7 @@
         "typing_Vale.Math.Poly2.Defs_s.zero", "typing_Vale.Math.Poly2_s.zero"
       ],
       0,
-      "0dc64623bebc0546262d94ba7218f97c"
+      "762332ae2a672140def8ef99aa0b0d78"
     ]
   ]
 ]
