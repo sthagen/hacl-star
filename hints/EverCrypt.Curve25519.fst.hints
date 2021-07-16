@@ -15,7 +15,7 @@
         "typing_LowStar.Monotonic.Buffer.loc_none"
       ],
       0,
-      "6f6686ac5415c5ab3cf5bf12bfe63af6"
+      "0994566eb69aaa7b6d0afc9a50b527cc"
     ],
     [
       "EverCrypt.Curve25519.secret_to_public",
@@ -66,7 +66,7 @@
         "typing_Lib.Buffer.length", "typing_tok_Lib.Buffer.MUT@tok"
       ],
       0,
-      "ad6fc474a1bd7664f0c6a106f7d4b9c1"
+      "d58089d304ca03e6f603e0042c5d111b"
     ],
     [
       "EverCrypt.Curve25519.secret_to_public",
@@ -114,7 +114,7 @@
         "typing_tok_Lib.Buffer.MUT@tok"
       ],
       0,
-      "e199c318a054ca5783991620a5e8ad3d"
+      "b03f5c46d397c1a1927dbcd68391015f"
     ],
     [
       "EverCrypt.Curve25519.scalarmult",
@@ -173,7 +173,7 @@
         "typing_tok_Lib.Buffer.MUT@tok", "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "2b771b9ab8a2a8adc13f08fb602123da"
+      "7cdfda6f2ad72cb489149863391910cd"
     ],
     [
       "EverCrypt.Curve25519.scalarmult",
@@ -222,7 +222,7 @@
         "typing_tok_Lib.Buffer.MUT@tok"
       ],
       0,
-      "5e5c3d8fa3d94f96a66ff2af7326db0f"
+      "5dc8b48b7a53c1a59c282d074ee69ce5"
     ],
     [
       "EverCrypt.Curve25519.ecdh",
@@ -284,7 +284,7 @@
         "typing_tok_Lib.IntTypes.U8@tok"
       ],
       0,
-      "05c11591308bde35879346a5efcfa8ac"
+      "269712c1dfa13e18d5134f81ed7a4afb"
     ],
     [
       "EverCrypt.Curve25519.ecdh",
@@ -333,7 +333,7 @@
         "typing_tok_Lib.Buffer.MUT@tok"
       ],
       0,
-      "6763b70c58730ebc783861ea1c25a7a2"
+      "e841574153341638cf84d704a43c2ca7"
     ]
   ]
 ]
